@@ -1,0 +1,79 @@
+2022-06-21 14:29:08,270 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2022-06-21 14:29:08,273 INFO supervisord started with pid 8
+2022-06-21 14:29:09,277 INFO spawned: 'nginx' with pid 11
+2022-06-21 14:29:09,280 INFO spawned: 'app' with pid 12
+Bottle v0.12.21 server starting up (using WSGIRefServer())...
+Listening on http://localhost:5000/
+Hit Ctrl-C to quit.
+
+2022-06-21 14:29:10,719 INFO success: nginx entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2022-06-21 14:29:10,720 INFO success: app entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+[CTRL] POST /setup
+[Time: 21.06.22 14:29:28] [Level: info] id: 8d002ccd09d8eefa
+[Time: 21.06.22 14:29:28] [Level: info] coordinator: False
+[Time: 21.06.22 14:29:28] [Level: info] clients: ['e3ac443aa06f7aa0', '96be47d34b9e9455', '91c142d16c92ba2e', 'f5b76126046c9557', '8d002ccd09d8eefa', 'a3ae9d5101f4aadf', 'fe0254d7c85b8c95', '880ac89ddbb0fc03']
+[Time: 21.06.22 14:29:28] [Level: info] state: initial
+127.0.0.1 - - [21/Jun/2022 14:29:28] "POST /api/setup HTTP/1.0" 200 0
+[CTRL] GET /status
+127.0.0.1 - - [21/Jun/2022 14:29:28] "GET /api/status HTTP/1.0" 200 129
+[Time: 21.06.22 14:29:28] [Level: info] transition: await
+[Time: 21.06.22 14:29:29] [Level: info] state: await
+127.0.0.1 - - [21/Jun/2022 14:29:31] "GET /api/status HTTP/1.0" 200 126
+[CTRL] GET /status
+[CTRL] GET /data
+127.0.0.1 - - [21/Jun/2022 14:29:31] "GET /api/data HTTP/1.0" 200 5415
+[CTRL] GET /status
+127.0.0.1 - - [21/Jun/2022 14:29:34] "GET /api/status HTTP/1.0" 200 127
+[CTRL] POST /data
+127.0.0.1 - - [21/Jun/2022 14:29:34] "POST /api/data?client=e3ac443aa06f7aa0 HTTP/1.0" 200 0
+[Time: 21.06.22 14:29:34] [Level: info] [State: await] [Index(['msp_0051', 'msp_0078', 'msp_0082c', 'msp_0094', 'msp_0097', 'msp_0099',
+       'msp_0102', 'msp_0122', 'msp_0149', 'msp_0155',
+       ...
+       'msp_2917', 'msp_2920', 'msp_2924', 'msp_2928', 'msp_2930', 'msp_2936',
+       'msp_2939', 'msp_2946', 'msp_2947', 'msp_2949'],
+      dtype='object', length=691), Index(['msp_0004', 'msp_0006', 'msp_0051', 'msp_0101', 'msp_0102', 'msp_0155',
+       'msp_0169', 'msp_0211', 'msp_0219', 'msp_0240',
+       ...
+       'msp_2883', 'msp_2891', 'msp_2896', 'msp_2898', 'msp_2899', 'msp_2901',
+       'msp_2924', 'msp_2928', 'msp_2945', 'msp_2948'],
+      dtype='object', length=460), Index(['msp_0006', 'msp_0019', 'msp_0049', 'msp_0051', 'msp_0067', 'msp_0082c',
+       'msp_0088', 'msp_0096', 'msp_0097', 'msp_0099',
+       ...
+       'msp_2937', 'msp_2939', 'msp_2941', 'msp_2942', 'msp_2945', 'msp_2946',
+       'msp_2947', 'msp_2948', 'msp_2949', 'msp_2951'],
+      dtype='object', length=1364), Index(['msp_0001', 'msp_0002', 'msp_0033', 'msp_0037', 'msp_0038', 'msp_0044',
+       'msp_0049', 'msp_0051', 'msp_0064', 'msp_0067',
+       ...
+       'msp_2939', 'msp_2940', 'msp_2942', 'msp_2945', 'msp_2946', 'msp_2947',
+       'msp_2948', 'msp_2949', 'msp_2950', 'msp_2951'],
+      dtype='object', length=1624), Index(['msp_0094', 'msp_0102', 'msp_0115c', 'msp_0119', 'msp_0122', 'msp_0149',
+       'msp_0155', 'msp_0235', 'msp_0293', 'msp_0332',
+       ...
+       'msp_2907', 'msp_2908', 'msp_2910', 'msp_2920', 'msp_2928', 'msp_2930',
+       'msp_2945', 'msp_2946', 'msp_2947', 'msp_2948'],
+      dtype='object', length=470), Index(['msp_0051', 'msp_0082c', 'msp_0102', 'msp_0115c', 'msp_0122',
+       'msp_0149', 'msp_0155', 'msp_0184', 'msp_0219', 'msp_0231',
+       ...
+       'msp_2924', 'msp_2928', 'msp_2930', 'msp_2939', 'msp_2942', 'msp_2945',
+       'msp_2946', 'msp_2947', 'msp_2948', 'msp_2951'],
+      dtype='object', length=766), Index(['msp_0004', 'msp_0051', 'msp_0078', 'msp_0096', 'msp_0099', 'msp_0101',
+       'msp_0115c', 'msp_0116', 'msp_0169', 'msp_0190',
+       ...
+       'msp_2908', 'msp_2910', 'msp_2915', 'msp_2930', 'msp_2945', 'msp_2946',
+       'msp_2947', 'msp_2948', 'msp_2949', 'msp_2951'],
+      dtype='object', length=826), Index(['msp_0051', 'msp_0078', 'msp_0091', 'msp_0094', 'msp_0102', 'msp_0115c',
+       'msp_0123', 'msp_0149', 'msp_0155', 'msp_0176',
+       ...
+       'msp_2924', 'msp_2930', 'msp_2937', 'msp_2939', 'msp_2945', 'msp_2946',
+       'msp_2947', 'msp_2948', 'msp_2949', 'msp_2951'],
+      dtype='object', length=699)]
+[Time: 21.06.22 14:29:34] [Level: info] transition: terminal
+[Time: 21.06.22 14:29:34] [Level: info] done
+[CTRL] GET /status
+127.0.0.1 - - [21/Jun/2022 14:29:37] "GET /api/status HTTP/1.0" 200 129
+[CTRL] GET /status
+127.0.0.1 - - [21/Jun/2022 14:29:40] "GET /api/status HTTP/1.0" 200 129
+[CTRL] GET /status
+127.0.0.1 - - [21/Jun/2022 14:29:43] "GET /api/status HTTP/1.0" 200 129
+[CTRL] GET /status
+127.0.0.1 - - [21/Jun/2022 14:29:46] "GET /api/status HTTP/1.0" 200 128

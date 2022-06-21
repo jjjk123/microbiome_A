@@ -1,0 +1,20 @@
+2022-06-21 12:59:53,740 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2022-06-21 12:59:53,742 INFO supervisord started with pid 8
+2022-06-21 12:59:54,746 INFO spawned: 'nginx' with pid 11
+2022-06-21 12:59:54,748 INFO spawned: 'app' with pid 12
+Bottle v0.12.21 server starting up (using WSGIRefServer())...
+Listening on http://localhost:5000/
+Hit Ctrl-C to quit.
+
+2022-06-21 12:59:56,247 INFO success: nginx entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2022-06-21 12:59:56,247 INFO success: app entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+[CTRL] POST /setup
+[Time: 21.06.22 13:00:28] [Level: info] id: 9797321382ce0545
+[Time: 21.06.22 13:00:28] [Level: info] coordinator: True
+[Time: 21.06.22 13:00:28] [Level: info] clients: ['9797321382ce0545', '19c8722e7206e06a', 'ed15ff60892db8f4', '458fc4f372c8263c', 'ac7d088dfd68e656', '1756d1c4685c75e4', 'ab2da061419d0883', '800e232128488841']
+127.0.0.1 - - [21/Jun/2022 13:00:29] "POST /api/setup HTTP/1.0" 200 0
+[Time: 21.06.22 13:00:29] [Level: info] state: initial
+127.0.0.1 - - [21/Jun/2022 13:00:29] "GET /api/status HTTP/1.0" 200 129
+[CTRL] GET /status
+[Time: 21.06.22 13:00:29] [Level: info] transition: aggregate
+[Time: 21.06.22 13:00:30] [Level: info] state: aggregate

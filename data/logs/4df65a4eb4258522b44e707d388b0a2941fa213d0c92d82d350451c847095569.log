@@ -1,0 +1,37 @@
+2022-06-21 12:29:11,908 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2022-06-21 12:29:11,911 INFO supervisord started with pid 7
+2022-06-21 12:29:12,913 INFO spawned: 'nginx' with pid 10
+2022-06-21 12:29:12,915 INFO spawned: 'app' with pid 11
+Traceback (most recent call last):
+  File "/app/main.py", line 8, in <module>
+    import states
+  File "/app/states.py", line 28, in <module>
+    @app_state('aggregation', Role.COORDINATOR)
+NameError: name 'Role' is not defined
+2022-06-21 12:29:13,375 INFO exited: app (exit status 1; not expected)
+2022-06-21 12:29:14,378 INFO success: nginx entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2022-06-21 12:29:14,383 INFO spawned: 'app' with pid 20
+Traceback (most recent call last):
+  File "/app/main.py", line 8, in <module>
+    import states
+  File "/app/states.py", line 28, in <module>
+    @app_state('aggregation', Role.COORDINATOR)
+NameError: name 'Role' is not defined
+2022-06-21 12:29:14,768 INFO exited: app (exit status 1; not expected)
+2022-06-21 12:29:16,778 INFO spawned: 'app' with pid 25
+Traceback (most recent call last):
+  File "/app/main.py", line 8, in <module>
+    import states
+  File "/app/states.py", line 28, in <module>
+    @app_state('aggregation', Role.COORDINATOR)
+NameError: name 'Role' is not defined
+2022-06-21 12:29:17,184 INFO exited: app (exit status 1; not expected)
+2022-06-21 12:29:20,189 INFO spawned: 'app' with pid 30
+Traceback (most recent call last):
+  File "/app/main.py", line 8, in <module>
+    import states
+  File "/app/states.py", line 28, in <module>
+    @app_state('aggregation', Role.COORDINATOR)
+NameError: name 'Role' is not defined
+2022-06-21 12:29:20,612 INFO exited: app (exit status 1; not expected)
+2022-06-21 12:29:21,615 INFO gave up: app entered FATAL state, too many start retries too quickly

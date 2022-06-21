@@ -1,0 +1,39 @@
+2022-06-21 14:36:41,079 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2022-06-21 14:36:41,083 INFO supervisord started with pid 8
+2022-06-21 14:36:42,088 INFO spawned: 'nginx' with pid 11
+2022-06-21 14:36:42,092 INFO spawned: 'app' with pid 12
+Bottle v0.12.21 server starting up (using WSGIRefServer())...
+Listening on http://localhost:5000/
+Hit Ctrl-C to quit.
+
+2022-06-21 14:36:43,475 INFO success: nginx entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2022-06-21 14:36:43,476 INFO success: app entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+[CTRL] POST /setup
+[Time: 21.06.22 14:37:05] [Level: info] id: 00b08a61f7474926
+[Time: 21.06.22 14:37:05] [Level: info] coordinator: False
+[Time: 21.06.22 14:37:05] [Level: info] clients: ['00b08a61f7474926', '68341413521ee4c4', '25ca2a0588cdca01', 'c2914b044320d74b', 'e6c0e944629f43d4', '8cd6795b658bfba0', '4d12969568a25757', '6ae37e2621a558c8']
+127.0.0.1 - - [21/Jun/2022 14:37:05] "POST /api/setup HTTP/1.0" 200 0
+[Time: 21.06.22 14:37:05] [Level: info] state: initial
+[CTRL] GET /status
+127.0.0.1 - - [21/Jun/2022 14:37:05] "GET /api/status HTTP/1.0" 200 129
+[Time: 21.06.22 14:37:05] [Level: info] transition: await
+[Time: 21.06.22 14:37:06] [Level: info] state: await
+[CTRL] GET /status
+127.0.0.1 - - [21/Jun/2022 14:37:08] "GET /api/status HTTP/1.0" 200 126
+[CTRL] GET /data
+127.0.0.1 - - [21/Jun/2022 14:37:08] "GET /api/data HTTP/1.0" 200 15
+[CTRL] GET /status
+127.0.0.1 - - [21/Jun/2022 14:37:11] "GET /api/status HTTP/1.0" 200 127
+[CTRL] POST /data
+127.0.0.1 - - [21/Jun/2022 14:37:11] "POST /api/data?client=68341413521ee4c4 HTTP/1.0" 200 0
+[Time: 21.06.22 14:37:11] [Level: info] [State: await] [1785, 1710, 1112, 1650, 2016, 2006, 852, 1777]
+[Time: 21.06.22 14:37:11] [Level: info] transition: terminal
+[Time: 21.06.22 14:37:11] [Level: info] done
+[CTRL] GET /status
+127.0.0.1 - - [21/Jun/2022 14:37:14] "GET /api/status HTTP/1.0" 200 129
+[CTRL] GET /status
+127.0.0.1 - - [21/Jun/2022 14:37:17] "GET /api/status HTTP/1.0" 200 129
+[CTRL] GET /status
+127.0.0.1 - - [21/Jun/2022 14:37:20] "GET /api/status HTTP/1.0" 200 129
+[CTRL] GET /status
+127.0.0.1 - - [21/Jun/2022 14:37:23] "GET /api/status HTTP/1.0" 200 128

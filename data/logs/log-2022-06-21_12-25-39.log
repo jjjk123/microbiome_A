@@ -1,0 +1,132 @@
+{"component":"MAIN","instance":"","level":"info","msg":"Controller start","time":"2022-06-21T12:25:39Z"}
+{"component":"MAIN","instance":"","level":"info","msg":"Mode: Dockerized (isolated)","time":"2022-06-21T12:25:39Z"}
+{"component":"DOCKER","instance":"","level":"info","msg":"Removing leftover Docker entities for label: fc-controller-label","time":"2022-06-21T12:25:39Z"}
+{"component":"DOCKER","instance":"","level":"info","msg":"Removed 0 of 0 leftover containers","time":"2022-06-21T12:25:39Z"}
+{"component":"DOCKER","instance":"","level":"info","msg":"Removed 4 of 4 leftover volumes","time":"2022-06-21T12:25:39Z"}
+{"component":"DOCKER","instance":"","level":"info","msg":"Removed 1 of 1 leftover networks","time":"2022-06-21T12:25:39Z"}
+{"component":"GLOBAL","instance":"","level":"info","msg":"Listening on port 9151","time":"2022-06-21T12:25:39Z"}
+{"component":"GLOBAL","instance":"","level":"info","msg":"Listening on port 9150","time":"2022-06-21T12:25:39Z"}
+{"component":"FLOW","instance":"","level":"error","msg":"Error getting workflow data: [WARNING][SITE] No site is registered. Please create a site in the frontend","time":"2022-06-21T12:25:39Z"}
+{"component":"HTTP","instance":"","level":"debug","msg":"Set site received","time":"2022-06-21T12:25:40Z"}
+{"component":"TESTBED","instance":"","level":"info","msg":"Create new test","time":"2022-06-21T12:25:52Z"}
+{"component":"TESTBED","instance":"1","level":"info","msg":"Create volumes and containers...","time":"2022-06-21T12:25:52Z"}
+{"component":"DOCKER","instance":"","level":"info","msg":"Create volume test_1_input_0_1655814352","time":"2022-06-21T12:25:52Z"}
+{"component":"DOCKER","instance":"","level":"info","msg":"Create volume test_1_output_0_1655814352","time":"2022-06-21T12:25:52Z"}
+{"component":"TESTBED","instance":"1","level":"info","msg":"Move data to workspace from /Users/jedrzejkubica/calc/featurecloud_hackathon/microbiome_A/data/AUT","time":"2022-06-21T12:25:52Z"}
+{"component":"DOCKER","instance":"","level":"info","msg":"Move data to workspace","time":"2022-06-21T12:25:52Z"}
+{"component":"DOCKER","instance":"","level":"info","msg":"Attach to internal network","time":"2022-06-21T12:25:52Z"}
+{"component":"DOCKER","instance":"","level":"info","msg":"Remove application","time":"2022-06-21T12:25:54Z"}
+{"component":"DOCKER","instance":"","level":"info","msg":"Intermediary container used for moving data from host to volume has been removed","time":"2022-06-21T12:25:55Z"}
+{"component":"TESTBED","instance":"1","level":"info","msg":"Move generic data to workspace skipped, no source provided","time":"2022-06-21T12:25:55Z"}
+{"component":"TESTBED","instance":"1","level":"info","msg":"Start application","time":"2022-06-21T12:25:55Z"}
+{"component":"DOCKER","instance":"","level":"info","msg":"Attach to internal network","time":"2022-06-21T12:25:55Z"}
+{"component":"TESTBED","instance":"1","level":"error","msg":"Error response from daemon: invalid reference format: repository name must be lowercase","time":"2022-06-21T12:25:55Z"}
+{"component":"DOCKER","instance":"","level":"info","msg":"Remove volume test_1_input_0_1655814352","time":"2022-06-21T12:25:55Z"}
+{"component":"DOCKER","instance":"","level":"info","msg":"Remove volume test_1_output_0_1655814352","time":"2022-06-21T12:25:55Z"}
+{"component":"TESTBED","instance":"","level":"info","msg":"Create new test","time":"2022-06-21T12:27:52Z"}
+{"component":"TESTBED","instance":"1","level":"info","msg":"Create volumes and containers...","time":"2022-06-21T12:27:52Z"}
+{"component":"DOCKER","instance":"","level":"info","msg":"Create volume test_1_input_0_1655814472","time":"2022-06-21T12:27:52Z"}
+{"component":"DOCKER","instance":"","level":"info","msg":"Create volume test_1_output_0_1655814472","time":"2022-06-21T12:27:52Z"}
+{"component":"TESTBED","instance":"1","level":"info","msg":"Move data to workspace from /Users/jedrzejkubica/calc/featurecloud_hackathon/microbiome_A/data/AUT","time":"2022-06-21T12:27:52Z"}
+{"component":"DOCKER","instance":"","level":"info","msg":"Move data to workspace","time":"2022-06-21T12:27:52Z"}
+{"component":"DOCKER","instance":"","level":"info","msg":"Attach to internal network","time":"2022-06-21T12:27:52Z"}
+{"component":"DOCKER","instance":"","level":"info","msg":"Remove application","time":"2022-06-21T12:27:54Z"}
+{"component":"DOCKER","instance":"","level":"info","msg":"Intermediary container used for moving data from host to volume has been removed","time":"2022-06-21T12:27:55Z"}
+{"component":"TESTBED","instance":"1","level":"info","msg":"Move generic data to workspace skipped, no source provided","time":"2022-06-21T12:27:55Z"}
+{"component":"TESTBED","instance":"1","level":"info","msg":"Start application","time":"2022-06-21T12:27:55Z"}
+{"component":"DOCKER","instance":"","level":"info","msg":"Attach to internal network","time":"2022-06-21T12:27:55Z"}
+{"component":"TESTBED","instance":"1","level":"error","msg":"Error response from daemon: invalid reference format: repository name must be lowercase","time":"2022-06-21T12:27:55Z"}
+{"component":"DOCKER","instance":"","level":"info","msg":"Remove volume test_1_input_0_1655814472","time":"2022-06-21T12:27:55Z"}
+{"component":"DOCKER","instance":"","level":"info","msg":"Remove volume test_1_output_0_1655814472","time":"2022-06-21T12:27:55Z"}
+{"component":"TESTBED","instance":"","level":"info","msg":"Create new test","time":"2022-06-21T12:28:02Z"}
+{"component":"TESTBED","instance":"1","level":"info","msg":"Create volumes and containers...","time":"2022-06-21T12:28:02Z"}
+{"component":"DOCKER","instance":"","level":"info","msg":"Create volume test_1_input_0_1655814482","time":"2022-06-21T12:28:02Z"}
+{"component":"DOCKER","instance":"","level":"info","msg":"Create volume test_1_output_0_1655814482","time":"2022-06-21T12:28:02Z"}
+{"component":"TESTBED","instance":"1","level":"info","msg":"Move data to workspace from /Users/jedrzejkubica/calc/featurecloud_hackathon/microbiome_A/data/AUT","time":"2022-06-21T12:28:02Z"}
+{"component":"DOCKER","instance":"","level":"info","msg":"Move data to workspace","time":"2022-06-21T12:28:02Z"}
+{"component":"DOCKER","instance":"","level":"info","msg":"Attach to internal network","time":"2022-06-21T12:28:03Z"}
+{"component":"DOCKER","instance":"","level":"info","msg":"Remove application","time":"2022-06-21T12:28:05Z"}
+{"component":"DOCKER","instance":"","level":"info","msg":"Intermediary container used for moving data from host to volume has been removed","time":"2022-06-21T12:28:06Z"}
+{"component":"TESTBED","instance":"1","level":"info","msg":"Move generic data to workspace skipped, no source provided","time":"2022-06-21T12:28:06Z"}
+{"component":"TESTBED","instance":"1","level":"info","msg":"Start application","time":"2022-06-21T12:28:06Z"}
+{"component":"DOCKER","instance":"","level":"info","msg":"Attach to internal network","time":"2022-06-21T12:28:06Z"}
+{"component":"TESTBED","instance":"1","level":"info","msg":"Append app to list","time":"2022-06-21T12:28:07Z"}
+{"component":"DOCKER","instance":"","level":"info","msg":"Create volume test_1_input_1_1655814487","time":"2022-06-21T12:28:07Z"}
+{"component":"DOCKER","instance":"","level":"info","msg":"Create volume test_1_output_1_1655814487","time":"2022-06-21T12:28:07Z"}
+{"component":"TESTBED","instance":"1","level":"info","msg":"Move data to workspace from /Users/jedrzejkubica/calc/featurecloud_hackathon/microbiome_A/data/CAN","time":"2022-06-21T12:28:07Z"}
+{"component":"DOCKER","instance":"","level":"info","msg":"Move data to workspace","time":"2022-06-21T12:28:07Z"}
+{"component":"DOCKER","instance":"","level":"info","msg":"Attach to internal network","time":"2022-06-21T12:28:08Z"}
+{"component":"DOCKER","instance":"","level":"info","msg":"Remove application","time":"2022-06-21T12:28:09Z"}
+{"component":"DOCKER","instance":"","level":"info","msg":"Intermediary container used for moving data from host to volume has been removed","time":"2022-06-21T12:28:10Z"}
+{"component":"TESTBED","instance":"1","level":"info","msg":"Move generic data to workspace skipped, no source provided","time":"2022-06-21T12:28:10Z"}
+{"component":"TESTBED","instance":"1","level":"info","msg":"Start application","time":"2022-06-21T12:28:10Z"}
+{"component":"DOCKER","instance":"","level":"info","msg":"Attach to internal network","time":"2022-06-21T12:28:10Z"}
+{"component":"TESTBED","instance":"1","level":"info","msg":"Append app to list","time":"2022-06-21T12:28:12Z"}
+{"component":"DOCKER","instance":"","level":"info","msg":"Create volume test_1_input_2_1655814492","time":"2022-06-21T12:28:12Z"}
+{"component":"DOCKER","instance":"","level":"info","msg":"Create volume test_1_output_2_1655814492","time":"2022-06-21T12:28:12Z"}
+{"component":"TESTBED","instance":"1","level":"info","msg":"Move data to workspace from /Users/jedrzejkubica/calc/featurecloud_hackathon/microbiome_A/data/CHN","time":"2022-06-21T12:28:12Z"}
+{"component":"DOCKER","instance":"","level":"info","msg":"Move data to workspace","time":"2022-06-21T12:28:12Z"}
+{"component":"DOCKER","instance":"","level":"info","msg":"Attach to internal network","time":"2022-06-21T12:28:12Z"}
+{"component":"DOCKER","instance":"","level":"info","msg":"Remove application","time":"2022-06-21T12:28:14Z"}
+{"component":"DOCKER","instance":"","level":"info","msg":"Intermediary container used for moving data from host to volume has been removed","time":"2022-06-21T12:28:15Z"}
+{"component":"TESTBED","instance":"1","level":"info","msg":"Move generic data to workspace skipped, no source provided","time":"2022-06-21T12:28:15Z"}
+{"component":"TESTBED","instance":"1","level":"info","msg":"Start application","time":"2022-06-21T12:28:15Z"}
+{"component":"DOCKER","instance":"","level":"info","msg":"Attach to internal network","time":"2022-06-21T12:28:15Z"}
+{"component":"TESTBED","instance":"","level":"info","msg":"Create new test","time":"2022-06-21T12:28:16Z"}
+{"component":"TESTBED","instance":"2","level":"info","msg":"Create volumes and containers...","time":"2022-06-21T12:28:16Z"}
+{"component":"DOCKER","instance":"","level":"info","msg":"Create volume test_2_input_0_1655814496","time":"2022-06-21T12:28:16Z"}
+{"component":"DOCKER","instance":"","level":"info","msg":"Create volume test_2_output_0_1655814496","time":"2022-06-21T12:28:16Z"}
+{"component":"TESTBED","instance":"2","level":"info","msg":"Move data to workspace from /Users/jedrzejkubica/calc/featurecloud_hackathon/microbiome_A/data/AUT","time":"2022-06-21T12:28:16Z"}
+{"component":"DOCKER","instance":"","level":"info","msg":"Move data to workspace","time":"2022-06-21T12:28:16Z"}
+{"component":"TESTBED","instance":"1","level":"info","msg":"Append app to list","time":"2022-06-21T12:28:16Z"}
+{"component":"DOCKER","instance":"","level":"info","msg":"Create volume test_1_input_3_1655814496","time":"2022-06-21T12:28:16Z"}
+{"component":"DOCKER","instance":"","level":"info","msg":"Create volume test_1_output_3_1655814496","time":"2022-06-21T12:28:16Z"}
+{"component":"TESTBED","instance":"1","level":"info","msg":"Move data to workspace from /Users/jedrzejkubica/calc/featurecloud_hackathon/microbiome_A/data/FRA","time":"2022-06-21T12:28:16Z"}
+{"component":"DOCKER","instance":"","level":"info","msg":"Move data to workspace","time":"2022-06-21T12:28:16Z"}
+{"component":"DOCKER","instance":"","level":"info","msg":"Attach to internal network","time":"2022-06-21T12:28:17Z"}
+{"component":"DOCKER","instance":"","level":"info","msg":"Attach to internal network","time":"2022-06-21T12:28:17Z"}
+{"component":"DOCKER","instance":"","level":"info","msg":"Remove application","time":"2022-06-21T12:28:18Z"}
+{"component":"DOCKER","instance":"","level":"info","msg":"Remove application","time":"2022-06-21T12:28:19Z"}
+{"component":"DOCKER","instance":"","level":"info","msg":"Intermediary container used for moving data from host to volume has been removed","time":"2022-06-21T12:28:19Z"}
+{"component":"TESTBED","instance":"2","level":"info","msg":"Move generic data to workspace skipped, no source provided","time":"2022-06-21T12:28:19Z"}
+{"component":"TESTBED","instance":"2","level":"info","msg":"Start application","time":"2022-06-21T12:28:19Z"}
+{"component":"DOCKER","instance":"","level":"info","msg":"Attach to internal network","time":"2022-06-21T12:28:19Z"}
+{"component":"DOCKER","instance":"","level":"info","msg":"Intermediary container used for moving data from host to volume has been removed","time":"2022-06-21T12:28:20Z"}
+{"component":"TESTBED","instance":"1","level":"info","msg":"Move generic data to workspace skipped, no source provided","time":"2022-06-21T12:28:20Z"}
+{"component":"TESTBED","instance":"1","level":"info","msg":"Start application","time":"2022-06-21T12:28:20Z"}
+{"component":"DOCKER","instance":"","level":"info","msg":"Attach to internal network","time":"2022-06-21T12:28:20Z"}
+{"component":"TESTBED","instance":"2","level":"info","msg":"Append app to list","time":"2022-06-21T12:28:21Z"}
+{"component":"DOCKER","instance":"","level":"info","msg":"Create volume test_2_input_1_1655814501","time":"2022-06-21T12:28:21Z"}
+{"component":"DOCKER","instance":"","level":"info","msg":"Create volume test_2_output_1_1655814501","time":"2022-06-21T12:28:21Z"}
+{"component":"TESTBED","instance":"2","level":"info","msg":"Move data to workspace from /Users/jedrzejkubica/calc/featurecloud_hackathon/microbiome_A/data/CAN","time":"2022-06-21T12:28:21Z"}
+{"component":"DOCKER","instance":"","level":"info","msg":"Move data to workspace","time":"2022-06-21T12:28:21Z"}
+{"component":"TESTBED","instance":"1","level":"info","msg":"Append app to list","time":"2022-06-21T12:28:21Z"}
+{"component":"DOCKER","instance":"","level":"info","msg":"Create volume test_1_input_4_1655814501","time":"2022-06-21T12:28:21Z"}
+{"component":"DOCKER","instance":"","level":"info","msg":"Create volume test_1_output_4_1655814501","time":"2022-06-21T12:28:21Z"}
+{"component":"TESTBED","instance":"1","level":"info","msg":"Move data to workspace from /Users/jedrzejkubica/calc/featurecloud_hackathon/microbiome_A/data/IND","time":"2022-06-21T12:28:21Z"}
+{"component":"DOCKER","instance":"","level":"info","msg":"Move data to workspace","time":"2022-06-21T12:28:21Z"}
+{"component":"DOCKER","instance":"","level":"info","msg":"Attach to internal network","time":"2022-06-21T12:28:21Z"}
+{"component":"DOCKER","instance":"","level":"info","msg":"Attach to internal network","time":"2022-06-21T12:28:22Z"}
+{"component":"DOCKER","instance":"","level":"info","msg":"Remove application","time":"2022-06-21T12:28:23Z"}
+{"component":"DOCKER","instance":"","level":"info","msg":"Remove application","time":"2022-06-21T12:28:23Z"}
+{"component":"DOCKER","instance":"","level":"info","msg":"Intermediary container used for moving data from host to volume has been removed","time":"2022-06-21T12:28:24Z"}
+{"component":"TESTBED","instance":"2","level":"info","msg":"Move generic data to workspace skipped, no source provided","time":"2022-06-21T12:28:24Z"}
+{"component":"TESTBED","instance":"2","level":"info","msg":"Start application","time":"2022-06-21T12:28:24Z"}
+{"component":"DOCKER","instance":"","level":"info","msg":"Attach to internal network","time":"2022-06-21T12:28:24Z"}
+{"component":"DOCKER","instance":"","level":"info","msg":"Intermediary container used for moving data from host to volume has been removed","time":"2022-06-21T12:28:24Z"}
+{"component":"TESTBED","instance":"1","level":"info","msg":"Move generic data to workspace skipped, no source provided","time":"2022-06-21T12:28:24Z"}
+{"component":"TESTBED","instance":"1","level":"info","msg":"Start application","time":"2022-06-21T12:28:24Z"}
+{"component":"DOCKER","instance":"","level":"info","msg":"Attach to internal network","time":"2022-06-21T12:28:24Z"}
+{"component":"TESTBED","instance":"2","level":"info","msg":"Append app to list","time":"2022-06-21T12:28:26Z"}
+{"component":"DOCKER","instance":"","level":"info","msg":"Create volume test_2_input_2_1655814506","time":"2022-06-21T12:28:26Z"}
+{"component":"DOCKER","instance":"","level":"info","msg":"Create volume test_2_output_2_1655814506","time":"2022-06-21T12:28:26Z"}
+{"component":"TESTBED","instance":"2","level":"info","msg":"Move data to workspace from /Users/jedrzejkubica/calc/featurecloud_hackathon/microbiome_A/data/CHN","time":"2022-06-21T12:28:26Z"}
+{"component":"DOCKER","instance":"","level":"info","msg":"Move data to workspace","time":"2022-06-21T12:28:26Z"}
+{"component":"TESTBED","instance":"1","level":"info","msg":"Append app to list","time":"2022-06-21T12:28:26Z"}
+{"component":"DOCKER","instance":"","level":"info","msg":"Create volume test_1_input_5_1655814506","time":"2022-06-21T12:28:26Z"}
+{"component":"DOCKER","instance":"","level":"info","msg":"Create volume test_1_output_5_1655814506","time":"2022-06-21T12:28:26Z"}
+{"component":"TESTBED","instance":"1","level":"info","msg":"Move data to workspace from /Users/jedrzejkubica/calc/featurecloud_hackathon/microbiome_A/data/ITA","time":"2022-06-21T12:28:26Z"}
+{"component":"DOCKER","instance":"","level":"info","msg":"Move data to workspace","time":"2022-06-21T12:28:26Z"}
+{"component":"DOCKER","instance":"","level":"info","msg":"Attach to internal network","time":"2022-06-21T12:28:26Z"}
+{"component":"DOCKER","instance":"","level":"info","msg":"Attach to internal network","time":"2022-06-21T12:28:27Z"}
+{"component":"DOCKER","instance":"","level":"info","msg":"Remove application","time":"2022-06-21T12:28:28Z"}

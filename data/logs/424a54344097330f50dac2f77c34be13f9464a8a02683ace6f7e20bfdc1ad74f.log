@@ -1,0 +1,101 @@
+2022-06-21 14:19:59,222 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2022-06-21 14:19:59,224 INFO supervisord started with pid 9
+2022-06-21 14:20:00,226 INFO spawned: 'nginx' with pid 12
+2022-06-21 14:20:00,228 INFO spawned: 'app' with pid 13
+Bottle v0.12.21 server starting up (using WSGIRefServer())...
+Listening on http://localhost:5000/
+Hit Ctrl-C to quit.
+
+2022-06-21 14:20:01,619 INFO success: nginx entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2022-06-21 14:20:01,619 INFO success: app entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+[CTRL] POST /setup
+[Time: 21.06.22 14:20:32] [Level: info] id: 07f8caafc1d85b61
+[Time: 21.06.22 14:20:32] [Level: info] coordinator: True
+[Time: 21.06.22 14:20:32] [Level: info] clients: ['07f8caafc1d85b61', '23ef0fd1bdc8718f', '35e392c873eb2583', 'd30a2a96746f7bf1', '92eb55b52fe1f94e', '6d4a555153d1f025', '0f9795137c7a90ba', '72ca263ba15bedbb']
+[Time: 21.06.22 14:20:32] [Level: info] state: initial
+127.0.0.1 - - [21/Jun/2022 14:20:32] "POST /api/setup HTTP/1.0" 200 0
+[CTRL] GET /status
+127.0.0.1 - - [21/Jun/2022 14:20:32] "GET /api/status HTTP/1.0" 200 129
+[Time: 21.06.22 14:20:32] [Level: info] transition: aggregate
+[Time: 21.06.22 14:20:33] [Level: info] state: aggregate
+[CTRL] POST /data
+127.0.0.1 - - [21/Jun/2022 14:20:35] "POST /api/data?client=72ca263ba15bedbb HTTP/1.0" 200 0
+127.0.0.1 - - [21/Jun/2022 14:20:35] "POST /api/data?client=35e392c873eb2583 HTTP/1.0" 200 0
+[CTRL] POST /data
+[CTRL] GET /status
+127.0.0.1 - - [21/Jun/2022 14:20:35] "GET /api/status HTTP/1.0" 200 131
+[CTRL] POST /data
+127.0.0.1 - - [21/Jun/2022 14:20:35] "POST /api/data?client=6d4a555153d1f025 HTTP/1.0" 200 0
+[CTRL] POST /data
+127.0.0.1 - - [21/Jun/2022 14:20:35] "POST /api/data?client=23ef0fd1bdc8718f HTTP/1.0" 200 0
+[CTRL] POST /data
+127.0.0.1 - - [21/Jun/2022 14:20:35] "POST /api/data?client=d30a2a96746f7bf1 HTTP/1.0" 200 0
+127.0.0.1 - - [21/Jun/2022 14:20:35] "POST /api/data?client=92eb55b52fe1f94e HTTP/1.0" 200 0
+[CTRL] POST /data
+[CTRL] POST /data
+127.0.0.1 - - [21/Jun/2022 14:20:37] "POST /api/data?client=0f9795137c7a90ba HTTP/1.0" 200 0
+[Time: 21.06.22 14:20:37] [Level: info] transition: await
+[Time: 21.06.22 14:20:38] [Level: info] state: await
+[CTRL] GET /status
+127.0.0.1 - - [21/Jun/2022 14:20:38] "GET /api/status HTTP/1.0" 200 126
+[CTRL] GET /data
+[Time: 21.06.22 14:20:38] [Level: info] [State: await] [Index(['HQ_clean_read_count', 'gut_mapped_read_count', 'gut_mapped_pc',
+       'oral_mapped_read_count', 'oral_mapped_pc', 'MGS_10.4', 'MGS_8.4',
+       'MGS_all', 'health_status', 'gender',
+       ...
+       'msp_2942', 'msp_2943', 'msp_2944', 'msp_2945', 'msp_2946', 'msp_2947',
+       'msp_2948', 'msp_2949', 'msp_2950', 'msp_2951'],
+      dtype='object', length=2476), Index(['HQ_clean_read_count', 'gut_mapped_read_count', 'gut_mapped_pc',
+       'oral_mapped_read_count', 'oral_mapped_pc', 'MGS_10.4', 'MGS_8.4',
+       'MGS_all', 'health_status', 'gender',
+       ...
+       'msp_2942', 'msp_2943', 'msp_2944', 'msp_2945', 'msp_2946', 'msp_2947',
+       'msp_2948', 'msp_2949', 'msp_2950', 'msp_2951'],
+      dtype='object', length=2476), Index(['HQ_clean_read_count', 'gut_mapped_read_count', 'gut_mapped_pc',
+       'oral_mapped_read_count', 'oral_mapped_pc', 'MGS_10.4', 'MGS_8.4',
+       'MGS_all', 'health_status', 'gender',
+       ...
+       'msp_2942', 'msp_2943', 'msp_2944', 'msp_2945', 'msp_2946', 'msp_2947',
+       'msp_2948', 'msp_2949', 'msp_2950', 'msp_2951'],
+      dtype='object', length=2476), Index(['HQ_clean_read_count', 'gut_mapped_read_count', 'gut_mapped_pc',
+       'oral_mapped_read_count', 'oral_mapped_pc', 'MGS_10.4', 'MGS_8.4',
+       'MGS_all', 'health_status', 'gender',
+       ...
+       'msp_2942', 'msp_2943', 'msp_2944', 'msp_2945', 'msp_2946', 'msp_2947',
+       'msp_2948', 'msp_2949', 'msp_2950', 'msp_2951'],
+      dtype='object', length=2476), Index(['HQ_clean_read_count', 'gut_mapped_read_count', 'gut_mapped_pc',
+       'oral_mapped_read_count', 'oral_mapped_pc', 'MGS_10.4', 'MGS_8.4',
+       'MGS_all', 'health_status', 'gender',
+       ...
+       'msp_2942', 'msp_2943', 'msp_2944', 'msp_2945', 'msp_2946', 'msp_2947',
+       'msp_2948', 'msp_2949', 'msp_2950', 'msp_2951'],
+      dtype='object', length=2476), Index(['HQ_clean_read_count', 'gut_mapped_read_count', 'gut_mapped_pc',
+       'oral_mapped_read_count', 'oral_mapped_pc', 'MGS_10.4', 'MGS_8.4',
+       'MGS_all', 'health_status', 'gender',
+       ...
+       'msp_2942', 'msp_2943', 'msp_2944', 'msp_2945', 'msp_2946', 'msp_2947',
+       'msp_2948', 'msp_2949', 'msp_2950', 'msp_2951'],
+      dtype='object', length=2476), Index(['HQ_clean_read_count', 'gut_mapped_read_count', 'gut_mapped_pc',
+       'oral_mapped_read_count', 'oral_mapped_pc', 'MGS_10.4', 'MGS_8.4',
+       'MGS_all', 'health_status', 'gender',
+       ...
+       'msp_2942', 'msp_2943', 'msp_2944', 'msp_2945', 'msp_2946', 'msp_2947',
+       'msp_2948', 'msp_2949', 'msp_2950', 'msp_2951'],
+      dtype='object', length=2476), Index(['HQ_clean_read_count', 'gut_mapped_read_count', 'gut_mapped_pc',
+       'oral_mapped_read_count', 'oral_mapped_pc', 'MGS_10.4', 'MGS_8.4',
+       'MGS_all', 'health_status', 'gender',
+       ...
+       'msp_2942', 'msp_2943', 'msp_2944', 'msp_2945', 'msp_2946', 'msp_2947',
+       'msp_2948', 'msp_2949', 'msp_2950', 'msp_2951'],
+      dtype='object', length=2476)]
+[Time: 21.06.22 14:20:38] [Level: info] transition: terminal
+[Time: 21.06.22 14:20:38] [Level: info] done
+127.0.0.1 - - [21/Jun/2022 14:20:38] "GET /api/data HTTP/1.0" 200 219963
+[CTRL] GET /status
+127.0.0.1 - - [21/Jun/2022 14:20:41] "GET /api/status HTTP/1.0" 200 129
+127.0.0.1 - - [21/Jun/2022 14:20:44] "GET /api/status HTTP/1.0" 200 129
+[CTRL] GET /status
+[CTRL] GET /status
+127.0.0.1 - - [21/Jun/2022 14:20:47] "GET /api/status HTTP/1.0" 200 129
+127.0.0.1 - - [21/Jun/2022 14:20:50] "GET /api/status HTTP/1.0" 200 128
+[CTRL] GET /status

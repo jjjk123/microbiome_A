@@ -1,0 +1,62 @@
+2022-06-21 13:07:24,153 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2022-06-21 13:07:24,155 INFO supervisord started with pid 9
+2022-06-21 13:07:25,160 INFO spawned: 'nginx' with pid 12
+2022-06-21 13:07:25,163 INFO spawned: 'app' with pid 13
+Bottle v0.12.21 server starting up (using WSGIRefServer())...
+Listening on http://localhost:5000/
+Hit Ctrl-C to quit.
+
+2022-06-21 13:07:26,617 INFO success: nginx entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2022-06-21 13:07:26,618 INFO success: app entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+[CTRL] POST /setup
+[Time: 21.06.22 13:07:59] [Level: info] id: 2b9936656d37060f
+[Time: 21.06.22 13:07:59] [Level: info] coordinator: True
+[Time: 21.06.22 13:07:59] [Level: info] clients: ['2b9936656d37060f', '0c9c92c26a92555f', '27751f4e1cfd47e9', '87144514ef291a36', '25cc56589099345a', '1e4a2c3826989abd', '56913504d0da20de', '0d77b2e27b2be1c8']
+[Time: 21.06.22 13:07:59] [Level: info] state: initial
+127.0.0.1 - - [21/Jun/2022 13:07:59] "POST /api/setup HTTP/1.0" 200 0
+127.0.0.1 - - [21/Jun/2022 13:07:59] "GET /api/status HTTP/1.0" 200 129
+[CTRL] GET /status
+[Time: 21.06.22 13:07:59] [Level: info] transition: aggregate
+[Time: 21.06.22 13:08:00] [Level: info] state: aggregate
+[CTRL] GET /status
+127.0.0.1 - - [21/Jun/2022 13:08:02] "GET /api/status HTTP/1.0" 200 131
+[CTRL] POST /data
+127.0.0.1 - - [21/Jun/2022 13:08:02] "POST /api/data?client=0c9c92c26a92555f HTTP/1.0" 200 0
+[CTRL] POST /data
+127.0.0.1 - - [21/Jun/2022 13:08:02] "POST /api/data?client=87144514ef291a36 HTTP/1.0" 200 0
+[CTRL] POST /data
+127.0.0.1 - - [21/Jun/2022 13:08:02] "POST /api/data?client=25cc56589099345a HTTP/1.0" 200 0
+[CTRL] POST /data
+127.0.0.1 - - [21/Jun/2022 13:08:02] "POST /api/data?client=1e4a2c3826989abd HTTP/1.0" 200 0
+[CTRL] POST /data
+127.0.0.1 - - [21/Jun/2022 13:08:02] "POST /api/data?client=27751f4e1cfd47e9 HTTP/1.0" 200 0
+[CTRL] POST /data
+127.0.0.1 - - [21/Jun/2022 13:08:02] "POST /api/data?client=56913504d0da20de HTTP/1.0" 200 0
+[CTRL] POST /data
+127.0.0.1 - - [21/Jun/2022 13:08:04] "POST /api/data?client=0d77b2e27b2be1c8 HTTP/1.0" 200 0
+[Time: 21.06.22 13:08:04] [Level: info] Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/pandas/core/indexes/base.py", line 3621, in get_loc
+    return self._engine.get_loc(casted_key)
+  File "pandas/_libs/index.pyx", line 136, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 163, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 5198, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 5206, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 0
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/FeatureCloud/app/engine/app.py", line 169, in guarded_run
+    self.run()
+  File "/usr/local/lib/python3.8/site-packages/FeatureCloud/app/engine/app.py", line 184, in run
+    transition = self.current_state.run()
+  File "/app/states.py", line 41, in run
+    tmp.append(len(client[0].index))
+  File "/usr/local/lib/python3.8/site-packages/pandas/core/frame.py", line 3505, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "/usr/local/lib/python3.8/site-packages/pandas/core/indexes/base.py", line 3623, in get_loc
+    raise KeyError(key) from err
+KeyError: 0
+
+[CTRL] GET /status
+127.0.0.1 - - [21/Jun/2022 13:08:05] "GET /api/status HTTP/1.0" 200 132

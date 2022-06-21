@@ -1,0 +1,43 @@
+2022-06-21 14:16:20,803 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2022-06-21 14:16:20,805 INFO supervisord started with pid 7
+2022-06-21 14:16:21,807 INFO spawned: 'nginx' with pid 10
+2022-06-21 14:16:21,810 INFO spawned: 'app' with pid 11
+Bottle v0.12.21 server starting up (using WSGIRefServer())...
+Listening on http://localhost:5000/
+Hit Ctrl-C to quit.
+
+2022-06-21 14:16:23,181 INFO success: nginx entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2022-06-21 14:16:23,181 INFO success: app entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+[CTRL] POST /setup
+[Time: 21.06.22 14:16:41] [Level: info] id: 69dcd2481b1d2bb2
+[Time: 21.06.22 14:16:41] [Level: info] coordinator: False
+[Time: 21.06.22 14:16:41] [Level: info] clients: ['2dd863e9f72db513', 'f8d7cc34c08c9e29', 'f60976ed886f8cc6', '69dcd2481b1d2bb2', '453a4d6f205c9dd7', '866c51e7f778fb86', 'c93b9dd6f1259b34', 'a5c17138615c555c']
+[Time: 21.06.22 14:16:41] [Level: info] state: initial
+127.0.0.1 - - [21/Jun/2022 14:16:41] "POST /api/setup HTTP/1.0" 200 0
+[CTRL] GET /status
+127.0.0.1 - - [21/Jun/2022 14:16:41] "GET /api/status HTTP/1.0" 200 129
+[Time: 21.06.22 14:16:42] [Level: info] Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/FeatureCloud/app/engine/app.py", line 169, in guarded_run
+    self.run()
+  File "/usr/local/lib/python3.8/site-packages/FeatureCloud/app/engine/app.py", line 184, in run
+    transition = self.current_state.run()
+  File "/app/states.py", line 35, in run
+    c.read_data('/mnt/input/anno.csv', '/mnt/input/exp.csv')
+  File "/app/states.py", line 15, in read_data
+    df = analyse_data(anno, exp)
+  File "/app/preprocessing.py", line 31, in analyse_data
+    df = merged_df.drop(to_drop)
+  File "/usr/local/lib/python3.8/site-packages/pandas/util/_decorators.py", line 311, in wrapper
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.8/site-packages/pandas/core/frame.py", line 4954, in drop
+    return super().drop(
+  File "/usr/local/lib/python3.8/site-packages/pandas/core/generic.py", line 4267, in drop
+    obj = obj._drop_axis(labels, axis, level=level, errors=errors)
+  File "/usr/local/lib/python3.8/site-packages/pandas/core/generic.py", line 4311, in _drop_axis
+    new_axis = axis.drop(labels, errors=errors)
+  File "/usr/local/lib/python3.8/site-packages/pandas/core/indexes/base.py", line 6644, in drop
+    raise KeyError(f"{list(labels[mask])} not found in axis")
+KeyError: "['sample', 'secondary_sample_accession', 'sel_Beghini_2021', 'study_accession', 'sample_accession', 'instrument_platform', 'instrument_model', 'library_layout', 'sample_alias', 'country', 'individual_id', 'timepoint', 'body_site', 'host_phenotype', 'host_subphenotype', 'class', 'to_exclude', 'low_read', 'low_map', 'excluded', 'excluded_comment', 'mgp_sample_alias', 'westernised', 'body_subsite'] not found in axis"
+
+127.0.0.1 - - [21/Jun/2022 14:16:44] "GET /api/status HTTP/1.0" 200 132
+[CTRL] GET /status

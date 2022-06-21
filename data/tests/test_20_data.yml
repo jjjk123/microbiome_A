@@ -1,0 +1,6 @@
+id: 20
+image: microbiome_a
+createdat: 2022-06-21T14:35:13.0829055Z
+relayaddress: localhost
+queryinterval: 3
+resultdir: /data/tests

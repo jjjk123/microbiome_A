@@ -1,0 +1,34 @@
+2022-06-21 12:44:43,058 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2022-06-21 12:44:43,061 INFO supervisord started with pid 7
+2022-06-21 12:44:44,063 INFO spawned: 'nginx' with pid 10
+2022-06-21 12:44:44,066 INFO spawned: 'app' with pid 11
+Bottle v0.12.21 server starting up (using WSGIRefServer())...
+Listening on http://localhost:5000/
+Hit Ctrl-C to quit.
+
+2022-06-21 12:44:45,437 INFO success: nginx entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2022-06-21 12:44:45,438 INFO success: app entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+[CTRL] POST /setup
+[Time: 21.06.22 12:44:49] [Level: info] id: 4e05e51359551b61
+[Time: 21.06.22 12:44:49] [Level: info] coordinator: False
+[Time: 21.06.22 12:44:49] [Level: info] clients: ['7f0974a4775fc030', '951bb956fa38eb90', 'c3887b4f3dc888e0', '0cd203857a8d5cd5', '5704579b60c7542f', 'ede9491fd86884df', '4e05e51359551b61', '37af8bdd2c7f9655']
+[Time: 21.06.22 12:44:49] [Level: info] state: initial
+127.0.0.1 - - [21/Jun/2022 12:44:49] "POST /api/setup HTTP/1.0" 200 0
+[CTRL] GET /status
+127.0.0.1 - - [21/Jun/2022 12:44:49] "GET /api/status HTTP/1.0" 200 129
+[Time: 21.06.22 12:44:50] [Level: info] transition: await
+[Time: 21.06.22 12:44:50] [Level: info] Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/FeatureCloud/app/engine/app.py", line 169, in guarded_run
+    self.run()
+  File "/usr/local/lib/python3.8/site-packages/FeatureCloud/app/engine/app.py", line 186, in run
+    self.transition(f'{self.current_state.name}_{transition}')
+  File "/usr/local/lib/python3.8/site-packages/FeatureCloud/app/engine/app.py", line 314, in transition
+    self.log(f'transition {name} not found', level=LogLevel.FATAL)
+  File "/usr/local/lib/python3.8/site-packages/FeatureCloud/app/engine/app.py", line 340, in log
+    raise RuntimeError(msg)
+RuntimeError: [Time: 21.06.22 12:44:50] [Level: fatal] transition initial_await not found
+
+[CTRL] GET /status
+127.0.0.1 - - [21/Jun/2022 12:44:52] "GET /api/status HTTP/1.0" 200 135
+[CTRL] GET /data
+127.0.0.1 - - [21/Jun/2022 12:44:52] "GET /api/data HTTP/1.0" 200 11118025

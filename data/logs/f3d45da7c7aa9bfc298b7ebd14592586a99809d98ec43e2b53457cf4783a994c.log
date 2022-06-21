@@ -1,0 +1,37 @@
+2022-06-21 12:41:41,887 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2022-06-21 12:41:41,890 INFO supervisord started with pid 8
+2022-06-21 12:41:42,893 INFO spawned: 'nginx' with pid 11
+2022-06-21 12:41:42,899 INFO spawned: 'app' with pid 12
+Bottle v0.12.21 server starting up (using WSGIRefServer())...
+Listening on http://localhost:5000/
+Hit Ctrl-C to quit.
+
+2022-06-21 12:41:44,251 INFO success: nginx entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2022-06-21 12:41:44,251 INFO success: app entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+[CTRL] POST /setup
+[Time: 21.06.22 12:41:45] [Level: info] id: c52e09b4be09ba06
+[Time: 21.06.22 12:41:45] [Level: info] coordinator: False
+[Time: 21.06.22 12:41:45] [Level: info] clients: ['00eea0fe4e6c60a6', '86fe22db5b2f4f3f', '66077ddbee014064', '461a59af0fafe513', '8aaeab1bdd233fa4', '36f567879fa3f535', 'c52e09b4be09ba06', '811658975c643d62']
+127.0.0.1 - - [21/Jun/2022 12:41:45] "POST /api/setup HTTP/1.0" 200 0
+[Time: 21.06.22 12:41:45] [Level: info] state: initial
+[Time: 21.06.22 12:41:45] [Level: info] Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/FeatureCloud/app/engine/app.py", line 169, in guarded_run
+    self.run()
+  File "/usr/local/lib/python3.8/site-packages/FeatureCloud/app/engine/app.py", line 184, in run
+    transition = self.current_state.run()
+  File "/app/states.py", line 17, in run
+    anno = pd.read_csv('anno.csv')
+  File "/usr/local/lib/python3.8/site-packages/pandas/util/_decorators.py", line 311, in wrapper
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.8/site-packages/pandas/io/parsers/readers.py", line 680, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/usr/local/lib/python3.8/site-packages/pandas/io/parsers/readers.py", line 575, in _read
+    parser = TextFileReader(filepath_or_buffer, **kwds)
+  File "/usr/local/lib/python3.8/site-packages/pandas/io/parsers/readers.py", line 933, in __init__
+    self._engine = self._make_engine(f, self.engine)
+  File "/usr/local/lib/python3.8/site-packages/pandas/io/parsers/readers.py", line 1217, in _make_engine
+    self.handles = get_handle(  # type: ignore[call-overload]
+  File "/usr/local/lib/python3.8/site-packages/pandas/io/common.py", line 789, in get_handle
+    handle = open(
+FileNotFoundError: [Errno 2] No such file or directory: 'anno.csv'
+

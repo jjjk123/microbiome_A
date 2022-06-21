@@ -1,0 +1,69 @@
+2022-06-21 12:34:13,663 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2022-06-21 12:34:13,668 INFO supervisord started with pid 7
+2022-06-21 12:34:14,670 INFO spawned: 'nginx' with pid 10
+2022-06-21 12:34:14,674 INFO spawned: 'app' with pid 11
+Traceback (most recent call last):
+  File "/app/main.py", line 14, in <module>
+    app.register()
+  File "/usr/local/lib/python3.8/site-packages/FeatureCloud/app/engine/app.py", line 202, in register
+    state.register()
+  File "/app/states.py", line 13, in register
+    self.register_transition('aggregate', Role.COORDINATOR)
+  File "/usr/local/lib/python3.8/site-packages/FeatureCloud/app/engine/app.py", line 424, in register_transition
+    self._app.register_transition(f'{self.name}_{name}', self.name, target, participant, coordinator)
+  File "/usr/local/lib/python3.8/site-packages/FeatureCloud/app/engine/app.py", line 293, in register_transition
+    self.log(f'target state {target} not found', level=LogLevel.FATAL)
+  File "/usr/local/lib/python3.8/site-packages/FeatureCloud/app/engine/app.py", line 340, in log
+    raise RuntimeError(msg)
+RuntimeError: [Time: 21.06.22 12:34:15] [Level: fatal] target state aggregate not found
+2022-06-21 12:34:15,120 INFO exited: app (exit status 1; not expected)
+2022-06-21 12:34:16,125 INFO success: nginx entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2022-06-21 12:34:16,129 INFO spawned: 'app' with pid 20
+Traceback (most recent call last):
+  File "/app/main.py", line 14, in <module>
+    app.register()
+  File "/usr/local/lib/python3.8/site-packages/FeatureCloud/app/engine/app.py", line 202, in register
+    state.register()
+  File "/app/states.py", line 13, in register
+    self.register_transition('aggregate', Role.COORDINATOR)
+  File "/usr/local/lib/python3.8/site-packages/FeatureCloud/app/engine/app.py", line 424, in register_transition
+    self._app.register_transition(f'{self.name}_{name}', self.name, target, participant, coordinator)
+  File "/usr/local/lib/python3.8/site-packages/FeatureCloud/app/engine/app.py", line 293, in register_transition
+    self.log(f'target state {target} not found', level=LogLevel.FATAL)
+  File "/usr/local/lib/python3.8/site-packages/FeatureCloud/app/engine/app.py", line 340, in log
+    raise RuntimeError(msg)
+RuntimeError: [Time: 21.06.22 12:34:16] [Level: fatal] target state aggregate not found
+2022-06-21 12:34:16,568 INFO exited: app (exit status 1; not expected)
+2022-06-21 12:34:18,573 INFO spawned: 'app' with pid 25
+Traceback (most recent call last):
+  File "/app/main.py", line 14, in <module>
+    app.register()
+  File "/usr/local/lib/python3.8/site-packages/FeatureCloud/app/engine/app.py", line 202, in register
+    state.register()
+  File "/app/states.py", line 13, in register
+    self.register_transition('aggregate', Role.COORDINATOR)
+  File "/usr/local/lib/python3.8/site-packages/FeatureCloud/app/engine/app.py", line 424, in register_transition
+    self._app.register_transition(f'{self.name}_{name}', self.name, target, participant, coordinator)
+  File "/usr/local/lib/python3.8/site-packages/FeatureCloud/app/engine/app.py", line 293, in register_transition
+    self.log(f'target state {target} not found', level=LogLevel.FATAL)
+  File "/usr/local/lib/python3.8/site-packages/FeatureCloud/app/engine/app.py", line 340, in log
+    raise RuntimeError(msg)
+RuntimeError: [Time: 21.06.22 12:34:18] [Level: fatal] target state aggregate not found
+2022-06-21 12:34:18,998 INFO exited: app (exit status 1; not expected)
+2022-06-21 12:34:22,008 INFO spawned: 'app' with pid 30
+Traceback (most recent call last):
+  File "/app/main.py", line 14, in <module>
+    app.register()
+  File "/usr/local/lib/python3.8/site-packages/FeatureCloud/app/engine/app.py", line 202, in register
+    state.register()
+  File "/app/states.py", line 13, in register
+    self.register_transition('aggregate', Role.COORDINATOR)
+  File "/usr/local/lib/python3.8/site-packages/FeatureCloud/app/engine/app.py", line 424, in register_transition
+    self._app.register_transition(f'{self.name}_{name}', self.name, target, participant, coordinator)
+  File "/usr/local/lib/python3.8/site-packages/FeatureCloud/app/engine/app.py", line 293, in register_transition
+    self.log(f'target state {target} not found', level=LogLevel.FATAL)
+  File "/usr/local/lib/python3.8/site-packages/FeatureCloud/app/engine/app.py", line 340, in log
+    raise RuntimeError(msg)
+RuntimeError: [Time: 21.06.22 12:34:22] [Level: fatal] target state aggregate not found
+2022-06-21 12:34:22,431 INFO exited: app (exit status 1; not expected)
+2022-06-21 12:34:23,433 INFO gave up: app entered FATAL state, too many start retries too quickly
