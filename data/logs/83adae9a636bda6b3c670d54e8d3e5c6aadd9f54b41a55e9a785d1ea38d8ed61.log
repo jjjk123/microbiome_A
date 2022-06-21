@@ -1,0 +1,43 @@
+2022-06-21 20:03:21,353 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2022-06-21 20:03:21,358 INFO supervisord started with pid 9
+2022-06-21 20:03:22,366 INFO spawned: 'nginx' with pid 12
+2022-06-21 20:03:22,373 INFO spawned: 'app' with pid 13
+2022-06-21 20:03:23,397 INFO success: nginx entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2022-06-21 20:03:23,397 INFO success: app entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+Bottle v0.12.21 server starting up (using WSGIRefServer())...
+Listening on http://localhost:5000/
+Hit Ctrl-C to quit.
+
+[CTRL] POST /setup
+[Time: 21.06.22 20:03:27] [Level: info] id: a1412abbd77cf888
+[Time: 21.06.22 20:03:27] [Level: info] coordinator: True
+[Time: 21.06.22 20:03:27] [Level: info] clients: ['a1412abbd77cf888', 'dad6dae50cb8d66a']
+[Time: 21.06.22 20:03:27] [Level: info] state: initial
+[Time: 21.06.22 20:03:27] [Level: info] transition: read
+127.0.0.1 - - [21/Jun/2022 20:03:27] "POST /api/setup HTTP/1.0" 200 0
+[CTRL] GET /status
+127.0.0.1 - - [21/Jun/2022 20:03:27] "GET /api/status HTTP/1.0" 200 126
+[Time: 21.06.22 20:03:28] [Level: info] state: read
+[Time: 21.06.22 20:03:29] [Level: info] transition: aggregate
+[Time: 21.06.22 20:03:30] [Level: info] state: aggregate
+[CTRL] GET /status
+127.0.0.1 - - [21/Jun/2022 20:03:30] "GET /api/status HTTP/1.0" 200 131
+[CTRL] POST /data
+[Time: 21.06.22 20:03:32] [Level: info] transition: await
+127.0.0.1 - - [21/Jun/2022 20:03:32] "POST /api/data?client=dad6dae50cb8d66a HTTP/1.0" 200 0
+[CTRL] GET /status
+127.0.0.1 - - [21/Jun/2022 20:03:33] "GET /api/status HTTP/1.0" 200 126
+[Time: 21.06.22 20:03:33] [Level: info] state: await
+[Time: 21.06.22 20:03:33] [Level: info] Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/FeatureCloud/app/engine/app.py", line 169, in guarded_run
+    self.run()
+  File "/usr/local/lib/python3.8/site-packages/FeatureCloud/app/engine/app.py", line 184, in run
+    transition = self.current_state.run()
+  File "/app/states.py", line 88, in run
+    model_params = logistic_regression(c.get_dataframe())
+  File "/app/logistic_regression.py", line 7, in logistic_regression
+    X, y = np.arange(10).reshape((5, 2))
+ValueError: too many values to unpack (expected 2)
+
+[CTRL] GET /data
+127.0.0.1 - - [21/Jun/2022 20:03:33] "GET /api/data HTTP/1.0" 200 44

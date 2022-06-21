@@ -1,0 +1,45 @@
+2022-06-21 19:46:30,921 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2022-06-21 19:46:30,924 INFO supervisord started with pid 7
+2022-06-21 19:46:31,932 INFO spawned: 'nginx' with pid 10
+2022-06-21 19:46:31,934 INFO spawned: 'app' with pid 11
+Traceback (most recent call last):
+  File "/app/main.py", line 8, in <module>
+    import states
+  File "/app/states.py", line 4, in <module>
+    from logistic_regression import logistic_regression
+  File "/app/logistic_regression.py", line 1, in <module>
+    from sklearn.linear_model import LogisticRegression
+ModuleNotFoundError: No module named 'sklearn'
+2022-06-21 19:46:32,440 INFO exited: app (exit status 1; not expected)
+2022-06-21 19:46:33,444 INFO success: nginx entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2022-06-21 19:46:33,447 INFO spawned: 'app' with pid 20
+Traceback (most recent call last):
+  File "/app/main.py", line 8, in <module>
+    import states
+  File "/app/states.py", line 4, in <module>
+    from logistic_regression import logistic_regression
+  File "/app/logistic_regression.py", line 1, in <module>
+    from sklearn.linear_model import LogisticRegression
+ModuleNotFoundError: No module named 'sklearn'
+2022-06-21 19:46:33,939 INFO exited: app (exit status 1; not expected)
+2022-06-21 19:46:35,944 INFO spawned: 'app' with pid 25
+Traceback (most recent call last):
+  File "/app/main.py", line 8, in <module>
+    import states
+  File "/app/states.py", line 4, in <module>
+    from logistic_regression import logistic_regression
+  File "/app/logistic_regression.py", line 1, in <module>
+    from sklearn.linear_model import LogisticRegression
+ModuleNotFoundError: No module named 'sklearn'
+2022-06-21 19:46:36,421 INFO exited: app (exit status 1; not expected)
+2022-06-21 19:46:39,429 INFO spawned: 'app' with pid 30
+Traceback (most recent call last):
+  File "/app/main.py", line 8, in <module>
+    import states
+  File "/app/states.py", line 4, in <module>
+    from logistic_regression import logistic_regression
+  File "/app/logistic_regression.py", line 1, in <module>
+    from sklearn.linear_model import LogisticRegression
+ModuleNotFoundError: No module named 'sklearn'
+2022-06-21 19:46:39,927 INFO exited: app (exit status 1; not expected)
+2022-06-21 19:46:40,932 INFO gave up: app entered FATAL state, too many start retries too quickly

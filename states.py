@@ -1,6 +1,7 @@
 from FeatureCloud.app.engine.app import AppState, app_state, Role
 import pandas as pd
 from preprocessing import analyse_data
+from logistic_regression import logistic_regression
  
 
 # FeatureCloud requires that apps define the at least the 'initial' state.
@@ -45,7 +46,8 @@ class ReadState(AppState):
 
         # find columns to drop
 
-        to_drop = c.get_dataframe().columns[(c.get_dataframe() == 0).all()]
+        # to_drop = c.get_dataframe().columns[(c.get_dataframe() == 0).all()]
+        to_drop = ['msp_0001']
 
         self.send_data_to_coordinator(to_drop)
 
@@ -79,12 +81,11 @@ class AwaitState(AppState):
     def run(self):
         to_drop = self.await_data()
 
-        # remove columns from to_drop
-        c.delete_columns(to_drop)
+        # # remove columns from to_drop
+        # c.delete_columns(to_drop)
 
         # apply model here
-
-        model_params = [1, 2, 3]
+        model_params = logistic_regression(c.get_dataframe())
 
         self.send_data_to_coordinator(model_params)
 

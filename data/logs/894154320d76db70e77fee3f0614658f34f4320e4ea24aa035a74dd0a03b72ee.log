@@ -1,0 +1,53 @@
+2022-06-21 19:57:09,376 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2022-06-21 19:57:09,379 INFO supervisord started with pid 8
+2022-06-21 19:57:10,385 INFO spawned: 'nginx' with pid 11
+2022-06-21 19:57:10,388 INFO spawned: 'app' with pid 12
+2022-06-21 19:57:11,397 INFO success: nginx entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2022-06-21 19:57:11,398 INFO success: app entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+Bottle v0.12.21 server starting up (using WSGIRefServer())...
+Listening on http://localhost:5000/
+Hit Ctrl-C to quit.
+
+[CTRL] POST /setup
+[Time: 21.06.22 19:57:15] [Level: info] id: 2f2b2a2c1a2b6529
+[Time: 21.06.22 19:57:15] [Level: info] coordinator: True
+[Time: 21.06.22 19:57:15] [Level: info] clients: ['22a326009aac91a6', '2f2b2a2c1a2b6529']
+127.0.0.1 - - [21/Jun/2022 19:57:15] "POST /api/setup HTTP/1.0" 200 0
+[Time: 21.06.22 19:57:15] [Level: info] state: initial
+[Time: 21.06.22 19:57:15] [Level: info] transition: read
+[CTRL] GET /status
+127.0.0.1 - - [21/Jun/2022 19:57:15] "GET /api/status HTTP/1.0" 200 126
+[Time: 21.06.22 19:57:16] [Level: info] state: read
+[Time: 21.06.22 19:57:17] [Level: info] transition: aggregate
+[Time: 21.06.22 19:57:18] [Level: info] state: aggregate
+[CTRL] GET /status
+127.0.0.1 - - [21/Jun/2022 19:57:18] "GET /api/status HTTP/1.0" 200 131
+[CTRL] POST /data
+127.0.0.1 - - [21/Jun/2022 19:57:20] "POST /api/data?client=22a326009aac91a6 HTTP/1.0" 200 0
+[Time: 21.06.22 19:57:20] [Level: info] transition: await
+[CTRL] GET /status
+127.0.0.1 - - [21/Jun/2022 19:57:21] "GET /api/status HTTP/1.0" 200 126
+[CTRL] GET /data
+127.0.0.1 - - [21/Jun/2022 19:57:21] "GET /api/data HTTP/1.0" 200 44
+[Time: 21.06.22 19:57:21] [Level: info] state: await
+[Time: 21.06.22 19:57:22] [Level: info] Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/FeatureCloud/app/engine/app.py", line 169, in guarded_run
+    self.run()
+  File "/usr/local/lib/python3.8/site-packages/FeatureCloud/app/engine/app.py", line 184, in run
+    transition = self.current_state.run()
+  File "/app/states.py", line 85, in run
+    c.delete_columns(to_drop)
+  File "/app/states.py", line 24, in delete_columns
+    self.df = self.df.drop(columns=to_drop)
+  File "/usr/local/lib/python3.8/site-packages/pandas/util/_decorators.py", line 311, in wrapper
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.8/site-packages/pandas/core/frame.py", line 4954, in drop
+    return super().drop(
+  File "/usr/local/lib/python3.8/site-packages/pandas/core/generic.py", line 4267, in drop
+    obj = obj._drop_axis(labels, axis, level=level, errors=errors)
+  File "/usr/local/lib/python3.8/site-packages/pandas/core/generic.py", line 4311, in _drop_axis
+    new_axis = axis.drop(labels, errors=errors)
+  File "/usr/local/lib/python3.8/site-packages/pandas/core/indexes/base.py", line 6644, in drop
+    raise KeyError(f"{list(labels[mask])} not found in axis")
+KeyError: "[('msp_0001',), ('msp_0001',)] not found in axis"
+
