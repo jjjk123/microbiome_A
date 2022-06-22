@@ -1,0 +1,59 @@
+2022-06-22 07:56:24,514 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2022-06-22 07:56:24,518 INFO supervisord started with pid 8
+2022-06-22 07:56:25,521 INFO spawned: 'nginx' with pid 11
+2022-06-22 07:56:25,522 INFO spawned: 'app' with pid 12
+2022-06-22 07:56:26,541 INFO success: nginx entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2022-06-22 07:56:26,541 INFO success: app entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+Bottle v0.12.21 server starting up (using WSGIRefServer())...
+Listening on http://localhost:5000/
+Hit Ctrl-C to quit.
+
+[CTRL] POST /setup
+[Time: 22.06.22 07:56:39] [Level: info] id: f7e4e23ad8fdcdb3
+[Time: 22.06.22 07:56:39] [Level: info] coordinator: False
+[Time: 22.06.22 07:56:39] [Level: info] clients: ['ecae8f53baf1c9fe', '39e5f712c39c81cb', 'f1e59a94f67bf571', '9195304d86d42a00', 'f7e4e23ad8fdcdb3', 'ad533a256898f7c5', '47e6fcfaf013480b', '10cfc34c2af5ef85']
+[Time: 22.06.22 07:56:39] [Level: info] state: initial
+[Time: 22.06.22 07:56:39] [Level: info] transition: read
+127.0.0.1 - - [22/Jun/2022 07:56:39] "POST /api/setup HTTP/1.0" 200 0
+[CTRL] GET /status
+127.0.0.1 - - [22/Jun/2022 07:56:39] "GET /api/status HTTP/1.0" 200 126
+[Time: 22.06.22 07:56:40] [Level: info] state: read
+[Time: 22.06.22 07:56:41] [Level: info] transition: await
+[Time: 22.06.22 07:56:42] [Level: info] state: await
+[CTRL] GET /status
+127.0.0.1 - - [22/Jun/2022 07:56:42] "GET /api/status HTTP/1.0" 200 126
+127.0.0.1 - - [22/Jun/2022 07:56:43] "GET /api/data HTTP/1.0" 200 15297
+[CTRL] GET /data
+[CTRL] POST /data
+127.0.0.1 - - [22/Jun/2022 07:56:45] "POST /api/data?client=f1e59a94f67bf571 HTTP/1.0" 200 0
+127.0.0.1 - - [22/Jun/2022 07:56:46] "GET /api/status HTTP/1.0" 200 127
+[CTRL] GET /status
+[Time: 22.06.22 07:56:46] [Level: info] Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/FeatureCloud/app/engine/app.py", line 169, in guarded_run
+    self.run()
+  File "/usr/local/lib/python3.8/site-packages/FeatureCloud/app/engine/app.py", line 184, in run
+    transition = self.current_state.run()
+  File "/app/states.py", line 85, in run
+    c.delete_columns(to_drop=to_drop)
+  File "/app/states.py", line 23, in delete_columns
+    self.df = self.df.drop(columns=to_drop)
+  File "/usr/local/lib/python3.8/site-packages/pandas/util/_decorators.py", line 311, in wrapper
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.8/site-packages/pandas/core/frame.py", line 4954, in drop
+    return super().drop(
+  File "/usr/local/lib/python3.8/site-packages/pandas/core/generic.py", line 4267, in drop
+    obj = obj._drop_axis(labels, axis, level=level, errors=errors)
+  File "/usr/local/lib/python3.8/site-packages/pandas/core/generic.py", line 4311, in _drop_axis
+    new_axis = axis.drop(labels, errors=errors)
+  File "/usr/local/lib/python3.8/site-packages/pandas/core/indexes/base.py", line 6640, in drop
+    indexer = self.get_indexer_for(labels)
+  File "/usr/local/lib/python3.8/site-packages/pandas/core/indexes/base.py", line 5764, in get_indexer_for
+    return self.get_indexer(target)
+  File "/usr/local/lib/python3.8/site-packages/pandas/core/indexes/base.py", line 3784, in get_indexer
+    return self._get_indexer(target, method, limit, tolerance)
+  File "/usr/local/lib/python3.8/site-packages/pandas/core/indexes/base.py", line 3809, in _get_indexer
+    indexer = self._engine.get_indexer(tgt_values)
+  File "pandas/_libs/index.pyx", line 305, in pandas._libs.index.IndexEngine.get_indexer
+  File "pandas/_libs/hashtable_class_helper.pxi", line 5247, in pandas._libs.hashtable.PyObjectHashTable.lookup
+TypeError: unhashable type: 'Index'
+

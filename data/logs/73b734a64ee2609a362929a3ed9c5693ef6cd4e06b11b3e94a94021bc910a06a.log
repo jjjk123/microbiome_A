@@ -1,0 +1,53 @@
+2022-06-22 08:16:14,704 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2022-06-22 08:16:14,705 INFO supervisord started with pid 7
+2022-06-22 08:16:15,711 INFO spawned: 'nginx' with pid 10
+2022-06-22 08:16:15,713 INFO spawned: 'app' with pid 11
+2022-06-22 08:16:16,734 INFO success: nginx entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2022-06-22 08:16:16,734 INFO success: app entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+Bottle v0.12.21 server starting up (using WSGIRefServer())...
+Listening on http://localhost:5000/
+Hit Ctrl-C to quit.
+
+[CTRL] POST /setup
+[Time: 22.06.22 08:16:21] [Level: info] id: 4be7d86d704cbca6
+[Time: 22.06.22 08:16:21] [Level: info] coordinator: True
+[Time: 22.06.22 08:16:21] [Level: info] clients: ['e7e75ee094df6ed4', '4be7d86d704cbca6']
+[Time: 22.06.22 08:16:21] [Level: info] state: initial
+[Time: 22.06.22 08:16:21] [Level: info] transition: read
+127.0.0.1 - - [22/Jun/2022 08:16:21] "POST /api/setup HTTP/1.0" 200 0
+[CTRL] GET /status
+127.0.0.1 - - [22/Jun/2022 08:16:21] "GET /api/status HTTP/1.0" 200 126
+[Time: 22.06.22 08:16:22] [Level: info] state: read
+[Time: 22.06.22 08:16:22] [Level: info] transition: aggregate
+[Time: 22.06.22 08:16:23] [Level: info] state: aggregate
+[CTRL] GET /status
+127.0.0.1 - - [22/Jun/2022 08:16:24] "GET /api/status HTTP/1.0" 200 131
+[CTRL] POST /data
+127.0.0.1 - - [22/Jun/2022 08:16:26] "POST /api/data?client=e7e75ee094df6ed4 HTTP/1.0" 200 0
+[Time: 22.06.22 08:16:26] [Level: info] transition: await
+[CTRL] GET /status
+127.0.0.1 - - [22/Jun/2022 08:16:27] "GET /api/status HTTP/1.0" 200 126
+[CTRL] GET /data
+127.0.0.1 - - [22/Jun/2022 08:16:27] "GET /api/data HTTP/1.0" 200 7419
+[Time: 22.06.22 08:16:27] [Level: info] state: await
+[Time: 22.06.22 08:16:27] [Level: info] transition: send_global_params
+[Time: 22.06.22 08:16:28] [Level: info] state: send_global_params
+127.0.0.1 - - [22/Jun/2022 08:16:29] "POST /api/data?client=e7e75ee094df6ed4 HTTP/1.0" 200 0
+[CTRL] POST /data
+[Time: 22.06.22 08:16:29] [Level: info] transition: apply
+[CTRL] GET /status
+127.0.0.1 - - [22/Jun/2022 08:16:30] "GET /api/status HTTP/1.0" 200 126
+[CTRL] GET /data
+127.0.0.1 - - [22/Jun/2022 08:16:30] "GET /api/data HTTP/1.0" 200 247
+[Time: 22.06.22 08:16:30] [Level: info] state: apply
+[Time: 22.06.22 08:16:30] [Level: info] [State: apply] [array([1, 4]), array([1, 4])]
+[Time: 22.06.22 08:16:30] [Level: info] transition: terminal
+[Time: 22.06.22 08:16:30] [Level: info] done
+[CTRL] GET /status
+127.0.0.1 - - [22/Jun/2022 08:16:33] "GET /api/status HTTP/1.0" 200 129
+[CTRL] GET /status
+127.0.0.1 - - [22/Jun/2022 08:16:36] "GET /api/status HTTP/1.0" 200 129
+127.0.0.1 - - [22/Jun/2022 08:16:39] "GET /api/status HTTP/1.0" 200 129
+[CTRL] GET /status
+[CTRL] GET /status
+127.0.0.1 - - [22/Jun/2022 08:16:42] "GET /api/status HTTP/1.0" 200 128

@@ -1,0 +1,39 @@
+2022-06-22 08:05:21,891 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2022-06-22 08:05:21,894 INFO supervisord started with pid 8
+2022-06-22 08:05:22,896 INFO spawned: 'nginx' with pid 11
+2022-06-22 08:05:22,899 INFO spawned: 'app' with pid 12
+2022-06-22 08:05:23,916 INFO success: nginx entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2022-06-22 08:05:23,916 INFO success: app entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+Bottle v0.12.21 server starting up (using WSGIRefServer())...
+Listening on http://localhost:5000/
+Hit Ctrl-C to quit.
+
+[CTRL] POST /setup
+[Time: 22.06.22 08:05:50] [Level: info] id: 6a310db7b3cad1c6
+[Time: 22.06.22 08:05:50] [Level: info] coordinator: False
+[Time: 22.06.22 08:05:50] [Level: info] clients: ['97802a75b0bf9953', 'd8c234e4d343c302', 'a738bb31b387db9b', '6a310db7b3cad1c6', 'a32a8f178a8f9eb0', '6806e3a52a900ac9', 'c198d9536b1d55bf', 'f11c859a79b8e480']
+[Time: 22.06.22 08:05:50] [Level: info] state: initial
+[Time: 22.06.22 08:05:50] [Level: info] transition: read
+127.0.0.1 - - [22/Jun/2022 08:05:50] "POST /api/setup HTTP/1.0" 200 0
+[CTRL] GET /status
+127.0.0.1 - - [22/Jun/2022 08:05:50] "GET /api/status HTTP/1.0" 200 126
+[Time: 22.06.22 08:05:51] [Level: info] state: read
+[Time: 22.06.22 08:05:52] [Level: info] transition: await
+[Time: 22.06.22 08:05:53] [Level: info] state: await
+[CTRL] GET /status
+127.0.0.1 - - [22/Jun/2022 08:05:53] "GET /api/status HTTP/1.0" 200 126
+[CTRL] GET /data
+127.0.0.1 - - [22/Jun/2022 08:05:53] "GET /api/data HTTP/1.0" 200 18166
+[CTRL] GET /status
+127.0.0.1 - - [22/Jun/2022 08:05:56] "GET /api/status HTTP/1.0" 200 127
+[CTRL] POST /data
+127.0.0.1 - - [22/Jun/2022 08:05:56] "POST /api/data?client=d8c234e4d343c302 HTTP/1.0" 200 0
+[Time: 22.06.22 08:05:56] [Level: info] Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/FeatureCloud/app/engine/app.py", line 169, in guarded_run
+    self.run()
+  File "/usr/local/lib/python3.8/site-packages/FeatureCloud/app/engine/app.py", line 184, in run
+    transition = self.current_state.run()
+  File "/app/states.py", line 83, in run
+    self.log(len(common_to_drop))
+TypeError: object of type 'NoneType' has no len()
+

@@ -1,0 +1,67 @@
+2022-06-22 09:02:30,861 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2022-06-22 09:02:30,864 INFO supervisord started with pid 9
+2022-06-22 09:02:31,869 INFO spawned: 'nginx' with pid 12
+2022-06-22 09:02:31,872 INFO spawned: 'app' with pid 13
+2022-06-22 09:02:32,890 INFO success: nginx entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2022-06-22 09:02:32,890 INFO success: app entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+Bottle v0.12.21 server starting up (using WSGIRefServer())...
+Listening on http://localhost:5000/
+Hit Ctrl-C to quit.
+
+[CTRL] POST /setup
+[Time: 22.06.22 09:02:37] [Level: info] id: 48269f61f2180d84
+[Time: 22.06.22 09:02:37] [Level: info] coordinator: True
+[Time: 22.06.22 09:02:37] [Level: info] clients: ['48269f61f2180d84', '62ae19f9396adb98']
+[Time: 22.06.22 09:02:37] [Level: info] state: initial
+[Time: 22.06.22 09:02:37] [Level: info] transition: read
+127.0.0.1 - - [22/Jun/2022 09:02:37] "POST /api/setup HTTP/1.0" 200 0
+[CTRL] GET /status
+127.0.0.1 - - [22/Jun/2022 09:02:37] "GET /api/status HTTP/1.0" 200 126
+[Time: 22.06.22 09:02:38] [Level: info] state: read
+[Time: 22.06.22 09:02:38] [Level: info] transition: aggregate
+[Time: 22.06.22 09:02:39] [Level: info] state: aggregate
+[CTRL] GET /status
+127.0.0.1 - - [22/Jun/2022 09:02:40] "GET /api/status HTTP/1.0" 200 131
+[CTRL] POST /data
+127.0.0.1 - - [22/Jun/2022 09:02:42] "POST /api/data?client=62ae19f9396adb98 HTTP/1.0" 200 0
+[Time: 22.06.22 09:02:42] [Level: info] transition: await
+[CTRL] GET /status
+127.0.0.1 - - [22/Jun/2022 09:02:43] "GET /api/status HTTP/1.0" 200 126
+[CTRL] GET /data
+127.0.0.1 - - [22/Jun/2022 09:02:43] "GET /api/data HTTP/1.0" 200 7419
+[Time: 22.06.22 09:02:43] [Level: info] state: await
+[Time: 22.06.22 09:02:43] [Level: info] [State: await]      HQ_clean_read_count  gut_mapped_read_count  ...      msp_2950  msp_2951
+0               47561376               39639265  ...  0.000000e+00       0.0
+1               62048458               50252720  ...  0.000000e+00       0.0
+2               58857214               48715189  ...  0.000000e+00       0.0
+3               51542668               42229049  ...  7.633057e-09       0.0
+4               41507164               32689325  ...  0.000000e+00       0.0
+..                   ...                    ...  ...           ...       ...
+121             52529564               41747057  ...  0.000000e+00       0.0
+122             48456162               40097578  ...  0.000000e+00       0.0
+123             38726882               31415942  ...  0.000000e+00       0.0
+124             33213704               27033599  ...  0.000000e+00       0.0
+125             49495898               40303641  ...  0.000000e+00       0.0
+
+[126 rows x 1806 columns]
+[Time: 22.06.22 09:02:43] [Level: info] transition: send_global_params
+[Time: 22.06.22 09:02:44] [Level: info] state: send_global_params
+[CTRL] POST /data
+127.0.0.1 - - [22/Jun/2022 09:02:45] "POST /api/data?client=62ae19f9396adb98 HTTP/1.0" 200 0
+[Time: 22.06.22 09:02:45] [Level: info] transition: apply
+[CTRL] GET /status
+127.0.0.1 - - [22/Jun/2022 09:02:46] "GET /api/status HTTP/1.0" 200 126
+127.0.0.1 - - [22/Jun/2022 09:02:46] "GET /api/data HTTP/1.0" 200 247
+[CTRL] GET /data
+[Time: 22.06.22 09:02:46] [Level: info] state: apply
+[Time: 22.06.22 09:02:46] [Level: info] [State: apply] [array([1, 4]), array([3, 3])]
+[Time: 22.06.22 09:02:46] [Level: info] transition: terminal
+[Time: 22.06.22 09:02:46] [Level: info] done
+[CTRL] GET /status
+127.0.0.1 - - [22/Jun/2022 09:02:49] "GET /api/status HTTP/1.0" 200 129
+[CTRL] GET /status
+127.0.0.1 - - [22/Jun/2022 09:02:52] "GET /api/status HTTP/1.0" 200 129
+[CTRL] GET /status
+127.0.0.1 - - [22/Jun/2022 09:02:55] "GET /api/status HTTP/1.0" 200 129
+[CTRL] GET /status
+127.0.0.1 - - [22/Jun/2022 09:02:58] "GET /api/status HTTP/1.0" 200 128

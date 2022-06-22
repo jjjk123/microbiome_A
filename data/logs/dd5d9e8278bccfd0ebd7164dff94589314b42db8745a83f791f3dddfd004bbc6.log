@@ -1,0 +1,10 @@
+2022-06-22 08:10:14,757 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2022-06-22 08:10:14,759 INFO supervisord started with pid 8
+2022-06-22 08:10:15,762 INFO spawned: 'nginx' with pid 11
+2022-06-22 08:10:15,765 INFO spawned: 'app' with pid 12
+2022-06-22 08:10:16,792 INFO success: nginx entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2022-06-22 08:10:16,793 INFO success: app entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+Bottle v0.12.21 server starting up (using WSGIRefServer())...
+Listening on http://localhost:5000/
+Hit Ctrl-C to quit.
+

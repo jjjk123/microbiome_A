@@ -1,0 +1,72 @@
+2022-06-22 07:30:46,231 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2022-06-22 07:30:46,237 INFO supervisord started with pid 9
+2022-06-22 07:30:47,239 INFO spawned: 'nginx' with pid 12
+2022-06-22 07:30:47,241 INFO spawned: 'app' with pid 13
+2022-06-22 07:30:48,403 INFO success: nginx entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2022-06-22 07:30:48,403 INFO success: app entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+Bottle v0.12.21 server starting up (using WSGIRefServer())...
+Listening on http://localhost:5000/
+Hit Ctrl-C to quit.
+
+[CTRL] POST /setup
+[Time: 22.06.22 07:30:52] [Level: info] id: 1c82d046db77d0ee
+[Time: 22.06.22 07:30:52] [Level: info] coordinator: True
+[Time: 22.06.22 07:30:52] [Level: info] clients: ['c5e6d6329d0954cc', '1c82d046db77d0ee']
+[Time: 22.06.22 07:30:52] [Level: info] state: initial
+[Time: 22.06.22 07:30:52] [Level: info] transition: read
+127.0.0.1 - - [22/Jun/2022 07:30:52] "POST /api/setup HTTP/1.0" 200 0
+[CTRL] GET /status
+127.0.0.1 - - [22/Jun/2022 07:30:52] "GET /api/status HTTP/1.0" 200 126
+[Time: 22.06.22 07:30:53] [Level: info] state: read
+[Time: 22.06.22 07:30:53] [Level: info] transition: aggregate
+[Time: 22.06.22 07:30:54] [Level: info] state: aggregate
+[CTRL] GET /status
+127.0.0.1 - - [22/Jun/2022 07:30:55] "GET /api/status HTTP/1.0" 200 131
+127.0.0.1 - - [22/Jun/2022 07:30:57] "POST /api/data?client=c5e6d6329d0954cc HTTP/1.0" 200 0
+[CTRL] POST /data
+[Time: 22.06.22 07:30:57] [Level: info] [State: aggregate] [Index(['msp_0051', 'msp_0078', 'msp_0082c', 'msp_0094', 'msp_0097', 'msp_0099',
+       'msp_0102', 'msp_0122', 'msp_0149', 'msp_0155',
+       ...
+       'msp_2917', 'msp_2920', 'msp_2924', 'msp_2928', 'msp_2930', 'msp_2936',
+       'msp_2939', 'msp_2946', 'msp_2947', 'msp_2949'],
+      dtype='object', length=691), Index(['msp_0001', 'msp_0002', 'msp_0033', 'msp_0037', 'msp_0038', 'msp_0044',
+       'msp_0049', 'msp_0051', 'msp_0064', 'msp_0067',
+       ...
+       'msp_2939', 'msp_2940', 'msp_2942', 'msp_2945', 'msp_2946', 'msp_2947',
+       'msp_2948', 'msp_2949', 'msp_2950', 'msp_2951'],
+      dtype='object', length=1624)]
+[Time: 22.06.22 07:30:57] [Level: info] transition: await
+[CTRL] GET /status
+127.0.0.1 - - [22/Jun/2022 07:30:58] "GET /api/status HTTP/1.0" 200 126
+127.0.0.1 - - [22/Jun/2022 07:30:58] "GET /api/data HTTP/1.0" 200 25890
+[CTRL] GET /data
+[Time: 22.06.22 07:30:58] [Level: info] state: await
+[Time: 22.06.22 07:30:58] [Level: info] Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/FeatureCloud/app/engine/app.py", line 169, in guarded_run
+    self.run()
+  File "/usr/local/lib/python3.8/site-packages/FeatureCloud/app/engine/app.py", line 184, in run
+    transition = self.current_state.run()
+  File "/app/states.py", line 85, in run
+    c.delete_columns(to_drop)
+  File "/app/states.py", line 24, in delete_columns
+    self.df = self.df.drop(columns=to_drop)
+  File "/usr/local/lib/python3.8/site-packages/pandas/util/_decorators.py", line 311, in wrapper
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.8/site-packages/pandas/core/frame.py", line 4954, in drop
+    return super().drop(
+  File "/usr/local/lib/python3.8/site-packages/pandas/core/generic.py", line 4267, in drop
+    obj = obj._drop_axis(labels, axis, level=level, errors=errors)
+  File "/usr/local/lib/python3.8/site-packages/pandas/core/generic.py", line 4311, in _drop_axis
+    new_axis = axis.drop(labels, errors=errors)
+  File "/usr/local/lib/python3.8/site-packages/pandas/core/indexes/base.py", line 6640, in drop
+    indexer = self.get_indexer_for(labels)
+  File "/usr/local/lib/python3.8/site-packages/pandas/core/indexes/base.py", line 5764, in get_indexer_for
+    return self.get_indexer(target)
+  File "/usr/local/lib/python3.8/site-packages/pandas/core/indexes/base.py", line 3784, in get_indexer
+    return self._get_indexer(target, method, limit, tolerance)
+  File "/usr/local/lib/python3.8/site-packages/pandas/core/indexes/base.py", line 3809, in _get_indexer
+    indexer = self._engine.get_indexer(tgt_values)
+  File "pandas/_libs/index.pyx", line 305, in pandas._libs.index.IndexEngine.get_indexer
+  File "pandas/_libs/hashtable_class_helper.pxi", line 5247, in pandas._libs.hashtable.PyObjectHashTable.lookup
+TypeError: unhashable type: 'Index'
+

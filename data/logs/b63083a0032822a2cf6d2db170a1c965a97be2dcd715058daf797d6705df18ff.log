@@ -1,0 +1,84 @@
+2022-06-22 08:10:25,797 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2022-06-22 08:10:25,802 INFO supervisord started with pid 9
+2022-06-22 08:10:26,781 INFO spawned: 'nginx' with pid 12
+2022-06-22 08:10:26,784 INFO spawned: 'app' with pid 13
+2022-06-22 08:10:27,810 INFO success: nginx entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2022-06-22 08:10:27,810 INFO success: app entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+Bottle v0.12.21 server starting up (using WSGIRefServer())...
+Listening on http://localhost:5000/
+Hit Ctrl-C to quit.
+
+[CTRL] POST /setup
+[Time: 22.06.22 08:10:52] [Level: info] id: dff26affca19938d
+[Time: 22.06.22 08:10:52] [Level: info] coordinator: True
+[Time: 22.06.22 08:10:52] [Level: info] clients: ['d6d99fc57d979a28', 'dff26affca19938d', 'ea06750e87a5c227', '8423d3ebf5bc4c2c', '741962b97f478522', '1ed41903b0c97a64', '9b1253312c9a32ea', 'b9aa902f66821b77']
+[Time: 22.06.22 08:10:52] [Level: info] state: initial
+[Time: 22.06.22 08:10:52] [Level: info] transition: read
+127.0.0.1 - - [22/Jun/2022 08:10:52] "POST /api/setup HTTP/1.0" 200 0
+[Time: 22.06.22 08:10:53] [Level: info] state: read
+[CTRL] POST /setup
+[Time: 22.06.22 08:10:53] [Level: info] id: 741962b97f478522
+[Time: 22.06.22 08:10:53] [Level: info] coordinator: False
+[Time: 22.06.22 08:10:53] [Level: info] clients: ['d6d99fc57d979a28', 'dff26affca19938d', 'ea06750e87a5c227', '8423d3ebf5bc4c2c', '741962b97f478522', '1ed41903b0c97a64', '9b1253312c9a32ea', 'b9aa902f66821b77']
+[Time: 22.06.22 08:10:53] [Level: info] state: initial
+[Time: 22.06.22 08:10:53] [Level: info] transition: read
+[CTRL] GET /status
+127.0.0.1 - - [22/Jun/2022 08:10:53] "POST /api/setup HTTP/1.0" 200 0
+127.0.0.1 - - [22/Jun/2022 08:10:53] "GET /api/status HTTP/1.0" 200 126
+[CTRL] GET /status
+127.0.0.1 - - [22/Jun/2022 08:10:53] "GET /api/status HTTP/1.0" 200 126
+[Time: 22.06.22 08:10:53] [Level: info] transition: await
+[Time: 22.06.22 08:10:54] [Level: info] state: await
+[Time: 22.06.22 08:10:54] [Level: info] state: await
+[CTRL] POST /data
+127.0.0.1 - - [22/Jun/2022 08:10:55] "POST /api/data?client=d6d99fc57d979a28 HTTP/1.0" 200 0
+[CTRL] POST /data
+127.0.0.1 - - [22/Jun/2022 08:10:55] "POST /api/data?client=1ed41903b0c97a64 HTTP/1.0" 200 0
+[Time: 22.06.22 08:10:55] [Level: info] [State: await] Index(['msp_0051', 'msp_0078', 'msp_0082c', 'msp_0094', 'msp_0097', 'msp_0099',
+       'msp_0102', 'msp_0122', 'msp_0149', 'msp_0155',
+       ...
+       'msp_2917', 'msp_2920', 'msp_2924', 'msp_2928', 'msp_2930', 'msp_2936',
+       'msp_2939', 'msp_2946', 'msp_2947', 'msp_2949'],
+      dtype='object', length=691)
+[Time: 22.06.22 08:10:55] [Level: info] transition: apply
+[CTRL] POST /data
+127.0.0.1 - - [22/Jun/2022 08:10:55] "POST /api/data?client=8423d3ebf5bc4c2c HTTP/1.0" 200 0
+[CTRL] POST /data
+127.0.0.1 - - [22/Jun/2022 08:10:55] "POST /api/data?client=ea06750e87a5c227 HTTP/1.0" 200 0
+[CTRL] POST /data
+127.0.0.1 - - [22/Jun/2022 08:10:55] "POST /api/data?client=9b1253312c9a32ea HTTP/1.0" 200 0
+[Time: 22.06.22 08:10:55] [Level: info] [State: await] Index(['msp_0051', 'msp_0082c', 'msp_0102', 'msp_0115c', 'msp_0122',
+       'msp_0149', 'msp_0155', 'msp_0184', 'msp_0219', 'msp_0231',
+       ...
+       'msp_2924', 'msp_2928', 'msp_2930', 'msp_2939', 'msp_2942', 'msp_2945',
+       'msp_2946', 'msp_2947', 'msp_2948', 'msp_2951'],
+      dtype='object', length=766)
+[Time: 22.06.22 08:10:55] [Level: info] transition: apply
+[Time: 22.06.22 08:10:55] [Level: info] Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/FeatureCloud/app/engine/app.py", line 169, in guarded_run
+    self.run()
+  File "/usr/local/lib/python3.8/site-packages/FeatureCloud/app/engine/app.py", line 186, in run
+    self.transition(f'{self.current_state.name}_{transition}')
+  File "/usr/local/lib/python3.8/site-packages/FeatureCloud/app/engine/app.py", line 314, in transition
+    self.log(f'transition {name} not found', level=LogLevel.FATAL)
+  File "/usr/local/lib/python3.8/site-packages/FeatureCloud/app/engine/app.py", line 340, in log
+    raise RuntimeError(msg)
+RuntimeError: [Time: 22.06.22 08:10:55] [Level: fatal] transition apply_apply not found
+
+[CTRL] GET /status
+127.0.0.1 - - [22/Jun/2022 08:10:56] "GET /api/status HTTP/1.0" 200 135
+[CTRL] GET /data
+127.0.0.1 - - [22/Jun/2022 08:10:56] "GET /api/data HTTP/1.0" 200 9351
+[CTRL] GET /status
+127.0.0.1 - - [22/Jun/2022 08:10:56] "GET /api/status HTTP/1.0" 200 136
+[Time: 22.06.22 08:10:56] [Level: info] state: apply
+[Time: 22.06.22 08:10:56] [Level: info] [State: apply] Index(['msp_0006', 'msp_0019', 'msp_0049', 'msp_0051', 'msp_0067', 'msp_0082c',
+       'msp_0088', 'msp_0096', 'msp_0097', 'msp_0099',
+       ...
+       'msp_2937', 'msp_2939', 'msp_2941', 'msp_2942', 'msp_2945', 'msp_2946',
+       'msp_2947', 'msp_2948', 'msp_2949', 'msp_2951'],
+      dtype='object', length=1364)
+[Time: 22.06.22 08:10:56] [Level: info] transition: terminal
+[Time: 22.06.22 08:10:56] [Level: info] done
+[CTRL] POST /data
+127.0.0.1 - - [22/Jun/2022 08:10:56] "POST /api/data?client=dff26affca19938d HTTP/1.0" 200 0

@@ -1,0 +1,47 @@
+2022-06-22 08:16:19,203 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2022-06-22 08:16:19,206 INFO supervisord started with pid 8
+2022-06-22 08:16:20,209 INFO spawned: 'nginx' with pid 11
+2022-06-22 08:16:20,211 INFO spawned: 'app' with pid 12
+2022-06-22 08:16:21,231 INFO success: nginx entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2022-06-22 08:16:21,231 INFO success: app entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+Bottle v0.12.21 server starting up (using WSGIRefServer())...
+Listening on http://localhost:5000/
+Hit Ctrl-C to quit.
+
+[CTRL] POST /setup
+[Time: 22.06.22 08:16:23] [Level: info] id: e7e75ee094df6ed4
+[Time: 22.06.22 08:16:23] [Level: info] coordinator: False
+[Time: 22.06.22 08:16:23] [Level: info] clients: ['e7e75ee094df6ed4', '4be7d86d704cbca6']
+[Time: 22.06.22 08:16:23] [Level: info] state: initial
+[Time: 22.06.22 08:16:23] [Level: info] transition: read
+127.0.0.1 - - [22/Jun/2022 08:16:23] "POST /api/setup HTTP/1.0" 200 0
+[CTRL] GET /status
+127.0.0.1 - - [22/Jun/2022 08:16:23] "GET /api/status HTTP/1.0" 200 126
+[Time: 22.06.22 08:16:24] [Level: info] state: read
+[Time: 22.06.22 08:16:24] [Level: info] transition: await
+[Time: 22.06.22 08:16:25] [Level: info] state: await
+[CTRL] GET /status
+127.0.0.1 - - [22/Jun/2022 08:16:26] "GET /api/status HTTP/1.0" 200 126
+[CTRL] GET /data
+127.0.0.1 - - [22/Jun/2022 08:16:26] "GET /api/data HTTP/1.0" 200 18166
+[CTRL] POST /data
+127.0.0.1 - - [22/Jun/2022 08:16:27] "POST /api/data?client=4be7d86d704cbca6 HTTP/1.0" 200 0
+[Time: 22.06.22 08:16:27] [Level: info] transition: apply
+[Time: 22.06.22 08:16:28] [Level: info] state: apply
+[CTRL] GET /status
+127.0.0.1 - - [22/Jun/2022 08:16:29] "GET /api/status HTTP/1.0" 200 126
+[CTRL] GET /data
+127.0.0.1 - - [22/Jun/2022 08:16:29] "GET /api/data HTTP/1.0" 200 163
+[CTRL] POST /data
+127.0.0.1 - - [22/Jun/2022 08:16:30] "POST /api/data?client=4be7d86d704cbca6 HTTP/1.0" 200 0
+[Time: 22.06.22 08:16:30] [Level: info] [State: apply] [array([1, 4]), array([1, 4])]
+[Time: 22.06.22 08:16:30] [Level: info] transition: terminal
+[Time: 22.06.22 08:16:30] [Level: info] done
+[CTRL] GET /status
+127.0.0.1 - - [22/Jun/2022 08:16:32] "GET /api/status HTTP/1.0" 200 129
+[CTRL] GET /status
+127.0.0.1 - - [22/Jun/2022 08:16:35] "GET /api/status HTTP/1.0" 200 129
+[CTRL] GET /status
+127.0.0.1 - - [22/Jun/2022 08:16:38] "GET /api/status HTTP/1.0" 200 129
+[CTRL] GET /status
+127.0.0.1 - - [22/Jun/2022 08:16:41] "GET /api/status HTTP/1.0" 200 128

@@ -1,0 +1,36 @@
+2022-06-22 08:10:45,459 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2022-06-22 08:10:45,463 INFO supervisord started with pid 9
+2022-06-22 08:10:46,465 INFO spawned: 'nginx' with pid 12
+2022-06-22 08:10:46,466 INFO spawned: 'app' with pid 13
+2022-06-22 08:10:47,500 INFO success: nginx entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2022-06-22 08:10:47,501 INFO success: app entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+Bottle v0.12.21 server starting up (using WSGIRefServer())...
+Listening on http://localhost:5000/
+Hit Ctrl-C to quit.
+
+[CTRL] POST /setup
+[Time: 22.06.22 08:10:52] [Level: info] id: 9b1253312c9a32ea
+[Time: 22.06.22 08:10:52] [Level: info] coordinator: False
+[Time: 22.06.22 08:10:52] [Level: info] clients: ['d6d99fc57d979a28', 'dff26affca19938d', 'ea06750e87a5c227', '8423d3ebf5bc4c2c', '741962b97f478522', '1ed41903b0c97a64', '9b1253312c9a32ea', 'b9aa902f66821b77']
+[Time: 22.06.22 08:10:52] [Level: info] state: initial
+[Time: 22.06.22 08:10:52] [Level: info] transition: read
+127.0.0.1 - - [22/Jun/2022 08:10:52] "POST /api/setup HTTP/1.0" 200 0
+[CTRL] GET /status
+127.0.0.1 - - [22/Jun/2022 08:10:52] "GET /api/status HTTP/1.0" 200 126
+[Time: 22.06.22 08:10:53] [Level: info] state: read
+[Time: 22.06.22 08:10:53] [Level: info] transition: await
+[Time: 22.06.22 08:10:54] [Level: info] state: await
+[CTRL] GET /status
+127.0.0.1 - - [22/Jun/2022 08:10:55] "GET /api/status HTTP/1.0" 200 126
+[CTRL] GET /data
+127.0.0.1 - - [22/Jun/2022 08:10:55] "GET /api/data HTTP/1.0" 200 5307
+[CTRL] POST /data
+127.0.0.1 - - [22/Jun/2022 08:10:56] "POST /api/data?client=dff26affca19938d HTTP/1.0" 200 0
+[Time: 22.06.22 08:10:56] [Level: info] [State: await] Index(['msp_0004', 'msp_0051', 'msp_0078', 'msp_0096', 'msp_0099', 'msp_0101',
+       'msp_0115c', 'msp_0116', 'msp_0169', 'msp_0190',
+       ...
+       'msp_2908', 'msp_2910', 'msp_2915', 'msp_2930', 'msp_2945', 'msp_2946',
+       'msp_2947', 'msp_2948', 'msp_2949', 'msp_2951'],
+      dtype='object', length=826)
+[Time: 22.06.22 08:10:56] [Level: info] transition: apply
+[Time: 22.06.22 08:10:57] [Level: info] state: apply

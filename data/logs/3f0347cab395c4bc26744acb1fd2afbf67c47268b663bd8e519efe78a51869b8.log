@@ -1,0 +1,62 @@
+2022-06-22 09:48:42,266 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2022-06-22 09:48:42,271 INFO supervisord started with pid 8
+2022-06-22 09:48:43,274 INFO spawned: 'nginx' with pid 11
+2022-06-22 09:48:43,276 INFO spawned: 'app' with pid 12
+2022-06-22 09:48:44,295 INFO success: nginx entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2022-06-22 09:48:44,295 INFO success: app entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+Bottle v0.12.21 server starting up (using WSGIRefServer())...
+Listening on http://localhost:5000/
+Hit Ctrl-C to quit.
+
+[CTRL] POST /setup
+[Time: 22.06.22 09:48:46] [Level: info] id: 5c44f1ca482c6996
+[Time: 22.06.22 09:48:46] [Level: info] coordinator: False
+[Time: 22.06.22 09:48:46] [Level: info] clients: ['51347af45a5ab637', '5c44f1ca482c6996', 'c9a8cdf25f03a7db']
+[Time: 22.06.22 09:48:46] [Level: info] state: initial
+[Time: 22.06.22 09:48:46] [Level: info] transition: read
+127.0.0.1 - - [22/Jun/2022 09:48:46] "POST /api/setup HTTP/1.0" 200 0
+[CTRL] GET /status
+127.0.0.1 - - [22/Jun/2022 09:48:46] "GET /api/status HTTP/1.0" 200 126
+[Time: 22.06.22 09:48:47] [Level: info] state: read
+[Time: 22.06.22 09:48:47] [Level: info] [State: read] Hello
+[Time: 22.06.22 09:48:47] [Level: info] transition: await
+[Time: 22.06.22 09:48:48] [Level: info] state: await
+[CTRL] GET /status
+127.0.0.1 - - [22/Jun/2022 09:48:49] "GET /api/status HTTP/1.0" 200 126
+[CTRL] GET /data
+127.0.0.1 - - [22/Jun/2022 09:48:49] "GET /api/data HTTP/1.0" 200 9351
+[CTRL] POST /data
+127.0.0.1 - - [22/Jun/2022 09:48:50] "POST /api/data?client=51347af45a5ab637 HTTP/1.0" 200 0
+[Time: 22.06.22 09:48:50] [Level: info] [State: await]      HQ_clean_read_count  gut_mapped_read_count  ...  msp_2950  msp_2951
+0               60749028               47791578  ...       0.0       0.0
+1               52852218               42154460  ...       0.0       0.0
+2               59871192               46585666  ...       0.0       0.0
+3               55760597               43865937  ...       0.0       0.0
+4               64434142               49563892  ...       0.0       0.0
+..                   ...                    ...  ...       ...       ...
+108             41117852               34632761  ...       0.0       0.0
+109             34540786               29888602  ...       0.0       0.0
+110             42174160               35826068  ...       0.0       0.0
+111             57454672               48427119  ...       0.0       0.0
+112             41328684               34425780  ...       0.0       0.0
+
+[113 rows x 2029 columns]
+[Time: 22.06.22 09:48:50] [Level: info] transition: apply
+[Time: 22.06.22 09:48:51] [Level: info] state: apply
+[CTRL] GET /status
+127.0.0.1 - - [22/Jun/2022 09:48:52] "GET /api/status HTTP/1.0" 200 126
+[CTRL] GET /data
+127.0.0.1 - - [22/Jun/2022 09:48:52] "GET /api/data HTTP/1.0" 200 163
+[CTRL] POST /data
+127.0.0.1 - - [22/Jun/2022 09:48:53] "POST /api/data?client=51347af45a5ab637 HTTP/1.0" 200 0
+[Time: 22.06.22 09:48:53] [Level: info] [State: apply] [array([4, 1]), array([1, 3]), array([4, 1])]
+[Time: 22.06.22 09:48:53] [Level: info] transition: terminal
+[Time: 22.06.22 09:48:53] [Level: info] done
+127.0.0.1 - - [22/Jun/2022 09:48:55] "GET /api/status HTTP/1.0" 200 129
+[CTRL] GET /status
+[CTRL] GET /status
+127.0.0.1 - - [22/Jun/2022 09:48:58] "GET /api/status HTTP/1.0" 200 129
+[CTRL] GET /status
+127.0.0.1 - - [22/Jun/2022 09:49:01] "GET /api/status HTTP/1.0" 200 129
+[CTRL] GET /status
+127.0.0.1 - - [22/Jun/2022 09:49:04] "GET /api/status HTTP/1.0" 200 128
