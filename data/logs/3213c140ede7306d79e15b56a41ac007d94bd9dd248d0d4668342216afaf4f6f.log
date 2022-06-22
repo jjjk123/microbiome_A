@@ -1,0 +1,38 @@
+2022-06-22 12:50:19,135 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2022-06-22 12:50:19,137 INFO supervisord started with pid 8
+2022-06-22 12:50:20,144 INFO spawned: 'nginx' with pid 11
+2022-06-22 12:50:20,148 INFO spawned: 'app' with pid 12
+Bottle v0.12.21 server starting up (using WSGIRefServer())...
+Listening on http://localhost:5000/
+Hit Ctrl-C to quit.
+
+2022-06-22 12:50:21,998 INFO success: nginx entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2022-06-22 12:50:21,999 INFO success: app entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+[CTRL] POST /setup
+[Time: 22.06.22 12:50:23] [Level: info] id: 32170886e8afa6c7
+[Time: 22.06.22 12:50:23] [Level: info] coordinator: False
+[Time: 22.06.22 12:50:23] [Level: info] clients: ['32170886e8afa6c7', 'c3947fda386cc7d0']
+[Time: 22.06.22 12:50:23] [Level: info] state: initial
+[Time: 22.06.22 12:50:23] [Level: info] transition: read
+127.0.0.1 - - [22/Jun/2022 12:50:23] "POST /api/setup HTTP/1.0" 200 0
+[CTRL] GET /status
+127.0.0.1 - - [22/Jun/2022 12:50:23] "GET /api/status HTTP/1.0" 200 126
+[Time: 22.06.22 12:50:24] [Level: info] state: read
+[Time: 22.06.22 12:50:24] [Level: info] transition: send_empty_columns
+[Time: 22.06.22 12:50:25] [Level: info] state: send_empty_columns
+[Time: 22.06.22 12:50:25] [Level: info] [State: send_empty_columns] Index(['msp_0004', 'msp_0051', 'msp_0078', 'msp_0096', 'msp_0099', 'msp_0101',
+       'msp_0115c', 'msp_0116', 'msp_0169', 'msp_0190',
+       ...
+       'msp_2908', 'msp_2910', 'msp_2915', 'msp_2930', 'msp_2945', 'msp_2946',
+       'msp_2947', 'msp_2948', 'msp_2949', 'msp_2951'],
+      dtype='object', length=826)
+[Time: 22.06.22 12:50:25] [Level: info] transition: await
+[CTRL] GET /status
+127.0.0.1 - - [22/Jun/2022 12:50:26] "GET /api/status HTTP/1.0" 200 126
+127.0.0.1 - - [22/Jun/2022 12:50:26] "GET /api/data HTTP/1.0" 200 4
+[CTRL] GET /data
+[Time: 22.06.22 12:50:26] [Level: info] state: await
+127.0.0.1 - - [22/Jun/2022 12:50:29] "GET /api/status HTTP/1.0" 200 126
+[CTRL] GET /status
+[CTRL] GET /data
+127.0.0.1 - - [22/Jun/2022 12:50:29] "GET /api/data HTTP/1.0" 200 9351

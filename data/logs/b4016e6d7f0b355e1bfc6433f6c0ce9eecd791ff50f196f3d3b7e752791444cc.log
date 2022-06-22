@@ -1,0 +1,39 @@
+2022-06-22 13:10:20,428 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2022-06-22 13:10:20,431 INFO supervisord started with pid 7
+2022-06-22 13:10:21,439 INFO spawned: 'nginx' with pid 10
+2022-06-22 13:10:21,445 INFO spawned: 'app' with pid 11
+Bottle v0.12.21 server starting up (using WSGIRefServer())...
+Listening on http://localhost:5000/
+Hit Ctrl-C to quit.
+
+2022-06-22 13:10:23,422 INFO success: nginx entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2022-06-22 13:10:23,422 INFO success: app entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+[CTRL] POST /setup
+[Time: 22.06.22 13:10:31] [Level: info] id: 7531161dda845c14
+[Time: 22.06.22 13:10:31] [Level: info] coordinator: True
+[Time: 22.06.22 13:10:31] [Level: info] clients: ['802f935079ee0a1c', 'd1dd868ae7814474', '7531161dda845c14']
+127.0.0.1 - - [22/Jun/2022 13:10:31] "POST /api/setup HTTP/1.0" 200 0
+[Time: 22.06.22 13:10:31] [Level: info] state: initial
+[Time: 22.06.22 13:10:31] [Level: info] transition: read
+[CTRL] GET /status
+127.0.0.1 - - [22/Jun/2022 13:10:31] "GET /api/status HTTP/1.0" 200 126
+[Time: 22.06.22 13:10:32] [Level: info] state: read
+[Time: 22.06.22 13:10:32] [Level: info] transition: aggregate_contributions
+[Time: 22.06.22 13:10:33] [Level: info] state: aggregate_contributions
+[CTRL] GET /status
+127.0.0.1 - - [22/Jun/2022 13:10:34] "GET /api/status HTTP/1.0" 200 145
+[CTRL] POST /data
+127.0.0.1 - - [22/Jun/2022 13:10:34] "POST /api/data?client=d1dd868ae7814474 HTTP/1.0" 200 0
+127.0.0.1 - - [22/Jun/2022 13:10:36] "POST /api/data?client=802f935079ee0a1c HTTP/1.0" 200 0
+[CTRL] POST /data
+[Time: 22.06.22 13:10:36] [Level: info] Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/FeatureCloud/app/engine/app.py", line 169, in guarded_run
+    self.run()
+  File "/usr/local/lib/python3.8/site-packages/FeatureCloud/app/engine/app.py", line 184, in run
+    transition = self.current_state.run()
+  File "/app/states.py", line 80, in run
+    contributions = len(self.gather_data() == True)
+TypeError: object of type 'bool' has no len()
+
+[CTRL] GET /status
+127.0.0.1 - - [22/Jun/2022 13:10:37] "GET /api/status HTTP/1.0" 200 133

@@ -1,0 +1,54 @@
+2022-06-22 12:39:26,825 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2022-06-22 12:39:26,828 INFO supervisord started with pid 8
+2022-06-22 12:39:27,831 INFO spawned: 'nginx' with pid 11
+2022-06-22 12:39:27,832 INFO spawned: 'app' with pid 12
+Bottle v0.12.21 server starting up (using WSGIRefServer())...
+Listening on http://localhost:5000/
+Hit Ctrl-C to quit.
+
+2022-06-22 12:39:29,678 INFO success: nginx entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2022-06-22 12:39:29,679 INFO success: app entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+[CTRL] POST /setup
+[Time: 22.06.22 12:39:33] [Level: info] id: 66bc6b82d34fa27b
+[Time: 22.06.22 12:39:33] [Level: info] coordinator: False
+[Time: 22.06.22 12:39:33] [Level: info] clients: ['23c52cc3dbc8e936', '66bc6b82d34fa27b', '925e32a9fa4d2b31']
+127.0.0.1 - - [22/Jun/2022 12:39:33] "POST /api/setup HTTP/1.0" 200 0
+[Time: 22.06.22 12:39:33] [Level: info] state: initial
+[Time: 22.06.22 12:39:33] [Level: info] transition: read
+[CTRL] GET /status
+127.0.0.1 - - [22/Jun/2022 12:39:33] "GET /api/status HTTP/1.0" 200 126
+[Time: 22.06.22 12:39:34] [Level: info] state: read
+[Time: 22.06.22 12:39:34] [Level: info] transition: await
+[Time: 22.06.22 12:39:35] [Level: info] state: await
+[CTRL] GET /status
+127.0.0.1 - - [22/Jun/2022 12:39:36] "GET /api/status HTTP/1.0" 200 126
+[CTRL] GET /data
+127.0.0.1 - - [22/Jun/2022 12:39:36] "GET /api/data HTTP/1.0" 200 4
+[CTRL] GET /status
+127.0.0.1 - - [22/Jun/2022 12:39:39] "GET /api/status HTTP/1.0" 200 127
+[CTRL] GET /status
+127.0.0.1 - - [22/Jun/2022 12:39:42] "GET /api/status HTTP/1.0" 200 127
+[CTRL] POST /data
+127.0.0.1 - - [22/Jun/2022 12:39:42] "POST /api/data?client=23c52cc3dbc8e936 HTTP/1.0" 200 0
+[Time: 22.06.22 12:39:42] [Level: info] [State: await] {'p', 's', 'm', '_'}
+[Time: 22.06.22 12:39:42] [Level: info] Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/FeatureCloud/app/engine/app.py", line 169, in guarded_run
+    self.run()
+  File "/usr/local/lib/python3.8/site-packages/FeatureCloud/app/engine/app.py", line 184, in run
+    transition = self.current_state.run()
+  File "/app/states.py", line 129, in run
+    c.delete_columns(common_to_drop)
+  File "/app/states.py", line 27, in delete_columns
+    self.df = self.df.drop(columns=to_drop)
+  File "/usr/local/lib/python3.8/site-packages/pandas/util/_decorators.py", line 311, in wrapper
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.8/site-packages/pandas/core/frame.py", line 4954, in drop
+    return super().drop(
+  File "/usr/local/lib/python3.8/site-packages/pandas/core/generic.py", line 4267, in drop
+    obj = obj._drop_axis(labels, axis, level=level, errors=errors)
+  File "/usr/local/lib/python3.8/site-packages/pandas/core/generic.py", line 4311, in _drop_axis
+    new_axis = axis.drop(labels, errors=errors)
+  File "/usr/local/lib/python3.8/site-packages/pandas/core/indexes/base.py", line 6644, in drop
+    raise KeyError(f"{list(labels[mask])} not found in axis")
+KeyError: "['p', 's', 'm', '_'] not found in axis"
+

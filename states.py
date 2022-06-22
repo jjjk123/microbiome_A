@@ -1,5 +1,7 @@
+from dataclasses import dataclass
 from FeatureCloud.app.engine.app import AppState, app_state, Role
 import pandas as pd
+from pyparsing import common
 from preprocessing import analyse_data
 from logistic_regression import logistic_regression
 from collections import Counter
@@ -8,6 +10,8 @@ from collections import Counter
 # This state is executed after the app instance is started.
 
 class Data():
+    # number of contributors
+    n = 1
 
     def read_data(self, file_anno, file_exp):
         anno = pd.read_csv(file_anno, delimiter=',')
@@ -17,16 +21,21 @@ class Data():
 
         self.df = df
     
-    def get_balance_ratio(self):
-        counter = Counter(self.df['health_status'])
-        ratio = counter['P'] / (counter['P'] + counter['H'])
-        return ratio
-    
     def get_dataframe(self):
         return self.df
     
     def delete_columns(self, to_drop):
         self.df = self.df.drop(columns=to_drop)
+
+    def is_contributing(self):
+        counter = Counter(self.df['health_status'])
+        ratio = counter['P'] / (counter['P'] + counter['H'])
+
+        if ratio > 0.85:
+            return False
+        else:
+            return True
+
 
 c = Data()
 
@@ -43,42 +52,71 @@ class InitialState(AppState):
 class ReadState(AppState):
 
     def register(self):
-        self.register_transition('aggregate', Role.COORDINATOR)
-        self.register_transition('await', Role.PARTICIPANT)
+        self.register_transition('aggregate_contributions', Role.COORDINATOR)
+        self.register_transition('send_empty_columns', Role.BOTH)
+        self.register_transition('await', Role.BOTH)
             
     def run(self):
         c.read_data('/mnt/input/anno.csv', '/mnt/input/exp.csv')
 
-        if c.get_balance_ratio() > 0.85:
-            return 'await'
+        is_contributing = c.is_contributing()
 
-        # find columns to drop
-        to_drop = c.get_dataframe().columns[(c.get_dataframe() == 0).all()]
-        
-        self.log('Hello')
-
-        self.send_data_to_coordinator(to_drop)
+        self.send_data_to_coordinator(is_contributing)
 
         if self.is_coordinator:
-            return 'aggregate'
+            return 'aggregate_contributions'
+        elif not self.is_coordinator and c.is_contributing():
+            return 'send_empty_columns'
         else:
             return 'await'
 
-@app_state('aggregate', Role.COORDINATOR)
+
+@app_state('aggregate_contributions', Role.COORDINATOR)
+class AggregateContributinsState(AppState):
+    
+    def register(self):
+        self.register_transition('send_empty_columns', Role.COORDINATOR)
+        
+    def run(self):
+        contributions = len([el for el in self.gather_data() if el == True])
+        c.n = contributions
+
+        return 'send_empty_columns'
+
+@app_state('send_empty_columns', Role.BOTH)
+class AggregateState(AppState):
+
+    def register(self):
+        self.register_transition('aggregate_columns_to_drop', Role.COORDINATOR)
+        self.register_transition('await', Role.PARTICIPANT)
+
+    def run(self):
+        empty_columns = c.get_dataframe().columns[(c.get_dataframe() == 0).all()]
+
+        self.send_data_to_coordinator(list(empty_columns))
+
+        if self.is_coordinator:
+            return 'aggregate_columns_to_drop'
+        else:
+            return 'await' 
+
+@app_state('aggregate_columns_to_drop', Role.COORDINATOR)
 class AggregateState(AppState):
 
     def register(self):
         self.register_transition('await', Role.COORDINATOR)
 
     def run(self):
-        to_drop = self.await_data(n=2)
+        to_drop = self.await_data(n=c.n)
 
-        # find common columns to drop and broadcast them
+        self.log('received data from')
+        self.log(len(to_drop))
+
         common_to_drop = set.intersection(*map(set, to_drop))
 
         self.broadcast_data(common_to_drop)
 
-        return 'await' 
+        return 'await'
 
 @app_state('await', Role.BOTH)
 class AwaitState(AppState):
@@ -91,8 +129,6 @@ class AwaitState(AppState):
         common_to_drop = self.await_data()
 
         c.delete_columns(common_to_drop)
-
-        self.log(c.get_dataframe())
 
         # apply model here
         model_params = logistic_regression(c.get_dataframe())

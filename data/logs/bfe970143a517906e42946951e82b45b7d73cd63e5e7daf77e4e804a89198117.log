@@ -1,0 +1,56 @@
+2022-06-22 13:04:37,472 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2022-06-22 13:04:37,475 INFO supervisord started with pid 7
+2022-06-22 13:04:38,484 INFO spawned: 'nginx' with pid 10
+2022-06-22 13:04:38,491 INFO spawned: 'app' with pid 11
+2022-06-22 13:04:39,542 INFO success: nginx entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2022-06-22 13:04:39,542 INFO success: app entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+Bottle v0.12.21 server starting up (using WSGIRefServer())...
+Listening on http://localhost:5000/
+Hit Ctrl-C to quit.
+
+[CTRL] POST /setup
+[Time: 22.06.22 13:04:48] [Level: info] id: 0aa09ea59284973e
+[Time: 22.06.22 13:04:48] [Level: info] coordinator: True
+[Time: 22.06.22 13:04:48] [Level: info] clients: ['38ef1a747d4e89c5', '6582489264ce8e1e', '0aa09ea59284973e']
+127.0.0.1 - - [22/Jun/2022 13:04:48] "POST /api/setup HTTP/1.0" 200 0
+127.0.0.1 - - [22/Jun/2022 13:04:48] "GET /api/status HTTP/1.0" 200 126
+[Time: 22.06.22 13:04:48] [Level: info] state: initial
+[Time: 22.06.22 13:04:48] [Level: info] transition: read
+[CTRL] GET /status
+[Time: 22.06.22 13:04:49] [Level: info] state: read
+[Time: 22.06.22 13:04:49] [Level: info] transition: aggregate_contributions
+[Time: 22.06.22 13:04:50] [Level: info] state: aggregate_contributions
+[CTRL] GET /status
+127.0.0.1 - - [22/Jun/2022 13:04:51] "GET /api/status HTTP/1.0" 200 145
+[CTRL] POST /data
+127.0.0.1 - - [22/Jun/2022 13:04:51] "POST /api/data?client=6582489264ce8e1e HTTP/1.0" 200 0
+[CTRL] POST /data
+127.0.0.1 - - [22/Jun/2022 13:04:53] "POST /api/data?client=38ef1a747d4e89c5 HTTP/1.0" 200 0
+[Time: 22.06.22 13:04:53] [Level: info] transition: send_empty_columns
+[CTRL] GET /status
+127.0.0.1 - - [22/Jun/2022 13:04:54] "GET /api/status HTTP/1.0" 200 140
+[Time: 22.06.22 13:04:54] [Level: info] state: send_empty_columns
+[Time: 22.06.22 13:04:54] [Level: info] [State: send_empty_columns] client's empty columns:
+[Time: 22.06.22 13:04:54] [Level: info] [State: send_empty_columns] Index(['msp_0051', 'msp_0078', 'msp_0082c', 'msp_0094', 'msp_0097', 'msp_0099',
+       'msp_0102', 'msp_0122', 'msp_0149', 'msp_0155',
+       ...
+       'msp_2917', 'msp_2920', 'msp_2924', 'msp_2928', 'msp_2930', 'msp_2936',
+       'msp_2939', 'msp_2946', 'msp_2947', 'msp_2949'],
+      dtype='object', length=691)
+[Time: 22.06.22 13:04:54] [Level: info] transition: aggregate_columns_to_drop
+[Time: 22.06.22 13:04:55] [Level: info] state: aggregate_columns_to_drop
+[Time: 22.06.22 13:04:55] [Level: info] Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/FeatureCloud/app/engine/app.py", line 169, in guarded_run
+    self.run()
+  File "/usr/local/lib/python3.8/site-packages/FeatureCloud/app/engine/app.py", line 184, in run
+    transition = self.current_state.run()
+  File "/app/states.py", line 112, in run
+    to_drop = self.await_data(n=c.n)
+  File "/usr/local/lib/python3.8/site-packages/FeatureCloud/app/engine/app.py", line 485, in await_data
+    if len(self._app.data_incoming) >= n:
+TypeError: '>=' not supported between instances of 'int' and 'list'
+
+[CTRL] POST /data
+127.0.0.1 - - [22/Jun/2022 13:04:56] "POST /api/data?client=38ef1a747d4e89c5 HTTP/1.0" 200 0
+[CTRL] GET /status
+127.0.0.1 - - [22/Jun/2022 13:04:57] "GET /api/status HTTP/1.0" 200 133

@@ -1,0 +1,442 @@
+2022-06-22 12:28:05,030 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2022-06-22 12:28:05,035 INFO supervisord started with pid 7
+2022-06-22 12:28:06,038 INFO spawned: 'nginx' with pid 10
+2022-06-22 12:28:06,040 INFO spawned: 'app' with pid 11
+Traceback (most recent call last):
+  File "/app/main.py", line 14, in <module>
+    app.register()
+  File "/usr/local/lib/python3.8/site-packages/FeatureCloud/app/engine/app.py", line 202, in register
+    state.register()
+  File "/app/states.py", line 107, in register
+    self.register_transition('await', Role.BOTH)
+  File "/usr/local/lib/python3.8/site-packages/FeatureCloud/app/engine/app.py", line 424, in register_transition
+    self._app.register_transition(f'{self.name}_{name}', self.name, target, participant, coordinator)
+  File "/usr/local/lib/python3.8/site-packages/FeatureCloud/app/engine/app.py", line 287, in register_transition
+    self.log(f'source state {source} not accessible for participants', level=LogLevel.FATAL)
+  File "/usr/local/lib/python3.8/site-packages/FeatureCloud/app/engine/app.py", line 340, in log
+    raise RuntimeError(msg)
+RuntimeError: [Time: 22.06.22 12:28:06] [Level: fatal] source state aggregate_columns_to_drop not accessible for participants
+2022-06-22 12:28:07,142 INFO success: nginx entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2022-06-22 12:28:07,142 INFO success: app entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2022-06-22 12:28:07,142 INFO exited: app (exit status 1; not expected)
+2022-06-22 12:28:08,144 INFO spawned: 'app' with pid 23
+Traceback (most recent call last):
+  File "/app/main.py", line 14, in <module>
+    app.register()
+  File "/usr/local/lib/python3.8/site-packages/FeatureCloud/app/engine/app.py", line 202, in register
+    state.register()
+  File "/app/states.py", line 107, in register
+    self.register_transition('await', Role.BOTH)
+  File "/usr/local/lib/python3.8/site-packages/FeatureCloud/app/engine/app.py", line 424, in register_transition
+    self._app.register_transition(f'{self.name}_{name}', self.name, target, participant, coordinator)
+  File "/usr/local/lib/python3.8/site-packages/FeatureCloud/app/engine/app.py", line 287, in register_transition
+    self.log(f'source state {source} not accessible for participants', level=LogLevel.FATAL)
+  File "/usr/local/lib/python3.8/site-packages/FeatureCloud/app/engine/app.py", line 340, in log
+    raise RuntimeError(msg)
+RuntimeError: [Time: 22.06.22 12:28:08] [Level: fatal] source state aggregate_columns_to_drop not accessible for participants
+2022-06-22 12:28:09,134 INFO exited: app (exit status 1; not expected)
+2022-06-22 12:28:11,105 INFO spawned: 'app' with pid 31
+Traceback (most recent call last):
+  File "/app/main.py", line 14, in <module>
+    app.register()
+  File "/usr/local/lib/python3.8/site-packages/FeatureCloud/app/engine/app.py", line 202, in register
+    state.register()
+  File "/app/states.py", line 107, in register
+    self.register_transition('await', Role.BOTH)
+  File "/usr/local/lib/python3.8/site-packages/FeatureCloud/app/engine/app.py", line 424, in register_transition
+    self._app.register_transition(f'{self.name}_{name}', self.name, target, participant, coordinator)
+  File "/usr/local/lib/python3.8/site-packages/FeatureCloud/app/engine/app.py", line 287, in register_transition
+    self.log(f'source state {source} not accessible for participants', level=LogLevel.FATAL)
+  File "/usr/local/lib/python3.8/site-packages/FeatureCloud/app/engine/app.py", line 340, in log
+    raise RuntimeError(msg)
+RuntimeError: [Time: 22.06.22 12:28:11] [Level: fatal] source state aggregate_columns_to_drop not accessible for participants
+2022-06-22 12:28:12,176 INFO success: app entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2022-06-22 12:28:12,176 INFO exited: app (exit status 1; not expected)
+2022-06-22 12:28:13,182 INFO spawned: 'app' with pid 39
+Traceback (most recent call last):
+  File "/app/main.py", line 14, in <module>
+    app.register()
+  File "/usr/local/lib/python3.8/site-packages/FeatureCloud/app/engine/app.py", line 202, in register
+    state.register()
+  File "/app/states.py", line 107, in register
+    self.register_transition('await', Role.BOTH)
+  File "/usr/local/lib/python3.8/site-packages/FeatureCloud/app/engine/app.py", line 424, in register_transition
+    self._app.register_transition(f'{self.name}_{name}', self.name, target, participant, coordinator)
+  File "/usr/local/lib/python3.8/site-packages/FeatureCloud/app/engine/app.py", line 287, in register_transition
+    self.log(f'source state {source} not accessible for participants', level=LogLevel.FATAL)
+  File "/usr/local/lib/python3.8/site-packages/FeatureCloud/app/engine/app.py", line 340, in log
+    raise RuntimeError(msg)
+RuntimeError: [Time: 22.06.22 12:28:14] [Level: fatal] source state aggregate_columns_to_drop not accessible for participants
+2022-06-22 12:28:14,189 INFO success: app entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2022-06-22 12:28:14,189 INFO exited: app (exit status 1; not expected)
+2022-06-22 12:28:15,192 INFO spawned: 'app' with pid 47
+Traceback (most recent call last):
+  File "/app/main.py", line 14, in <module>
+    app.register()
+  File "/usr/local/lib/python3.8/site-packages/FeatureCloud/app/engine/app.py", line 202, in register
+    state.register()
+  File "/app/states.py", line 107, in register
+    self.register_transition('await', Role.BOTH)
+  File "/usr/local/lib/python3.8/site-packages/FeatureCloud/app/engine/app.py", line 424, in register_transition
+    self._app.register_transition(f'{self.name}_{name}', self.name, target, participant, coordinator)
+  File "/usr/local/lib/python3.8/site-packages/FeatureCloud/app/engine/app.py", line 287, in register_transition
+    self.log(f'source state {source} not accessible for participants', level=LogLevel.FATAL)
+  File "/usr/local/lib/python3.8/site-packages/FeatureCloud/app/engine/app.py", line 340, in log
+    raise RuntimeError(msg)
+RuntimeError: [Time: 22.06.22 12:28:16] [Level: fatal] source state aggregate_columns_to_drop not accessible for participants
+2022-06-22 12:28:16,258 INFO success: app entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2022-06-22 12:28:16,258 INFO exited: app (exit status 1; not expected)
+2022-06-22 12:28:17,266 INFO spawned: 'app' with pid 55
+Traceback (most recent call last):
+  File "/app/main.py", line 14, in <module>
+    app.register()
+  File "/usr/local/lib/python3.8/site-packages/FeatureCloud/app/engine/app.py", line 202, in register
+    state.register()
+  File "/app/states.py", line 107, in register
+    self.register_transition('await', Role.BOTH)
+  File "/usr/local/lib/python3.8/site-packages/FeatureCloud/app/engine/app.py", line 424, in register_transition
+    self._app.register_transition(f'{self.name}_{name}', self.name, target, participant, coordinator)
+  File "/usr/local/lib/python3.8/site-packages/FeatureCloud/app/engine/app.py", line 287, in register_transition
+    self.log(f'source state {source} not accessible for participants', level=LogLevel.FATAL)
+  File "/usr/local/lib/python3.8/site-packages/FeatureCloud/app/engine/app.py", line 340, in log
+    raise RuntimeError(msg)
+RuntimeError: [Time: 22.06.22 12:28:18] [Level: fatal] source state aggregate_columns_to_drop not accessible for participants
+2022-06-22 12:28:18,329 INFO success: app entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2022-06-22 12:28:18,330 INFO exited: app (exit status 1; not expected)
+2022-06-22 12:28:19,334 INFO spawned: 'app' with pid 63
+Traceback (most recent call last):
+  File "/app/main.py", line 14, in <module>
+    app.register()
+  File "/usr/local/lib/python3.8/site-packages/FeatureCloud/app/engine/app.py", line 202, in register
+    state.register()
+  File "/app/states.py", line 107, in register
+    self.register_transition('await', Role.BOTH)
+  File "/usr/local/lib/python3.8/site-packages/FeatureCloud/app/engine/app.py", line 424, in register_transition
+    self._app.register_transition(f'{self.name}_{name}', self.name, target, participant, coordinator)
+  File "/usr/local/lib/python3.8/site-packages/FeatureCloud/app/engine/app.py", line 287, in register_transition
+    self.log(f'source state {source} not accessible for participants', level=LogLevel.FATAL)
+  File "/usr/local/lib/python3.8/site-packages/FeatureCloud/app/engine/app.py", line 340, in log
+    raise RuntimeError(msg)
+RuntimeError: [Time: 22.06.22 12:28:20] [Level: fatal] source state aggregate_columns_to_drop not accessible for participants
+2022-06-22 12:28:20,427 INFO success: app entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2022-06-22 12:28:20,427 INFO exited: app (exit status 1; not expected)
+2022-06-22 12:28:21,430 INFO spawned: 'app' with pid 71
+Traceback (most recent call last):
+  File "/app/main.py", line 14, in <module>
+    app.register()
+  File "/usr/local/lib/python3.8/site-packages/FeatureCloud/app/engine/app.py", line 202, in register
+    state.register()
+  File "/app/states.py", line 107, in register
+    self.register_transition('await', Role.BOTH)
+  File "/usr/local/lib/python3.8/site-packages/FeatureCloud/app/engine/app.py", line 424, in register_transition
+    self._app.register_transition(f'{self.name}_{name}', self.name, target, participant, coordinator)
+  File "/usr/local/lib/python3.8/site-packages/FeatureCloud/app/engine/app.py", line 287, in register_transition
+    self.log(f'source state {source} not accessible for participants', level=LogLevel.FATAL)
+  File "/usr/local/lib/python3.8/site-packages/FeatureCloud/app/engine/app.py", line 340, in log
+    raise RuntimeError(msg)
+RuntimeError: [Time: 22.06.22 12:28:22] [Level: fatal] source state aggregate_columns_to_drop not accessible for participants
+2022-06-22 12:28:22,522 INFO success: app entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2022-06-22 12:28:22,523 INFO exited: app (exit status 1; not expected)
+2022-06-22 12:28:23,525 INFO spawned: 'app' with pid 79
+Traceback (most recent call last):
+  File "/app/main.py", line 14, in <module>
+    app.register()
+  File "/usr/local/lib/python3.8/site-packages/FeatureCloud/app/engine/app.py", line 202, in register
+    state.register()
+  File "/app/states.py", line 107, in register
+    self.register_transition('await', Role.BOTH)
+  File "/usr/local/lib/python3.8/site-packages/FeatureCloud/app/engine/app.py", line 424, in register_transition
+    self._app.register_transition(f'{self.name}_{name}', self.name, target, participant, coordinator)
+  File "/usr/local/lib/python3.8/site-packages/FeatureCloud/app/engine/app.py", line 287, in register_transition
+    self.log(f'source state {source} not accessible for participants', level=LogLevel.FATAL)
+  File "/usr/local/lib/python3.8/site-packages/FeatureCloud/app/engine/app.py", line 340, in log
+    raise RuntimeError(msg)
+RuntimeError: [Time: 22.06.22 12:28:24] [Level: fatal] source state aggregate_columns_to_drop not accessible for participants
+2022-06-22 12:28:24,522 INFO exited: app (exit status 1; not expected)
+2022-06-22 12:28:25,525 INFO spawned: 'app' with pid 87
+Traceback (most recent call last):
+  File "/app/main.py", line 14, in <module>
+    app.register()
+  File "/usr/local/lib/python3.8/site-packages/FeatureCloud/app/engine/app.py", line 202, in register
+    state.register()
+  File "/app/states.py", line 107, in register
+    self.register_transition('await', Role.BOTH)
+  File "/usr/local/lib/python3.8/site-packages/FeatureCloud/app/engine/app.py", line 424, in register_transition
+    self._app.register_transition(f'{self.name}_{name}', self.name, target, participant, coordinator)
+  File "/usr/local/lib/python3.8/site-packages/FeatureCloud/app/engine/app.py", line 287, in register_transition
+    self.log(f'source state {source} not accessible for participants', level=LogLevel.FATAL)
+  File "/usr/local/lib/python3.8/site-packages/FeatureCloud/app/engine/app.py", line 340, in log
+    raise RuntimeError(msg)
+RuntimeError: [Time: 22.06.22 12:28:26] [Level: fatal] source state aggregate_columns_to_drop not accessible for participants
+2022-06-22 12:28:26,586 INFO success: app entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2022-06-22 12:28:26,586 INFO exited: app (exit status 1; not expected)
+2022-06-22 12:28:27,599 INFO spawned: 'app' with pid 95
+Traceback (most recent call last):
+  File "/app/main.py", line 14, in <module>
+    app.register()
+  File "/usr/local/lib/python3.8/site-packages/FeatureCloud/app/engine/app.py", line 202, in register
+    state.register()
+  File "/app/states.py", line 107, in register
+    self.register_transition('await', Role.BOTH)
+  File "/usr/local/lib/python3.8/site-packages/FeatureCloud/app/engine/app.py", line 424, in register_transition
+    self._app.register_transition(f'{self.name}_{name}', self.name, target, participant, coordinator)
+  File "/usr/local/lib/python3.8/site-packages/FeatureCloud/app/engine/app.py", line 287, in register_transition
+    self.log(f'source state {source} not accessible for participants', level=LogLevel.FATAL)
+  File "/usr/local/lib/python3.8/site-packages/FeatureCloud/app/engine/app.py", line 340, in log
+    raise RuntimeError(msg)
+RuntimeError: [Time: 22.06.22 12:28:28] [Level: fatal] source state aggregate_columns_to_drop not accessible for participants
+2022-06-22 12:28:28,557 INFO exited: app (exit status 1; not expected)
+2022-06-22 12:28:29,571 INFO spawned: 'app' with pid 103
+Traceback (most recent call last):
+  File "/app/main.py", line 14, in <module>
+    app.register()
+  File "/usr/local/lib/python3.8/site-packages/FeatureCloud/app/engine/app.py", line 202, in register
+    state.register()
+  File "/app/states.py", line 107, in register
+    self.register_transition('await', Role.BOTH)
+  File "/usr/local/lib/python3.8/site-packages/FeatureCloud/app/engine/app.py", line 424, in register_transition
+    self._app.register_transition(f'{self.name}_{name}', self.name, target, participant, coordinator)
+  File "/usr/local/lib/python3.8/site-packages/FeatureCloud/app/engine/app.py", line 287, in register_transition
+    self.log(f'source state {source} not accessible for participants', level=LogLevel.FATAL)
+  File "/usr/local/lib/python3.8/site-packages/FeatureCloud/app/engine/app.py", line 340, in log
+    raise RuntimeError(msg)
+RuntimeError: [Time: 22.06.22 12:28:30] [Level: fatal] source state aggregate_columns_to_drop not accessible for participants
+2022-06-22 12:28:30,632 INFO success: app entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2022-06-22 12:28:30,633 INFO exited: app (exit status 1; not expected)
+2022-06-22 12:28:31,638 INFO spawned: 'app' with pid 111
+Traceback (most recent call last):
+  File "/app/main.py", line 14, in <module>
+    app.register()
+  File "/usr/local/lib/python3.8/site-packages/FeatureCloud/app/engine/app.py", line 202, in register
+    state.register()
+  File "/app/states.py", line 107, in register
+    self.register_transition('await', Role.BOTH)
+  File "/usr/local/lib/python3.8/site-packages/FeatureCloud/app/engine/app.py", line 424, in register_transition
+    self._app.register_transition(f'{self.name}_{name}', self.name, target, participant, coordinator)
+  File "/usr/local/lib/python3.8/site-packages/FeatureCloud/app/engine/app.py", line 287, in register_transition
+    self.log(f'source state {source} not accessible for participants', level=LogLevel.FATAL)
+  File "/usr/local/lib/python3.8/site-packages/FeatureCloud/app/engine/app.py", line 340, in log
+    raise RuntimeError(msg)
+RuntimeError: [Time: 22.06.22 12:28:32] [Level: fatal] source state aggregate_columns_to_drop not accessible for participants
+2022-06-22 12:28:32,630 INFO exited: app (exit status 1; not expected)
+2022-06-22 12:28:33,634 INFO spawned: 'app' with pid 119
+Traceback (most recent call last):
+  File "/app/main.py", line 14, in <module>
+    app.register()
+  File "/usr/local/lib/python3.8/site-packages/FeatureCloud/app/engine/app.py", line 202, in register
+    state.register()
+  File "/app/states.py", line 107, in register
+    self.register_transition('await', Role.BOTH)
+  File "/usr/local/lib/python3.8/site-packages/FeatureCloud/app/engine/app.py", line 424, in register_transition
+    self._app.register_transition(f'{self.name}_{name}', self.name, target, participant, coordinator)
+  File "/usr/local/lib/python3.8/site-packages/FeatureCloud/app/engine/app.py", line 287, in register_transition
+    self.log(f'source state {source} not accessible for participants', level=LogLevel.FATAL)
+  File "/usr/local/lib/python3.8/site-packages/FeatureCloud/app/engine/app.py", line 340, in log
+    raise RuntimeError(msg)
+RuntimeError: [Time: 22.06.22 12:28:34] [Level: fatal] source state aggregate_columns_to_drop not accessible for participants
+2022-06-22 12:28:34,537 INFO exited: app (exit status 1; not expected)
+2022-06-22 12:28:36,542 INFO spawned: 'app' with pid 127
+Traceback (most recent call last):
+  File "/app/main.py", line 14, in <module>
+    app.register()
+  File "/usr/local/lib/python3.8/site-packages/FeatureCloud/app/engine/app.py", line 202, in register
+    state.register()
+  File "/app/states.py", line 107, in register
+    self.register_transition('await', Role.BOTH)
+  File "/usr/local/lib/python3.8/site-packages/FeatureCloud/app/engine/app.py", line 424, in register_transition
+    self._app.register_transition(f'{self.name}_{name}', self.name, target, participant, coordinator)
+  File "/usr/local/lib/python3.8/site-packages/FeatureCloud/app/engine/app.py", line 287, in register_transition
+    self.log(f'source state {source} not accessible for participants', level=LogLevel.FATAL)
+  File "/usr/local/lib/python3.8/site-packages/FeatureCloud/app/engine/app.py", line 340, in log
+    raise RuntimeError(msg)
+RuntimeError: [Time: 22.06.22 12:28:37] [Level: fatal] source state aggregate_columns_to_drop not accessible for participants
+2022-06-22 12:28:37,546 INFO success: app entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2022-06-22 12:28:37,546 INFO exited: app (exit status 1; not expected)
+2022-06-22 12:28:38,549 INFO spawned: 'app' with pid 135
+2022-06-22 12:28:39,557 INFO success: app entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+Traceback (most recent call last):
+  File "/app/main.py", line 14, in <module>
+    app.register()
+  File "/usr/local/lib/python3.8/site-packages/FeatureCloud/app/engine/app.py", line 202, in register
+    state.register()
+  File "/app/states.py", line 107, in register
+    self.register_transition('await', Role.BOTH)
+  File "/usr/local/lib/python3.8/site-packages/FeatureCloud/app/engine/app.py", line 424, in register_transition
+    self._app.register_transition(f'{self.name}_{name}', self.name, target, participant, coordinator)
+  File "/usr/local/lib/python3.8/site-packages/FeatureCloud/app/engine/app.py", line 287, in register_transition
+    self.log(f'source state {source} not accessible for participants', level=LogLevel.FATAL)
+  File "/usr/local/lib/python3.8/site-packages/FeatureCloud/app/engine/app.py", line 340, in log
+    raise RuntimeError(msg)
+RuntimeError: [Time: 22.06.22 12:28:39] [Level: fatal] source state aggregate_columns_to_drop not accessible for participants
+2022-06-22 12:28:39,714 INFO exited: app (exit status 1; not expected)
+2022-06-22 12:28:40,717 INFO spawned: 'app' with pid 143
+2022-06-22 12:28:41,719 INFO success: app entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+Traceback (most recent call last):
+  File "/app/main.py", line 14, in <module>
+    app.register()
+  File "/usr/local/lib/python3.8/site-packages/FeatureCloud/app/engine/app.py", line 202, in register
+    state.register()
+  File "/app/states.py", line 107, in register
+    self.register_transition('await', Role.BOTH)
+  File "/usr/local/lib/python3.8/site-packages/FeatureCloud/app/engine/app.py", line 424, in register_transition
+    self._app.register_transition(f'{self.name}_{name}', self.name, target, participant, coordinator)
+  File "/usr/local/lib/python3.8/site-packages/FeatureCloud/app/engine/app.py", line 287, in register_transition
+    self.log(f'source state {source} not accessible for participants', level=LogLevel.FATAL)
+  File "/usr/local/lib/python3.8/site-packages/FeatureCloud/app/engine/app.py", line 340, in log
+    raise RuntimeError(msg)
+RuntimeError: [Time: 22.06.22 12:28:41] [Level: fatal] source state aggregate_columns_to_drop not accessible for participants
+2022-06-22 12:28:41,967 INFO exited: app (exit status 1; not expected)
+2022-06-22 12:28:42,971 INFO spawned: 'app' with pid 151
+2022-06-22 12:28:43,973 INFO success: app entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+Traceback (most recent call last):
+  File "/app/main.py", line 14, in <module>
+    app.register()
+  File "/usr/local/lib/python3.8/site-packages/FeatureCloud/app/engine/app.py", line 202, in register
+    state.register()
+  File "/app/states.py", line 107, in register
+    self.register_transition('await', Role.BOTH)
+  File "/usr/local/lib/python3.8/site-packages/FeatureCloud/app/engine/app.py", line 424, in register_transition
+    self._app.register_transition(f'{self.name}_{name}', self.name, target, participant, coordinator)
+  File "/usr/local/lib/python3.8/site-packages/FeatureCloud/app/engine/app.py", line 287, in register_transition
+    self.log(f'source state {source} not accessible for participants', level=LogLevel.FATAL)
+  File "/usr/local/lib/python3.8/site-packages/FeatureCloud/app/engine/app.py", line 340, in log
+    raise RuntimeError(msg)
+RuntimeError: [Time: 22.06.22 12:28:44] [Level: fatal] source state aggregate_columns_to_drop not accessible for participants
+2022-06-22 12:28:44,209 INFO exited: app (exit status 1; not expected)
+2022-06-22 12:28:45,211 INFO spawned: 'app' with pid 159
+2022-06-22 12:28:46,213 INFO success: app entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+Traceback (most recent call last):
+  File "/app/main.py", line 14, in <module>
+    app.register()
+  File "/usr/local/lib/python3.8/site-packages/FeatureCloud/app/engine/app.py", line 202, in register
+    state.register()
+  File "/app/states.py", line 107, in register
+    self.register_transition('await', Role.BOTH)
+  File "/usr/local/lib/python3.8/site-packages/FeatureCloud/app/engine/app.py", line 424, in register_transition
+    self._app.register_transition(f'{self.name}_{name}', self.name, target, participant, coordinator)
+  File "/usr/local/lib/python3.8/site-packages/FeatureCloud/app/engine/app.py", line 287, in register_transition
+    self.log(f'source state {source} not accessible for participants', level=LogLevel.FATAL)
+  File "/usr/local/lib/python3.8/site-packages/FeatureCloud/app/engine/app.py", line 340, in log
+    raise RuntimeError(msg)
+RuntimeError: [Time: 22.06.22 12:28:46] [Level: fatal] source state aggregate_columns_to_drop not accessible for participants
+2022-06-22 12:28:46,503 INFO exited: app (exit status 1; not expected)
+2022-06-22 12:28:47,505 INFO spawned: 'app' with pid 167
+Traceback (most recent call last):
+  File "/app/main.py", line 14, in <module>
+    app.register()
+  File "/usr/local/lib/python3.8/site-packages/FeatureCloud/app/engine/app.py", line 202, in register
+    state.register()
+  File "/app/states.py", line 107, in register
+    self.register_transition('await', Role.BOTH)
+  File "/usr/local/lib/python3.8/site-packages/FeatureCloud/app/engine/app.py", line 424, in register_transition
+    self._app.register_transition(f'{self.name}_{name}', self.name, target, participant, coordinator)
+  File "/usr/local/lib/python3.8/site-packages/FeatureCloud/app/engine/app.py", line 287, in register_transition
+    self.log(f'source state {source} not accessible for participants', level=LogLevel.FATAL)
+  File "/usr/local/lib/python3.8/site-packages/FeatureCloud/app/engine/app.py", line 340, in log
+    raise RuntimeError(msg)
+RuntimeError: [Time: 22.06.22 12:28:48] [Level: fatal] source state aggregate_columns_to_drop not accessible for participants
+2022-06-22 12:28:48,612 INFO success: app entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2022-06-22 12:28:48,612 INFO exited: app (exit status 1; not expected)
+2022-06-22 12:28:49,614 INFO spawned: 'app' with pid 175
+Traceback (most recent call last):
+  File "/app/main.py", line 14, in <module>
+    app.register()
+  File "/usr/local/lib/python3.8/site-packages/FeatureCloud/app/engine/app.py", line 202, in register
+    state.register()
+  File "/app/states.py", line 107, in register
+    self.register_transition('await', Role.BOTH)
+  File "/usr/local/lib/python3.8/site-packages/FeatureCloud/app/engine/app.py", line 424, in register_transition
+    self._app.register_transition(f'{self.name}_{name}', self.name, target, participant, coordinator)
+  File "/usr/local/lib/python3.8/site-packages/FeatureCloud/app/engine/app.py", line 287, in register_transition
+    self.log(f'source state {source} not accessible for participants', level=LogLevel.FATAL)
+  File "/usr/local/lib/python3.8/site-packages/FeatureCloud/app/engine/app.py", line 340, in log
+    raise RuntimeError(msg)
+RuntimeError: [Time: 22.06.22 12:28:50] [Level: fatal] source state aggregate_columns_to_drop not accessible for participants
+2022-06-22 12:28:50,705 INFO success: app entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2022-06-22 12:28:50,705 INFO exited: app (exit status 1; not expected)
+2022-06-22 12:28:51,708 INFO spawned: 'app' with pid 183
+2022-06-22 12:28:52,723 INFO success: app entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+Traceback (most recent call last):
+  File "/app/main.py", line 14, in <module>
+    app.register()
+  File "/usr/local/lib/python3.8/site-packages/FeatureCloud/app/engine/app.py", line 202, in register
+    state.register()
+  File "/app/states.py", line 107, in register
+    self.register_transition('await', Role.BOTH)
+  File "/usr/local/lib/python3.8/site-packages/FeatureCloud/app/engine/app.py", line 424, in register_transition
+    self._app.register_transition(f'{self.name}_{name}', self.name, target, participant, coordinator)
+  File "/usr/local/lib/python3.8/site-packages/FeatureCloud/app/engine/app.py", line 287, in register_transition
+    self.log(f'source state {source} not accessible for participants', level=LogLevel.FATAL)
+  File "/usr/local/lib/python3.8/site-packages/FeatureCloud/app/engine/app.py", line 340, in log
+    raise RuntimeError(msg)
+RuntimeError: [Time: 22.06.22 12:28:52] [Level: fatal] source state aggregate_columns_to_drop not accessible for participants
+2022-06-22 12:28:52,921 INFO exited: app (exit status 1; not expected)
+2022-06-22 12:28:53,924 INFO spawned: 'app' with pid 191
+2022-06-22 12:28:54,926 INFO success: app entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+Traceback (most recent call last):
+  File "/app/main.py", line 14, in <module>
+    app.register()
+  File "/usr/local/lib/python3.8/site-packages/FeatureCloud/app/engine/app.py", line 202, in register
+    state.register()
+  File "/app/states.py", line 107, in register
+    self.register_transition('await', Role.BOTH)
+  File "/usr/local/lib/python3.8/site-packages/FeatureCloud/app/engine/app.py", line 424, in register_transition
+    self._app.register_transition(f'{self.name}_{name}', self.name, target, participant, coordinator)
+  File "/usr/local/lib/python3.8/site-packages/FeatureCloud/app/engine/app.py", line 287, in register_transition
+    self.log(f'source state {source} not accessible for participants', level=LogLevel.FATAL)
+  File "/usr/local/lib/python3.8/site-packages/FeatureCloud/app/engine/app.py", line 340, in log
+    raise RuntimeError(msg)
+RuntimeError: [Time: 22.06.22 12:28:55] [Level: fatal] source state aggregate_columns_to_drop not accessible for participants
+2022-06-22 12:28:55,573 INFO exited: app (exit status 1; not expected)
+2022-06-22 12:28:56,576 INFO spawned: 'app' with pid 199
+2022-06-22 12:28:57,579 INFO success: app entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+Traceback (most recent call last):
+  File "/app/main.py", line 14, in <module>
+    app.register()
+  File "/usr/local/lib/python3.8/site-packages/FeatureCloud/app/engine/app.py", line 202, in register
+    state.register()
+  File "/app/states.py", line 107, in register
+    self.register_transition('await', Role.BOTH)
+  File "/usr/local/lib/python3.8/site-packages/FeatureCloud/app/engine/app.py", line 424, in register_transition
+    self._app.register_transition(f'{self.name}_{name}', self.name, target, participant, coordinator)
+  File "/usr/local/lib/python3.8/site-packages/FeatureCloud/app/engine/app.py", line 287, in register_transition
+    self.log(f'source state {source} not accessible for participants', level=LogLevel.FATAL)
+  File "/usr/local/lib/python3.8/site-packages/FeatureCloud/app/engine/app.py", line 340, in log
+    raise RuntimeError(msg)
+RuntimeError: [Time: 22.06.22 12:28:57] [Level: fatal] source state aggregate_columns_to_drop not accessible for participants
+2022-06-22 12:28:58,085 INFO exited: app (exit status 1; not expected)
+2022-06-22 12:28:59,088 INFO spawned: 'app' with pid 207
+Traceback (most recent call last):
+  File "/app/main.py", line 14, in <module>
+    app.register()
+  File "/usr/local/lib/python3.8/site-packages/FeatureCloud/app/engine/app.py", line 202, in register
+    state.register()
+  File "/app/states.py", line 107, in register
+    self.register_transition('await', Role.BOTH)
+  File "/usr/local/lib/python3.8/site-packages/FeatureCloud/app/engine/app.py", line 424, in register_transition
+    self._app.register_transition(f'{self.name}_{name}', self.name, target, participant, coordinator)
+  File "/usr/local/lib/python3.8/site-packages/FeatureCloud/app/engine/app.py", line 287, in register_transition
+    self.log(f'source state {source} not accessible for participants', level=LogLevel.FATAL)
+  File "/usr/local/lib/python3.8/site-packages/FeatureCloud/app/engine/app.py", line 340, in log
+    raise RuntimeError(msg)
+RuntimeError: [Time: 22.06.22 12:28:59] [Level: fatal] source state aggregate_columns_to_drop not accessible for participants
+2022-06-22 12:29:00,111 INFO success: app entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2022-06-22 12:29:00,113 INFO exited: app (exit status 1; not expected)
+2022-06-22 12:29:01,116 INFO spawned: 'app' with pid 215
+2022-06-22 12:29:02,117 INFO success: app entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+Traceback (most recent call last):
+  File "/app/main.py", line 14, in <module>
+    app.register()
+  File "/usr/local/lib/python3.8/site-packages/FeatureCloud/app/engine/app.py", line 202, in register
+    state.register()
+  File "/app/states.py", line 107, in register
+    self.register_transition('await', Role.BOTH)
+  File "/usr/local/lib/python3.8/site-packages/FeatureCloud/app/engine/app.py", line 424, in register_transition
+    self._app.register_transition(f'{self.name}_{name}', self.name, target, participant, coordinator)
+  File "/usr/local/lib/python3.8/site-packages/FeatureCloud/app/engine/app.py", line 287, in register_transition
+    self.log(f'source state {source} not accessible for participants', level=LogLevel.FATAL)
+  File "/usr/local/lib/python3.8/site-packages/FeatureCloud/app/engine/app.py", line 340, in log
+    raise RuntimeError(msg)
+RuntimeError: [Time: 22.06.22 12:29:02] [Level: fatal] source state aggregate_columns_to_drop not accessible for participants
+2022-06-22 12:29:02,522 INFO exited: app (exit status 1; not expected)
+2022-06-22 12:29:03,526 INFO spawned: 'app' with pid 223

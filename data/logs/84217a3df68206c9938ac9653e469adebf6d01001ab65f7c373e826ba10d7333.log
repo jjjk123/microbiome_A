@@ -1,0 +1,56 @@
+2022-06-22 12:49:10,077 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2022-06-22 12:49:10,082 INFO supervisord started with pid 8
+2022-06-22 12:49:11,091 INFO spawned: 'nginx' with pid 11
+2022-06-22 12:49:11,097 INFO spawned: 'app' with pid 12
+Bottle v0.12.21 server starting up (using WSGIRefServer())...
+Listening on http://localhost:5000/
+Hit Ctrl-C to quit.
+
+2022-06-22 12:49:12,896 INFO success: nginx entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2022-06-22 12:49:12,896 INFO success: app entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+[CTRL] POST /setup
+[Time: 22.06.22 12:49:14] [Level: info] id: 1026b7fda15218cf
+[Time: 22.06.22 12:49:14] [Level: info] coordinator: False
+[Time: 22.06.22 12:49:14] [Level: info] clients: ['1026b7fda15218cf', 'ecc4a562c5d09a0e', '38dacf8ba3c23181']
+[Time: 22.06.22 12:49:14] [Level: info] state: initial
+[Time: 22.06.22 12:49:14] [Level: info] transition: read
+127.0.0.1 - - [22/Jun/2022 12:49:14] "POST /api/setup HTTP/1.0" 200 0
+[CTRL] GET /status
+127.0.0.1 - - [22/Jun/2022 12:49:14] "GET /api/status HTTP/1.0" 200 126
+[Time: 22.06.22 12:49:15] [Level: info] state: read
+[Time: 22.06.22 12:49:15] [Level: info] transition: send_empty_columns
+[Time: 22.06.22 12:49:16] [Level: info] state: send_empty_columns
+[Time: 22.06.22 12:49:16] [Level: info] [State: send_empty_columns] 826
+[Time: 22.06.22 12:49:16] [Level: info] transition: await
+[CTRL] GET /status
+127.0.0.1 - - [22/Jun/2022 12:49:17] "GET /api/status HTTP/1.0" 200 126
+127.0.0.1 - - [22/Jun/2022 12:49:17] "GET /api/data HTTP/1.0" 200 4
+[CTRL] GET /data
+[Time: 22.06.22 12:49:17] [Level: info] state: await
+[CTRL] GET /status
+127.0.0.1 - - [22/Jun/2022 12:49:20] "GET /api/status HTTP/1.0" 200 126
+[CTRL] GET /data
+127.0.0.1 - - [22/Jun/2022 12:49:20] "GET /api/data HTTP/1.0" 200 9351
+[CTRL] POST /data
+127.0.0.1 - - [22/Jun/2022 12:49:21] "POST /api/data?client=ecc4a562c5d09a0e HTTP/1.0" 200 0
+[Time: 22.06.22 12:49:21] [Level: info] Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/FeatureCloud/app/engine/app.py", line 169, in guarded_run
+    self.run()
+  File "/usr/local/lib/python3.8/site-packages/FeatureCloud/app/engine/app.py", line 184, in run
+    transition = self.current_state.run()
+  File "/app/states.py", line 135, in run
+    c.delete_columns(common_to_drop)
+  File "/app/states.py", line 27, in delete_columns
+    self.df = self.df.drop(columns=to_drop)
+  File "/usr/local/lib/python3.8/site-packages/pandas/util/_decorators.py", line 311, in wrapper
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.8/site-packages/pandas/core/frame.py", line 4954, in drop
+    return super().drop(
+  File "/usr/local/lib/python3.8/site-packages/pandas/core/generic.py", line 4267, in drop
+    obj = obj._drop_axis(labels, axis, level=level, errors=errors)
+  File "/usr/local/lib/python3.8/site-packages/pandas/core/generic.py", line 4311, in _drop_axis
+    new_axis = axis.drop(labels, errors=errors)
+  File "/usr/local/lib/python3.8/site-packages/pandas/core/indexes/base.py", line 6644, in drop
+    raise KeyError(f"{list(labels[mask])} not found in axis")
+KeyError: "['s', 'm', 'p', '_'] not found in axis"
+

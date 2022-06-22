@@ -1,0 +1,64 @@
+2022-06-22 12:38:03,977 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2022-06-22 12:38:03,979 INFO supervisord started with pid 7
+2022-06-22 12:38:04,982 INFO spawned: 'nginx' with pid 10
+2022-06-22 12:38:04,984 INFO spawned: 'app' with pid 11
+Bottle v0.12.21 server starting up (using WSGIRefServer())...
+Listening on http://localhost:5000/
+Hit Ctrl-C to quit.
+
+2022-06-22 12:38:06,878 INFO success: nginx entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2022-06-22 12:38:06,878 INFO success: app entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+[CTRL] POST /setup
+[Time: 22.06.22 12:38:14] [Level: info] id: 7feb1c2a18cebb2e
+[Time: 22.06.22 12:38:14] [Level: info] coordinator: True
+[Time: 22.06.22 12:38:14] [Level: info] clients: ['7feb1c2a18cebb2e', '69944bae13f046ae', '9572bd54aeeee737']
+127.0.0.1 - - [22/Jun/2022 12:38:14] "POST /api/setup HTTP/1.0" 200 0
+127.0.0.1 - - [22/Jun/2022 12:38:14] "GET /api/status HTTP/1.0" 200 126
+[Time: 22.06.22 12:38:14] [Level: info] state: initial
+[Time: 22.06.22 12:38:14] [Level: info] transition: read
+[CTRL] GET /status
+[Time: 22.06.22 12:38:15] [Level: info] state: read
+[Time: 22.06.22 12:38:16] [Level: info] transition: aggregate_contributions
+[Time: 22.06.22 12:38:17] [Level: info] state: aggregate_contributions
+[CTRL] GET /status
+127.0.0.1 - - [22/Jun/2022 12:38:17] "GET /api/status HTTP/1.0" 200 145
+[CTRL] POST /data
+127.0.0.1 - - [22/Jun/2022 12:38:18] "POST /api/data?client=69944bae13f046ae HTTP/1.0" 200 0
+[CTRL] POST /data
+127.0.0.1 - - [22/Jun/2022 12:38:20] "POST /api/data?client=9572bd54aeeee737 HTTP/1.0" 200 0
+[Time: 22.06.22 12:38:20] [Level: info] transition: send_empty_columns
+[CTRL] GET /status
+127.0.0.1 - - [22/Jun/2022 12:38:21] "GET /api/status HTTP/1.0" 200 140
+[Time: 22.06.22 12:38:21] [Level: info] state: send_empty_columns
+[Time: 22.06.22 12:38:21] [Level: info] [State: send_empty_columns] --------hello
+[Time: 22.06.22 12:38:21] [Level: info] transition: aggregate_columns_to_drop
+[Time: 22.06.22 12:38:22] [Level: info] state: aggregate_columns_to_drop
+[Time: 22.06.22 12:38:22] [Level: info] transition: await
+[CTRL] POST /data
+127.0.0.1 - - [22/Jun/2022 12:38:23] "POST /api/data?client=9572bd54aeeee737 HTTP/1.0" 200 0
+[Time: 22.06.22 12:38:23] [Level: info] state: await
+[Time: 22.06.22 12:38:23] [Level: info] Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/FeatureCloud/app/engine/app.py", line 169, in guarded_run
+    self.run()
+  File "/usr/local/lib/python3.8/site-packages/FeatureCloud/app/engine/app.py", line 184, in run
+    transition = self.current_state.run()
+  File "/app/states.py", line 129, in run
+    c.delete_columns(common_to_drop)
+  File "/app/states.py", line 27, in delete_columns
+    self.df = self.df.drop(columns=to_drop)
+  File "/usr/local/lib/python3.8/site-packages/pandas/util/_decorators.py", line 311, in wrapper
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.8/site-packages/pandas/core/frame.py", line 4954, in drop
+    return super().drop(
+  File "/usr/local/lib/python3.8/site-packages/pandas/core/generic.py", line 4267, in drop
+    obj = obj._drop_axis(labels, axis, level=level, errors=errors)
+  File "/usr/local/lib/python3.8/site-packages/pandas/core/generic.py", line 4311, in _drop_axis
+    new_axis = axis.drop(labels, errors=errors)
+  File "/usr/local/lib/python3.8/site-packages/pandas/core/indexes/base.py", line 6644, in drop
+    raise KeyError(f"{list(labels[mask])} not found in axis")
+KeyError: "['p', '_', 's', 'm'] not found in axis"
+
+[CTRL] GET /status
+127.0.0.1 - - [22/Jun/2022 12:38:24] "GET /api/status HTTP/1.0" 200 131
+[CTRL] GET /data
+127.0.0.1 - - [22/Jun/2022 12:38:24] "GET /api/data HTTP/1.0" 200 32

@@ -1,0 +1,58 @@
+2022-06-22 13:19:31,483 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2022-06-22 13:19:31,486 INFO supervisord started with pid 8
+2022-06-22 13:19:32,493 INFO spawned: 'nginx' with pid 11
+2022-06-22 13:19:32,506 INFO spawned: 'app' with pid 12
+2022-06-22 13:19:33,540 INFO success: nginx entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2022-06-22 13:19:33,540 INFO success: app entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+Bottle v0.12.21 server starting up (using WSGIRefServer())...
+Listening on http://localhost:5000/
+Hit Ctrl-C to quit.
+
+[CTRL] POST /setup
+[Time: 22.06.22 13:19:47] [Level: info] id: 4e8ea8231267fc3a
+[Time: 22.06.22 13:19:47] [Level: info] coordinator: False
+[Time: 22.06.22 13:19:47] [Level: info] clients: ['467ddfc52aee7e2a', 'f6a882113b221bdb', 'b4e2868620ac9d53', '1781378d400173cc', '4e8ea8231267fc3a', '307450cdef23f5ea', '4d4d6f80ee2fb5ca', '0b3f8ad671a4ba87']
+[Time: 22.06.22 13:19:47] [Level: info] state: initial
+[Time: 22.06.22 13:19:47] [Level: info] transition: read
+127.0.0.1 - - [22/Jun/2022 13:19:47] "POST /api/setup HTTP/1.0" 200 0
+[CTRL] GET /status
+127.0.0.1 - - [22/Jun/2022 13:19:47] "GET /api/status HTTP/1.0" 200 126
+[Time: 22.06.22 13:19:48] [Level: info] state: read
+[Time: 22.06.22 13:19:48] [Level: info] transition: send_empty_columns
+[Time: 22.06.22 13:19:49] [Level: info] state: send_empty_columns
+[Time: 22.06.22 13:19:49] [Level: info] transition: await
+[CTRL] GET /status
+127.0.0.1 - - [22/Jun/2022 13:19:50] "GET /api/status HTTP/1.0" 200 126
+[CTRL] GET /data
+127.0.0.1 - - [22/Jun/2022 13:19:50] "GET /api/data HTTP/1.0" 200 4
+[Time: 22.06.22 13:19:50] [Level: info] state: await
+127.0.0.1 - - [22/Jun/2022 13:19:53] "GET /api/status HTTP/1.0" 200 126
+[CTRL] GET /status
+127.0.0.1 - - [22/Jun/2022 13:19:53] "GET /api/data HTTP/1.0" 200 15087
+[CTRL] GET /data
+[CTRL] POST /data
+[CTRL] GET /status
+127.0.0.1 - - [22/Jun/2022 13:19:56] "POST /api/data?client=467ddfc52aee7e2a HTTP/1.0" 200 0
+127.0.0.1 - - [22/Jun/2022 13:19:56] "GET /api/status HTTP/1.0" 200 127
+[Time: 22.06.22 13:19:56] [Level: info] [State: await] common to drop
+[Time: 22.06.22 13:19:56] [Level: info] [State: await] 35
+[Time: 22.06.22 13:19:56] [Level: info] [State: await] {'msp_1416', 'msp_1561', 'msp_2591', 'msp_2525', 'msp_0972', 'msp_2169', 'msp_1586', 'msp_1888', 'msp_1104', 'msp_2444', 'msp_2337', 'msp_1670', 'msp_1591', 'msp_2609', 'msp_1726', 'msp_2004', 'msp_1856', 'msp_2007', 'msp_1895', 'msp_1518', 'msp_2212', 'msp_1740', 'msp_1749', 'msp_1321c', 'msp_1889', 'msp_2865', 'msp_2861', 'msp_2565', 'msp_2321', 'msp_2891', 'msp_2151', 'msp_2299', 'msp_1370', 'msp_0609', 'msp_2058'}
+[Time: 22.06.22 13:19:56] [Level: info] transition: apply
+[Time: 22.06.22 13:19:57] [Level: info] state: apply
+[CTRL] GET /status
+127.0.0.1 - - [22/Jun/2022 13:19:59] "GET /api/status HTTP/1.0" 200 126
+[CTRL] GET /data
+127.0.0.1 - - [22/Jun/2022 13:19:59] "GET /api/data HTTP/1.0" 200 163
+[CTRL] POST /data
+127.0.0.1 - - [22/Jun/2022 13:20:02] "POST /api/data?client=467ddfc52aee7e2a HTTP/1.0" 200 0
+[CTRL] GET /status
+127.0.0.1 - - [22/Jun/2022 13:20:02] "GET /api/status HTTP/1.0" 200 127
+[Time: 22.06.22 13:20:02] [Level: info] [State: apply] [array([2, 2]), array([3, 3]), array([4, 0]), array([2, 2]), array([4, 0]), array([1, 1]), array([1, 3]), array([1, 4])]
+[Time: 22.06.22 13:20:02] [Level: info] transition: terminal
+[Time: 22.06.22 13:20:02] [Level: info] done
+[CTRL] GET /status
+127.0.0.1 - - [22/Jun/2022 13:20:05] "GET /api/status HTTP/1.0" 200 129
+[CTRL] GET /status
+127.0.0.1 - - [22/Jun/2022 13:20:08] "GET /api/status HTTP/1.0" 200 129
+[CTRL] GET /status
+127.0.0.1 - - [22/Jun/2022 13:20:11] "GET /api/status HTTP/1.0" 200 129

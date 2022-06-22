@@ -1,0 +1,50 @@
+2022-06-22 12:34:08,947 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2022-06-22 12:34:08,949 INFO supervisord started with pid 8
+2022-06-22 12:34:09,917 INFO spawned: 'nginx' with pid 11
+2022-06-22 12:34:09,919 INFO spawned: 'app' with pid 12
+Bottle v0.12.21 server starting up (using WSGIRefServer())...
+Listening on http://localhost:5000/
+Hit Ctrl-C to quit.
+
+2022-06-22 12:34:11,752 INFO success: nginx entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2022-06-22 12:34:11,752 INFO success: app entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+[CTRL] POST /setup
+[Time: 22.06.22 12:34:19] [Level: info] id: 4332add67bf2583f
+[Time: 22.06.22 12:34:19] [Level: info] coordinator: True
+[Time: 22.06.22 12:34:19] [Level: info] clients: ['54f97f43699a0103', '4332add67bf2583f', 'fc45bc02b6d4927d']
+127.0.0.1 - - [22/Jun/2022 12:34:19] "POST /api/setup HTTP/1.0" 200 0
+[Time: 22.06.22 12:34:19] [Level: info] state: initial
+[Time: 22.06.22 12:34:19] [Level: info] transition: read
+[CTRL] GET /status
+127.0.0.1 - - [22/Jun/2022 12:34:19] "GET /api/status HTTP/1.0" 200 126
+[Time: 22.06.22 12:34:20] [Level: info] state: read
+[Time: 22.06.22 12:34:21] [Level: info] transition: aggregate_contributions
+[Time: 22.06.22 12:34:22] [Level: info] state: aggregate_contributions
+[CTRL] GET /status
+127.0.0.1 - - [22/Jun/2022 12:34:22] "GET /api/status HTTP/1.0" 200 145
+127.0.0.1 - - [22/Jun/2022 12:34:22] "POST /api/data?client=fc45bc02b6d4927d HTTP/1.0" 200 0
+[CTRL] POST /data
+[CTRL] POST /data
+127.0.0.1 - - [22/Jun/2022 12:34:24] "POST /api/data?client=54f97f43699a0103 HTTP/1.0" 200 0
+[Time: 22.06.22 12:34:24] [Level: info] [State: aggregate_contributions] [True, False, True]
+[Time: 22.06.22 12:34:24] [Level: info] transition: send_empty_columns
+[CTRL] GET /status
+127.0.0.1 - - [22/Jun/2022 12:34:25] "GET /api/status HTTP/1.0" 200 140
+[Time: 22.06.22 12:34:25] [Level: info] state: send_empty_columns
+[Time: 22.06.22 12:34:25] [Level: info] transition: aggregate_columns_to_drop
+[Time: 22.06.22 12:34:26] [Level: info] state: aggregate_columns_to_drop
+[Time: 22.06.22 12:34:26] [Level: info] Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/FeatureCloud/app/engine/app.py", line 169, in guarded_run
+    self.run()
+  File "/usr/local/lib/python3.8/site-packages/FeatureCloud/app/engine/app.py", line 184, in run
+    transition = self.current_state.run()
+  File "/app/states.py", line 111, in run
+    to_drop = self.await_data(n=c.n)
+  File "/usr/local/lib/python3.8/site-packages/FeatureCloud/app/engine/app.py", line 485, in await_data
+    if len(self._app.data_incoming) >= n:
+TypeError: '>=' not supported between instances of 'int' and 'list'
+
+127.0.0.1 - - [22/Jun/2022 12:34:27] "POST /api/data?client=54f97f43699a0103 HTTP/1.0" 200 0
+[CTRL] POST /data
+[CTRL] GET /status
+127.0.0.1 - - [22/Jun/2022 12:34:28] "GET /api/status HTTP/1.0" 200 133

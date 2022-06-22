@@ -1,0 +1,39 @@
+2022-06-22 13:04:46,607 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2022-06-22 13:04:46,610 INFO supervisord started with pid 7
+2022-06-22 13:04:47,614 INFO spawned: 'nginx' with pid 10
+2022-06-22 13:04:47,621 INFO spawned: 'app' with pid 11
+Bottle v0.12.21 server starting up (using WSGIRefServer())...
+Listening on http://localhost:5000/
+Hit Ctrl-C to quit.
+
+2022-06-22 13:04:49,596 INFO success: nginx entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2022-06-22 13:04:49,597 INFO success: app entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+[CTRL] POST /setup
+[Time: 22.06.22 13:04:50] [Level: info] id: 38ef1a747d4e89c5
+[Time: 22.06.22 13:04:50] [Level: info] coordinator: False
+[Time: 22.06.22 13:04:50] [Level: info] clients: ['38ef1a747d4e89c5', '6582489264ce8e1e', '0aa09ea59284973e']
+[Time: 22.06.22 13:04:50] [Level: info] state: initial
+[Time: 22.06.22 13:04:50] [Level: info] transition: read
+127.0.0.1 - - [22/Jun/2022 13:04:50] "POST /api/setup HTTP/1.0" 200 0
+[CTRL] GET /status
+127.0.0.1 - - [22/Jun/2022 13:04:50] "GET /api/status HTTP/1.0" 200 126
+[Time: 22.06.22 13:04:51] [Level: info] state: read
+[Time: 22.06.22 13:04:51] [Level: info] transition: send_empty_columns
+[Time: 22.06.22 13:04:52] [Level: info] state: send_empty_columns
+[Time: 22.06.22 13:04:52] [Level: info] [State: send_empty_columns] client's empty columns:
+[Time: 22.06.22 13:04:52] [Level: info] [State: send_empty_columns] Index(['msp_0004', 'msp_0051', 'msp_0078', 'msp_0096', 'msp_0099', 'msp_0101',
+       'msp_0115c', 'msp_0116', 'msp_0169', 'msp_0190',
+       ...
+       'msp_2908', 'msp_2910', 'msp_2915', 'msp_2930', 'msp_2945', 'msp_2946',
+       'msp_2947', 'msp_2948', 'msp_2949', 'msp_2951'],
+      dtype='object', length=826)
+[Time: 22.06.22 13:04:52] [Level: info] transition: await
+[CTRL] GET /status
+127.0.0.1 - - [22/Jun/2022 13:04:53] "GET /api/status HTTP/1.0" 200 126
+[CTRL] GET /data
+127.0.0.1 - - [22/Jun/2022 13:04:53] "GET /api/data HTTP/1.0" 200 4
+[Time: 22.06.22 13:04:53] [Level: info] state: await
+[CTRL] GET /status
+127.0.0.1 - - [22/Jun/2022 13:04:56] "GET /api/status HTTP/1.0" 200 126
+[CTRL] GET /data
+127.0.0.1 - - [22/Jun/2022 13:04:56] "GET /api/data HTTP/1.0" 200 9351
