@@ -7,7 +7,7 @@ from collections import Counter
 # FeatureCloud requires that apps define the at least the 'initial' state.
 # This state is executed after the app instance is started.
 
-class Data():
+class Data()
 
     def read_data(self, file_anno, file_exp):
         anno = pd.read_csv(file_anno, delimiter=',')
@@ -17,25 +17,16 @@ class Data():
 
         self.df = df
     
-    # def get_balance_ratio(self):
-    #     counter = Counter(self.df['health_status'])
-    #     ratio = counter['P'] / (counter['P'] + counter['H'])
-    #     return ratio
+    def get_balance_ratio(self):
+        counter = Counter(self.df['health_status'])
+        ratio = counter['P'] / (counter['P'] + counter['H'])
+        return ratio
     
     def get_dataframe(self):
         return self.df
     
     def delete_columns(self, to_drop):
         self.df = self.df.drop(columns=to_drop)
-
-    def is_contributig(self):
-        counter = Counter(self.df['health_status'])
-        ratio = counter['P'] / (counter['P'] + counter['H'])
-        
-        if ratio > 0.85:
-            return False
-        else:
-            return True
 
 c = Data()
 
@@ -58,8 +49,8 @@ class ReadState(AppState):
     def run(self):
         c.read_data('/mnt/input/anno.csv', '/mnt/input/exp.csv')
 
-        # if c.get_balance_ratio() > 0.85:
-        #     return 'await'
+        if c.get_balance_ratio() > 0.85:
+            return 'await'
 
         # find columns to drop
         to_drop = c.get_dataframe().columns[(c.get_dataframe() == 0).all()]
@@ -72,14 +63,6 @@ class ReadState(AppState):
             return 'aggregate'
         else:
             return 'await'
-
-@app_state('aggregate_contributions', Role.CONTRIBUTOR)
-class AggregateContributionsState(AppState):
-
-    def register(self):
-        self.register_transition('await', Role.COORDINATOR)
-        
-    def run(self):
 
 @app_state('aggregate', Role.COORDINATOR)
 class AggregateState(AppState):
