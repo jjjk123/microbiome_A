@@ -7,7 +7,7 @@ from collections import Counter
 # FeatureCloud requires that apps define the at least the 'initial' state.
 # This state is executed after the app instance is started.
 
-class Data()
+class Data():
 
     def read_data(self, file_anno, file_exp):
         anno = pd.read_csv(file_anno, delimiter=',')
