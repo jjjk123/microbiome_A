@@ -23,6 +23,8 @@ The studies included shotgun metagenome data of gut microbiomes from ca. 1,400 c
 
 ## Machine Learning Model
 
+scikit learn: Logistic Regression
+
 ## App Workflow
 
 <img width="351" alt="Screenshot 2022-06-23 at 11 52 22" src="https://user-images.githubusercontent.com/82537630/175304295-d9da2564-4fa3-4b0b-8cd5-bb6a3fd17a6c.png">
