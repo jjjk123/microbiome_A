@@ -41,7 +41,7 @@ Validation: Method performance will be compared to that of the standard centrali
 
 <p float="center">
   <img height="80" src="https://user-images.githubusercontent.com/82537630/175306971-9a18f936-41ab-49cb-b75c-bfc6a85328a9.png">
-  <img height="80" src="https://user-images.githubusercontent.com/82537630/175306597-a91c51cd-6eaa-471f-a6a0-60eafe28b49f.jpg">
+  <img height="80" src="https://user-images.githubusercontent.com/82537630/175307500-28309423-87b3-4598-955e-61b110bbfcd4.png">
   <img height="80" src="https://user-images.githubusercontent.com/82537630/174888358-32a8292a-c6ae-4701-93f4-8947480d3f3b.png">
 </p>
                                                                                                                                  
