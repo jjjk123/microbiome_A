@@ -23,7 +23,7 @@ The studies included shotgun metagenome data of gut microbiomes from ca. 1,400 c
 
 ## Machine Learning Model
 
-scikit learn: Logistic Regression
+scikit learn: [Logistic Regression](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html)
 
 ## App Workflow
 
@@ -33,11 +33,15 @@ scikit learn: Logistic Regression
 
 ## FeatureCloud Implementation
 
+[FeatureCloud](https://featurecloud.ai)
+
 ## Results
 
 Validation: Method performance will be compared to that of the standard centralized approach and will be validated by new, unseen data.
 
-<img width="140" alt="Screenshot 2022-06-21 at 22 06 32" src="https://user-images.githubusercontent.com/82537630/174888259-330431f2-c300-494f-8b82-a8e54b6b7c39.png">
-
-![cosybio_logo](https://user-images.githubusercontent.com/82537630/174888358-32a8292a-c6ae-4701-93f4-8947480d3f3b.png)
-
+<p float="center">
+  <img height="80" src="https://user-images.githubusercontent.com/82537630/175306971-9a18f936-41ab-49cb-b75c-bfc6a85328a9.png">
+  <img height="80" src="https://user-images.githubusercontent.com/82537630/175306597-a91c51cd-6eaa-471f-a6a0-60eafe28b49f.jpg">
+  <img height="80" src="https://user-images.githubusercontent.com/82537630/174888358-32a8292a-c6ae-4701-93f4-8947480d3f3b.png">
+</p>
+                                                                                                                                 
