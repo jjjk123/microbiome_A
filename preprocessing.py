@@ -127,8 +127,8 @@ class Preprocessing():
 
     @staticmethod
     def data_checks(df_merged):
-        # The elements of CLASS/health_status become as: minority H--> 1,  P--> 0
-        df_merged['CLASS'] = pd.factorize(df_merged['health_status'])[0]
+        # The elements of CLASS/health_status become as: minority H--> 0,  P--> 1
+        df_merged['CLASS'] = (-1) * (pd.factorize(df_merged['health_status'])[0] - 1)
 
         # Drop 'health_status' column since it does not provide any meaningful information
         df_merged = df_merged.drop(columns=['health_status'])
@@ -162,11 +162,38 @@ class Preprocessing():
         return df
 
     @staticmethod
-    def read_data(path_anno: str, path_exp: str):
+    def read_data(path_anno: str, path_exp: str, taxonomy_path: str):
         df_anno = pd.read_csv(path_anno)
         df_exp = pd.read_csv(path_exp)
 
         df_merged = pd.merge(df_anno, df_exp.rename(columns={'Unnamed: 0': 'sample'}), on='sample', how='left')
+
+        # adenoma
+        adenoma_genus_proc = 1
+        if adenoma_genus_proc == 1:
+            # load taxonomy file
+            taxo = pd.read_csv(taxonomy_path, sep="\t")
+            taxo["msp"] = list(taxo.index)
+            taxo = taxo[["msp", "genus"]]
+
+            all_species = list(taxo.index)
+            genus_dictionary = {}
+            for species in all_species:
+                genus = taxo["genus"][species]
+                msp = taxo["msp"][species]
+
+                if genus in genus_dictionary:
+                    genus_dictionary[genus].append(msp)
+                else:
+                    genus_dictionary[genus] = [msp]
+
+            all_genus = genus_dictionary.keys()
+            for genus in all_genus:
+                df_exp[genus] = df_exp[genus_dictionary[genus]].sum(axis=1)
+                df_exp = df_exp.drop(columns=genus_dictionary[genus])
+            df_merged = pd.merge(df_anno, df_exp.rename(columns={'Unnamed: 0': 'sample'}), on='sample',how='left')
+            df_merged = df_merged.drop(list(df_anno[df_anno['host_phenotype'] == "adenoma"].index))
+
         df_merged = Preprocessing.data_proc(df_merged)
 
         sorted_MissValsTable, df_merged = Preprocessing.data_checks(df_merged)

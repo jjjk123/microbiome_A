@@ -15,8 +15,8 @@ class DataStorage():
     contributors = 1
     iterations = 0
 
-    def read_data(self, file_anno, file_exp):
-        self.df = preprocessing.Preprocessing.read_data(file_anno, file_exp)
+    def read_data(self, file_anno, file_exp, tax):
+        self.df = preprocessing.Preprocessing.read_data(file_anno, file_exp, tax)
 
     def get_dataframe(self):
         return self.df
@@ -25,17 +25,14 @@ class DataStorage():
         self.df = self.df.drop(columns=to_drop)
 
     def is_contributing(self):
-        counter = Counter(self.df['CLASS'])
-        ratio = counter[0] / (counter[0] + counter[1])
+        ratio = sum(self.df['CLASS']) / len(self.df['CLASS'])
 
-        if ratio > 0.85:
+        if ratio > 0.85 or ratio < 0.15:
             return False
         else:
             return True
 
-
 c = DataStorage()
-
 
 @app_state('initial')
 class InitialState(AppState):
@@ -56,7 +53,7 @@ class ReadState(AppState):
         self.register_transition('await', Role.BOTH)
 
     def run(self):
-        c.read_data('/mnt/input/anno.csv', '/mnt/input/exp.csv')
+        c.read_data('/mnt/input/anno.csv', '/mnt/input/exp.csv', '/mnt/input/taxonomy.tsv')
 
         is_contributing = c.is_contributing()
 
@@ -65,7 +62,7 @@ class ReadState(AppState):
         if self.is_coordinator:
             return 'aggregate_contributions'
         elif not self.is_coordinator and c.is_contributing():
-            print("# i contributing")
+            print("# i'm contributing")
             return 'send_empty_columns'
         else:
             print("# I'M NOT CONTRIBUTING!")
@@ -80,6 +77,7 @@ class AggregateContributinsState(AppState):
 
     def run(self):
         contributions = len([el for el in self.gather_data() if el == True])
+        self.broadcast_data("collected number of contributors")
         c.contributors = contributions
 
         return 'send_empty_columns'
@@ -95,6 +93,7 @@ class AggregateState(AppState):
     def run(self):
         empty_columns = c.get_dataframe().columns[(c.get_dataframe() == 0).all()]
 
+        self.await_data(n=1)
         self.send_data_to_coordinator(list(empty_columns))
 
         if self.is_coordinator:
@@ -110,10 +109,12 @@ class AggregateState(AppState):
         self.register_transition('await', Role.COORDINATOR)
 
     def run(self):
+        print(c.contributors)
         to_drop = self.await_data(n=c.contributors)
 
         self.log('received data from')
-        self.log(len(to_drop))
+        if len(to_drop) and type(to_drop[0]) == bool and type(to_drop[1]) == list:
+            to_drop = to_drop[1]
 
         common_to_drop = set.intersection(*map(set, to_drop))
 

@@ -6,6 +6,7 @@ from sklearn.metrics import accuracy_score, matthews_corrcoef, f1_score, average
     recall_score, make_scorer, confusion_matrix
 from sklearn.model_selection import train_test_split
 
+
 class MachineLearning():
 
     def __init__(self):
