@@ -29,8 +29,11 @@ class MachineLearning():
         mcc = matthews_corrcoef(y_true, y_pred)
         prs = precision_score(y_true, y_pred)
         recall = recall_score(y_true, y_pred)
-        cm = confusion_matrix(y_true, y_pred)
-        return "Accuracy: %.3f, Precision: %.3f, Recall: %.3f, APS: %.3f, F1: %.3f, MCC: %.3f, CM: %s" % (acc, prs, recall, aps, f1, mcc, cm)
+        tn, fp, fn, tp = confusion_matrix(y_true, y_pred).ravel()
+        sensitivity = tp / (tp + fn)
+        specificity = tn / (tn + fp)
+        return "Acc: %.3f, Sens: %.3f, Spec: %.3f, Precision: %.3f, Recall: %.3f, APS: %.3f, F1: %.3f, MCC: %.3f, TN: %d, FP: %d, FN: %d, TP: %d" \
+               % (acc, sensitivity, specificity, prs, recall, aps, f1, mcc, tn, fp, fn, tp)
 
 
 class FLLogisticRegression(MachineLearning):
@@ -94,7 +97,7 @@ class FLLogisticRegression(MachineLearning):
 
         return self.glob_intercept, self.glob_coef
 
-    def build_new_model(self):
+    def build_new_model(self, warm_start=True):
         new_lr = LogisticRegression()
         new_lr.coef_ = numpy.array(self.glob_coef)
         new_lr.intercept_ = self.glob_intercept
@@ -103,3 +106,9 @@ class FLLogisticRegression(MachineLearning):
         #print(new_lr.intercept_)
         #print(new_lr.coef_)
         self.ml = new_lr
+
+    def refit_model(self):
+        self.ml.coef_ = numpy.array(self.glob_coef)
+        self.ml.intercept_ = self.glob_intercept
+        self.ml.classes_ = numpy.array([0, 1])
+        self.ml.fit(self.X, self.y)
