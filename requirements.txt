@@ -1,2 +1,6 @@
 featurecloud
+pandas
+numpy
 sklearn
+matplotlib
+imblearn
