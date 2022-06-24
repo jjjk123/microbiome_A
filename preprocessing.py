@@ -28,7 +28,6 @@ class Preprocessing():
         # Return the dataframe with missing information
         return mis_val_table_ren_columns
 
-
     @staticmethod
     def data_proc(df_input):
 

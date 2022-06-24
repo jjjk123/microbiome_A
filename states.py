@@ -1,9 +1,11 @@
-from FeatureCloud.app.engine.app import AppState, app_state, Role
+import os.path
 
+import pandas
+from FeatureCloud.app.engine.app import AppState, app_state, Role
+import pickle
 
 import preprocessing
 from collections import Counter
-
 
 # FeatureCloud requires that apps define the at least the 'initial' state.
 # This state is executed after the app instance is started.
@@ -15,9 +17,14 @@ class DataStorage():
     contributors = 1
     iterations = 0
     iteration_limit = 2
+    columns_to_drop = []
 
     def read_data(self, file_anno, file_exp, tax):
         self.df = preprocessing.Preprocessing.read_data(file_anno, file_exp, tax)
+
+    def add_dataframe(self, filename: str):
+        self.df = pandas.read_csv(filename)
+        self.df = self.df.drop(["Unnamed: 0"], axis=1)
 
     def get_dataframe(self):
         return self.df
@@ -59,7 +66,6 @@ class ReadState(AppState):
         c.read_data('/mnt/input/anno.csv', '/mnt/input/exp.csv', '/mnt/input/taxonomy.tsv')
 
         is_contributing = c.is_contributing()
-
         self.send_data_to_coordinator(is_contributing)
 
         if self.is_coordinator:
@@ -79,10 +85,9 @@ class AggregateContributinsState(AppState):
         self.register_transition('send_empty_columns', Role.COORDINATOR)
 
     def run(self):
-        contributions = len([el for el in self.gather_data() if el == True])
+        contributions = len([el for el in self.gather_data() if el is True])
         self.broadcast_data("collected number of contributors")
         c.contributors = contributions
-
         return 'send_empty_columns'
 
 
@@ -120,7 +125,6 @@ class AggregateState(AppState):
             to_drop = to_drop[1]
 
         common_to_drop = set.intersection(*map(set, to_drop))
-
         self.broadcast_data(common_to_drop)
 
         return 'create_local_models'
@@ -132,17 +136,20 @@ class AwaitState(AppState):
     def register(self):
         self.register_transition('send_global_params', Role.COORDINATOR)
         self.register_transition('create_federated_model', Role.PARTICIPANT)
-        #self.register_transition('rerun', Role.PARTICIPANT)
 
     def run(self):
         common_to_drop = self.await_data()
 
+        c.columns_to_drop = common_to_drop
         c.delete_columns(common_to_drop)
 
         # apply model here
         ml = FLLogisticRegression()
         ml.prepare_data(c.get_dataframe())
-        ml.fit()
+        if len(c.get_dataframe()) > 10:
+            ml.fit_cv()
+        else:
+            ml.fit()
         print(ml.benchmark())
         print(ml.benchmark(None, None, True))
         params = ml.get_params()
@@ -186,7 +193,6 @@ class ApplyState(AppState):
         final_params = self.await_data(n=1)
         ml = FLLogisticRegression()
         ml.set_params(final_params[0], final_params[1], False)
-        print("### NEW MODEL ###")
         ml.build_new_model(True)
         ml.prepare_data(c.get_dataframe())
         print(ml.benchmark(None, None, True))
@@ -196,7 +202,6 @@ class ApplyState(AppState):
             self.send_data_to_coordinator(ml.get_params())
 
         if self.is_coordinator:
-            print("jump to run_aggregate")
             return 'rerun_aggregate'
         else:
             return 'rerun'
@@ -212,16 +217,59 @@ class RerunState(AppState):
 
     def run(self):
         params = self.await_data(n=1)
-        print(params)
         ml = FLLogisticRegression()
         ml.set_params(params[0], params[1], False)
         ml.prepare_data(c.get_dataframe())
+
+
+        print(c.get_dataframe().columns)
+
         ml.build_new_model(True)
         ml.refit_model()
         c.iterations += 1
         print("#%d: %s" % (c.iterations, ml.benchmark(None, None, True)))
 
-        if (self.is_coordinator and c.iterations >= c.iteration_limit+1) or (not self.is_coordinator and c.iterations >= c.iteration_limit):
+        # evaluation #
+        if os.path.exists("/mnt/input/valid_sample_all.csv"):
+
+            print("start evaluation")
+            bench1_data = DataStorage()
+            #bench1_data.read_data("/mnt/input/valid_sample_anno.csv", "/mnt/input/valid_sample_exp.csv", '/mnt/input/taxonomy.tsv')
+            bench1_data.add_dataframe("/mnt/input/valid_sample_all.csv")
+            bench1_data.delete_columns(c.columns_to_drop)
+            print(bench1_data.get_dataframe().columns)
+
+            ml.prepare_data(bench1_data.get_dataframe())
+
+            #eml = FLLogisticRegression()
+            #eml.prepare_data(bench1_data.get_dataframe())
+            #eml.set_params(params[0], params[1], False)
+            #eml.build_new_model(True)
+            print("#EVAL#SAMPLE# %s" % (ml.benchmark(None, None, True)))
+
+
+            """
+                    ml = FLLogisticRegression()
+                    ml.set_params(final_params[0], final_params[1], False)
+                    ml.build_new_model(True)
+                    ml.prepare_data(c.get_dataframe())
+                    print(ml.benchmark(None, None, True))
+            """
+
+            """
+            bench2_data = DataStorage()
+            bench2_data.read_data("/mnt/input/valid_country_anno.csv", "/mnt/input/valid_country_exp.csv", '/mnt/input/taxonomy.tsv')
+            print(bench2_data.get_dataframe().columns)
+            cml = FLLogisticRegression()
+            cml.prepare_data(bench2_data.get_dataframe())
+            cml.set_params(params[0], params[1], False)
+            cml.prepare_data(bench2_data.get_dataframe())
+            cml.build_new_model(True)
+            print("#EVAL#Country# %s" % (cml.benchmark(None, None, True)))
+            """
+
+        if c.iterations >= c.iteration_limit:
+            pickle.dump(ml.get_model(), open("/mnt/output/model.p", "wb"))
             return 'terminal'
         else:
             self.send_data_to_coordinator(ml.get_params())
@@ -239,8 +287,8 @@ class RerunAggregation(AppState):
 
     def run(self):
         all_params = self.await_data(n=c.contributors)
-        print('## Aggregation')
-        print(all_params)
+        #print('## Aggregation')
+        #self.log(len(all_params))
         ml = FLLogisticRegression()
         for a in all_params:
             ml.set_params(a[0][0], a[1][0])
