@@ -1,0 +1,32 @@
+2022-06-24 07:58:58,036 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2022-06-24 07:58:58,040 INFO supervisord started with pid 7
+2022-06-24 07:58:59,043 INFO spawned: 'nginx' with pid 10
+2022-06-24 07:58:59,046 INFO spawned: 'app' with pid 11
+2022-06-24 07:59:00,102 INFO success: nginx entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2022-06-24 07:59:00,102 INFO success: app entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+Bottle v0.12.21 server starting up (using WSGIRefServer())...
+Listening on http://localhost:5000/
+Hit Ctrl-C to quit.
+
+[CTRL] POST /setup
+[Time: 24.06.22 07:59:32] [Level: info] id: a1ab066d5370b3c9
+[Time: 24.06.22 07:59:32] [Level: info] coordinator: True
+[Time: 24.06.22 07:59:32] [Level: info] clients: ['b86e822c80c409b9', '72299e1391ff7111', 'a1ab066d5370b3c9', 'ddc26cad3f1c224d', 'e3aff512b3993ad6', '4003160750d2df7c', 'faf19e01f9f57738', '5eb2cf9105d3fab3']
+[Time: 24.06.22 07:59:32] [Level: info] state: initial
+[Time: 24.06.22 07:59:32] [Level: info] transition: read
+127.0.0.1 - - [24/Jun/2022 07:59:32] "POST /api/setup HTTP/1.0" 200 0
+[CTRL] GET /status
+127.0.0.1 - - [24/Jun/2022 07:59:32] "GET /api/status HTTP/1.0" 200 126
+[Time: 24.06.22 07:59:33] [Level: info] state: read
+[Time: 24.06.22 07:59:34] [Level: info] transition: aggregate_contributions
+[CTRL] POST /data
+127.0.0.1 - - [24/Jun/2022 07:59:35] "POST /api/data?client=72299e1391ff7111 HTTP/1.0" 200 0
+[CTRL] GET /status
+127.0.0.1 - - [24/Jun/2022 07:59:35] "GET /api/status HTTP/1.0" 200 145
+[CTRL] POST /data
+127.0.0.1 - - [24/Jun/2022 07:59:35] "POST /api/data?client=4003160750d2df7c HTTP/1.0" 200 0
+[CTRL] POST /data
+127.0.0.1 - - [24/Jun/2022 07:59:35] "POST /api/data?client=ddc26cad3f1c224d HTTP/1.0" 200 0
+127.0.0.1 - - [24/Jun/2022 07:59:35] "POST /api/data?client=b86e822c80c409b9 HTTP/1.0" 200 0
+[CTRL] POST /data
+[Time: 24.06.22 07:59:35] [Level: info] state: aggregate_contributions

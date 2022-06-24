@@ -56,7 +56,7 @@ class ReadState(AppState):
         self.register_transition('create_local_models', Role.BOTH)
 
     def run(self):
-        c.read_data('/mnt/input/anno.csv', '/mnt/input/exp.csv', '/mnt/input/taxonomy.tsv')
+        c.read_data('/mnt/input/anno.csv', '/mnt/input/exp.csv', '/mnt/taxonomy.tsv')
 
         is_contributing = c.is_contributing()
 

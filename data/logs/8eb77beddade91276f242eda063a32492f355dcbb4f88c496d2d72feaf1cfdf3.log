@@ -1,0 +1,66 @@
+2022-06-24 07:54:28,885 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2022-06-24 07:54:28,888 INFO supervisord started with pid 8
+2022-06-24 07:54:29,892 INFO spawned: 'nginx' with pid 11
+2022-06-24 07:54:29,899 INFO spawned: 'app' with pid 12
+2022-06-24 07:54:30,925 INFO success: nginx entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2022-06-24 07:54:30,925 INFO success: app entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+Bottle v0.12.21 server starting up (using WSGIRefServer())...
+Listening on http://localhost:5000/
+Hit Ctrl-C to quit.
+
+[CTRL] POST /setup
+[Time: 24.06.22 07:54:32] [Level: info] id: e82c7efdc0376b54
+[Time: 24.06.22 07:54:32] [Level: info] coordinator: False
+[Time: 24.06.22 07:54:32] [Level: info] clients: ['7141c590254044ec', '42832bab8f609b18', 'db5be3a428d092a3', 'adc8de474f959214', 'e82c7efdc0376b54', '1b4cd099093828a9', 'dfa1021efeb06d01', '0c1730409d73694a']
+127.0.0.1 - - [24/Jun/2022 07:54:32] "POST /api/setup HTTP/1.0" 200 0
+[Time: 24.06.22 07:54:32] [Level: info] state: initial
+[Time: 24.06.22 07:54:32] [Level: info] transition: read
+[CTRL] GET /status
+127.0.0.1 - - [24/Jun/2022 07:54:32] "GET /api/status HTTP/1.0" 200 126
+[Time: 24.06.22 07:54:33] [Level: info] state: read
+# i contributing
+[Time: 24.06.22 07:54:34] [Level: info] transition: send_empty_columns
+[Time: 24.06.22 07:54:35] [Level: info] state: send_empty_columns
+[Time: 24.06.22 07:54:35] [Level: info] transition: await
+[CTRL] GET /status
+127.0.0.1 - - [24/Jun/2022 07:54:35] "GET /api/status HTTP/1.0" 200 126
+[CTRL] GET /data
+127.0.0.1 - - [24/Jun/2022 07:54:35] "GET /api/data HTTP/1.0" 200 4
+[Time: 24.06.22 07:54:36] [Level: info] state: await
+[CTRL] GET /status
+127.0.0.1 - - [24/Jun/2022 07:54:38] "GET /api/status HTTP/1.0" 200 126
+[CTRL] GET /data
+127.0.0.1 - - [24/Jun/2022 07:54:38] "GET /api/data HTTP/1.0" 200 7740
+[CTRL] POST /data
+127.0.0.1 - - [24/Jun/2022 07:54:39] "POST /api/data?client=7141c590254044ec HTTP/1.0" 200 0
+/usr/local/lib/python3.8/site-packages/sklearn/utils/validation.py:1111: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  y = column_or_1d(y, warn=True)
+/usr/local/lib/python3.8/site-packages/sklearn/linear_model/_logistic.py:444: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+Accuracy: 0.459, Precision: 0.444, Recall: 0.444, APS: 0.468, F1: 0.444, MCC: -0.082, CM: [[ 9 10]
+ [10  8]]
+Accuracy: 0.595, Precision: 0.582, Recall: 0.650, APS: 0.552, F1: 0.614, MCC: 0.192, CM: [[33 28]
+ [21 39]]
+[Time: 24.06.22 07:54:41] [Level: info] transition: apply
+[CTRL] GET /status
+127.0.0.1 - - [24/Jun/2022 07:54:41] "GET /api/status HTTP/1.0" 200 126
+[CTRL] GET /data
+127.0.0.1 - - [24/Jun/2022 07:54:41] "GET /api/data HTTP/1.0" 200 19697
+[Time: 24.06.22 07:54:42] [Level: info] state: apply
+[CTRL] GET /status
+127.0.0.1 - - [24/Jun/2022 07:54:44] "GET /api/status HTTP/1.0" 200 127
+127.0.0.1 - - [24/Jun/2022 07:54:45] "POST /api/data?client=7141c590254044ec HTTP/1.0" 200 0
+[CTRL] POST /data
+### NEW MODEL ###
+/usr/local/lib/python3.8/site-packages/sklearn/base.py:443: UserWarning: X has feature names, but LogisticRegression was fitted without feature names
+  warnings.warn(
+Accuracy: 0.521, Precision: 0.536, Recall: 0.250, APS: 0.506, F1: 0.341, MCC: 0.044, CM: [[48 13]
+ [45 15]]
+[Time: 24.06.22 07:54:46] [Level: info] transition: terminal
+[Time: 24.06.22 07:54:46] [Level: info] done

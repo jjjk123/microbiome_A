@@ -1,0 +1,25 @@
+2022-06-24 07:59:14,005 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2022-06-24 07:59:14,009 INFO supervisord started with pid 8
+2022-06-24 07:59:15,014 INFO spawned: 'nginx' with pid 11
+2022-06-24 07:59:15,019 INFO spawned: 'app' with pid 12
+2022-06-24 07:59:16,044 INFO success: nginx entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2022-06-24 07:59:16,044 INFO success: app entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+Bottle v0.12.21 server starting up (using WSGIRefServer())...
+Listening on http://localhost:5000/
+Hit Ctrl-C to quit.
+
+[CTRL] POST /setup
+[Time: 24.06.22 07:59:46] [Level: info] id: f7b9cc8e1574ea0e
+[Time: 24.06.22 07:59:46] [Level: info] coordinator: False
+[Time: 24.06.22 07:59:46] [Level: info] clients: ['63a0c456c76a6378', 'f7b9cc8e1574ea0e', 'c494e79cbe4863fb', 'e07b214ce7ed4bd4', 'c68e32525a78b20a', 'b83ca67a67f66b0f', '16b46e1875035fd3', '5ae7b218b9578057']
+[Time: 24.06.22 07:59:47] [Level: info] state: initial
+[Time: 24.06.22 07:59:47] [Level: info] transition: read
+127.0.0.1 - - [24/Jun/2022 07:59:47] "POST /api/setup HTTP/1.0" 200 0
+[CTRL] GET /status
+127.0.0.1 - - [24/Jun/2022 07:59:47] "GET /api/status HTTP/1.0" 200 126
+[Time: 24.06.22 07:59:48] [Level: info] state: read
+[CTRL] GET /status
+127.0.0.1 - - [24/Jun/2022 07:59:50] "GET /api/status HTTP/1.0" 200 126
+# I'M NOT CONTRIBUTING!
+[Time: 24.06.22 07:59:52] [Level: info] transition: await
+[Time: 24.06.22 07:59:53] [Level: info] state: await

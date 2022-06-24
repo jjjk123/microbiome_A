@@ -1,0 +1,121 @@
+2022-06-24 07:53:58,491 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2022-06-24 07:53:58,496 INFO supervisord started with pid 8
+2022-06-24 07:53:59,502 INFO spawned: 'nginx' with pid 11
+2022-06-24 07:53:59,508 INFO spawned: 'app' with pid 12
+2022-06-24 07:54:00,675 INFO success: nginx entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2022-06-24 07:54:00,675 INFO success: app entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+Bottle v0.12.21 server starting up (using WSGIRefServer())...
+Listening on http://localhost:5000/
+Hit Ctrl-C to quit.
+
+[CTRL] POST /setup
+[Time: 24.06.22 07:54:30] [Level: info] id: 7141c590254044ec
+[Time: 24.06.22 07:54:30] [Level: info] coordinator: True
+[Time: 24.06.22 07:54:30] [Level: info] clients: ['7141c590254044ec', '42832bab8f609b18', 'db5be3a428d092a3', 'adc8de474f959214', 'e82c7efdc0376b54', '1b4cd099093828a9', 'dfa1021efeb06d01', '0c1730409d73694a']
+127.0.0.1 - - [24/Jun/2022 07:54:30] "POST /api/setup HTTP/1.0" 200 0
+[CTRL] GET /status
+[Time: 24.06.22 07:54:30] [Level: info] state: initial
+[Time: 24.06.22 07:54:30] [Level: info] transition: read
+127.0.0.1 - - [24/Jun/2022 07:54:30] "GET /api/status HTTP/1.0" 200 129
+[Time: 24.06.22 07:54:31] [Level: info] state: read
+[Time: 24.06.22 07:54:32] [Level: info] transition: aggregate_contributions
+[Time: 24.06.22 07:54:33] [Level: info] state: aggregate_contributions
+[CTRL] GET /status
+127.0.0.1 - - [24/Jun/2022 07:54:33] "GET /api/status HTTP/1.0" 200 145
+127.0.0.1 - - [24/Jun/2022 07:54:33] "POST /api/data?client=1b4cd099093828a9 HTTP/1.0" 200 0
+[CTRL] POST /data
+[CTRL] POST /data
+127.0.0.1 - - [24/Jun/2022 07:54:33] "POST /api/data?client=dfa1021efeb06d01 HTTP/1.0" 200 0
+[CTRL] POST /data
+127.0.0.1 - - [24/Jun/2022 07:54:33] "POST /api/data?client=42832bab8f609b18 HTTP/1.0" 200 0
+[CTRL] POST /data
+127.0.0.1 - - [24/Jun/2022 07:54:33] "POST /api/data?client=db5be3a428d092a3 HTTP/1.0" 200 0
+[CTRL] POST /data
+127.0.0.1 - - [24/Jun/2022 07:54:33] "POST /api/data?client=adc8de474f959214 HTTP/1.0" 200 0
+[CTRL] POST /data
+127.0.0.1 - - [24/Jun/2022 07:54:33] "POST /api/data?client=0c1730409d73694a HTTP/1.0" 200 0
+[CTRL] POST /data
+127.0.0.1 - - [24/Jun/2022 07:54:35] "POST /api/data?client=e82c7efdc0376b54 HTTP/1.0" 200 0
+[Time: 24.06.22 07:54:35] [Level: info] [State: aggregate_contributions] contributions
+[Time: 24.06.22 07:54:35] [Level: info] [State: aggregate_contributions] 7
+[Time: 24.06.22 07:54:35] [Level: info] transition: send_empty_columns
+[CTRL] GET /status
+127.0.0.1 - - [24/Jun/2022 07:54:36] "GET /api/status HTTP/1.0" 200 140
+[CTRL] POST /data
+127.0.0.1 - - [24/Jun/2022 07:54:36] "POST /api/data?client=dfa1021efeb06d01 HTTP/1.0" 200 0
+[Time: 24.06.22 07:54:36] [Level: info] state: send_empty_columns
+[Time: 24.06.22 07:54:36] [Level: info] transition: aggregate_columns_to_drop
+[CTRL] POST /data
+127.0.0.1 - - [24/Jun/2022 07:54:36] "POST /api/data?client=1b4cd099093828a9 HTTP/1.0" 200 0
+[CTRL] POST /data
+127.0.0.1 - - [24/Jun/2022 07:54:36] "POST /api/data?client=adc8de474f959214 HTTP/1.0" 200 0
+[CTRL] POST /data
+127.0.0.1 - - [24/Jun/2022 07:54:36] "POST /api/data?client=db5be3a428d092a3 HTTP/1.0" 200 0
+[CTRL] POST /data
+127.0.0.1 - - [24/Jun/2022 07:54:36] "POST /api/data?client=0c1730409d73694a HTTP/1.0" 200 0
+[Time: 24.06.22 07:54:37] [Level: info] state: aggregate_columns_to_drop
+127.0.0.1 - - [24/Jun/2022 07:54:38] "POST /api/data?client=e82c7efdc0376b54 HTTP/1.0" 200 0
+[CTRL] POST /data
+[Time: 24.06.22 07:54:38] [Level: info] [State: aggregate_columns_to_drop] received to_drop
+[Time: 24.06.22 07:54:38] [Level: info] [State: aggregate_columns_to_drop] 7
+[Time: 24.06.22 07:54:38] [Level: info] [State: aggregate_columns_to_drop] common to drop
+[Time: 24.06.22 07:54:38] [Level: info] [State: aggregate_columns_to_drop] {'msp_2007', 'msp_1321c', 'msp_2591', 'msp_2299', 'msp_1888', 'msp_1726', 'msp_1518', 'msp_2865', 'msp_1889', 'msp_1370', 'msp_2444', 'msp_2169', 'msp_1740', 'msp_0972', 'msp_2891', 'msp_1561', 'msp_2321', 'msp_2058', 'msp_1895', 'msp_2337', 'msp_1856', 'msp_1416', 'msp_2565', 'msp_0609', 'msp_1749', 'msp_2861', 'msp_1670', 'msp_1104', 'msp_2212', 'msp_1586', 'msp_1591', 'msp_2004', 'msp_2525', 'msp_2609', 'msp_2151'}
+[Time: 24.06.22 07:54:38] [Level: info] [State: aggregate_columns_to_drop] 35
+[Time: 24.06.22 07:54:38] [Level: info] transition: await
+[CTRL] GET /status
+127.0.0.1 - - [24/Jun/2022 07:54:39] "GET /api/status HTTP/1.0" 200 126
+[CTRL] GET /data
+127.0.0.1 - - [24/Jun/2022 07:54:39] "GET /api/data HTTP/1.0" 200 402
+[Time: 24.06.22 07:54:39] [Level: info] state: await
+/usr/local/lib/python3.8/site-packages/sklearn/utils/validation.py:1111: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  y = column_or_1d(y, warn=True)
+Accuracy: 0.632, Precision: 0.625, Recall: 0.312, APS: 0.485, F1: 0.417, MCC: 0.213, CM: [[19  3]
+ [11  5]]
+Accuracy: 0.643, Precision: 0.600, Recall: 0.404, APS: 0.488, F1: 0.483, MCC: 0.236, CM: [[60 14]
+ [31 21]]
+[Time: 24.06.22 07:54:40] [Level: info] transition: send_global_params
+[CTRL] POST /data
+127.0.0.1 - - [24/Jun/2022 07:54:41] "POST /api/data?client=e82c7efdc0376b54 HTTP/1.0" 200 0
+[Time: 24.06.22 07:54:41] [Level: info] state: send_global_params
+[CTRL] GET /status
+127.0.0.1 - - [24/Jun/2022 07:54:42] "GET /api/status HTTP/1.0" 200 140
+[CTRL] POST /data
+127.0.0.1 - - [24/Jun/2022 07:54:42] "POST /api/data?client=42832bab8f609b18 HTTP/1.0" 200 0
+[CTRL] POST /data
+127.0.0.1 - - [24/Jun/2022 07:54:42] "POST /api/data?client=dfa1021efeb06d01 HTTP/1.0" 200 0
+[CTRL] POST /data
+127.0.0.1 - - [24/Jun/2022 07:54:42] "POST /api/data?client=1b4cd099093828a9 HTTP/1.0" 200 0
+[CTRL] POST /data
+127.0.0.1 - - [24/Jun/2022 07:54:42] "POST /api/data?client=adc8de474f959214 HTTP/1.0" 200 0
+[CTRL] POST /data
+127.0.0.1 - - [24/Jun/2022 07:54:42] "POST /api/data?client=db5be3a428d092a3 HTTP/1.0" 200 0
+[CTRL] POST /data
+127.0.0.1 - - [24/Jun/2022 07:54:42] "POST /api/data?client=0c1730409d73694a HTTP/1.0" 200 0
+Number of contributors: 7
+[Time: 24.06.22 07:54:43] [Level: info] transition: apply
+[Time: 24.06.22 07:54:44] [Level: info] state: apply
+### NEW MODEL ###
+/usr/local/lib/python3.8/site-packages/sklearn/base.py:443: UserWarning: X has feature names, but LogisticRegression was fitted without feature names
+  warnings.warn(
+[Time: 24.06.22 07:54:44] [Level: info] Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/FeatureCloud/app/engine/app.py", line 169, in guarded_run
+    self.run()
+  File "/usr/local/lib/python3.8/site-packages/FeatureCloud/app/engine/app.py", line 184, in run
+    transition = self.current_state.run()
+  File "/app/states.py", line 196, in run
+    print( ml.benchmark(None, None, True) )
+  File "/app/machine_learning.py", line 61, in benchmark
+    y_pred = self.ml.predict(self.X)
+  File "/usr/local/lib/python3.8/site-packages/sklearn/linear_model/_base.py", line 447, in predict
+    scores = self.decision_function(X)
+  File "/usr/local/lib/python3.8/site-packages/sklearn/linear_model/_base.py", line 430, in decision_function
+    scores = safe_sparse_dot(X, self.coef_.T, dense_output=True) + self.intercept_
+  File "/usr/local/lib/python3.8/site-packages/sklearn/utils/extmath.py", line 150, in safe_sparse_dot
+    ret = np.dot(a, b)
+  File "<__array_function__ internals>", line 180, in dot
+ValueError: shapes (126,2438) and (2438,1,1) not aligned: 2438 (dim 1) != 1 (dim 1)
+
+[CTRL] GET /status
+127.0.0.1 - - [24/Jun/2022 07:54:45] "GET /api/status HTTP/1.0" 200 133
+[CTRL] GET /data
+127.0.0.1 - - [24/Jun/2022 07:54:45] "GET /api/data HTTP/1.0" 200 46451

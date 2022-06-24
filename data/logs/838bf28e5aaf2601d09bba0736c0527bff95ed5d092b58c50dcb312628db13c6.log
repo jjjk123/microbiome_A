@@ -1,0 +1,68 @@
+2022-06-24 07:54:20,165 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2022-06-24 07:54:20,169 INFO supervisord started with pid 8
+2022-06-24 07:54:21,173 INFO spawned: 'nginx' with pid 11
+2022-06-24 07:54:21,176 INFO spawned: 'app' with pid 12
+2022-06-24 07:54:22,199 INFO success: nginx entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2022-06-24 07:54:22,199 INFO success: app entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+Bottle v0.12.21 server starting up (using WSGIRefServer())...
+Listening on http://localhost:5000/
+Hit Ctrl-C to quit.
+
+[CTRL] POST /setup
+[Time: 24.06.22 07:54:30] [Level: info] id: adc8de474f959214
+[Time: 24.06.22 07:54:30] [Level: info] coordinator: False
+[Time: 24.06.22 07:54:30] [Level: info] clients: ['7141c590254044ec', '42832bab8f609b18', 'db5be3a428d092a3', 'adc8de474f959214', 'e82c7efdc0376b54', '1b4cd099093828a9', 'dfa1021efeb06d01', '0c1730409d73694a']
+[CTRL] GET /status
+127.0.0.1 - - [24/Jun/2022 07:54:30] "POST /api/setup HTTP/1.0" 200 0
+[Time: 24.06.22 07:54:30] [Level: info] state: initial
+[Time: 24.06.22 07:54:30] [Level: info] transition: read
+127.0.0.1 - - [24/Jun/2022 07:54:30] "GET /api/status HTTP/1.0" 200 129
+[Time: 24.06.22 07:54:31] [Level: info] state: read
+# i contributing
+[Time: 24.06.22 07:54:32] [Level: info] transition: send_empty_columns
+[Time: 24.06.22 07:54:33] [Level: info] state: send_empty_columns
+[Time: 24.06.22 07:54:33] [Level: info] transition: await
+[CTRL] GET /status
+127.0.0.1 - - [24/Jun/2022 07:54:33] "GET /api/status HTTP/1.0" 200 126
+[CTRL] GET /data
+127.0.0.1 - - [24/Jun/2022 07:54:33] "GET /api/data HTTP/1.0" 200 4
+[Time: 24.06.22 07:54:34] [Level: info] state: await
+[CTRL] GET /status
+127.0.0.1 - - [24/Jun/2022 07:54:36] "GET /api/status HTTP/1.0" 200 126
+[CTRL] GET /data
+127.0.0.1 - - [24/Jun/2022 07:54:36] "GET /api/data HTTP/1.0" 200 8476
+[CTRL] POST /data
+127.0.0.1 - - [24/Jun/2022 07:54:39] "POST /api/data?client=7141c590254044ec HTTP/1.0" 200 0
+[CTRL] GET /status
+127.0.0.1 - - [24/Jun/2022 07:54:39] "GET /api/status HTTP/1.0" 200 127
+/usr/local/lib/python3.8/site-packages/sklearn/utils/validation.py:1111: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  y = column_or_1d(y, warn=True)
+/usr/local/lib/python3.8/site-packages/sklearn/linear_model/_logistic.py:444: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+Accuracy: 0.583, Precision: 0.455, Recall: 0.357, APS: 0.412, F1: 0.400, MCC: 0.089, CM: [[16  6]
+ [ 9  5]]
+Accuracy: 0.737, Precision: 0.675, Recall: 0.600, APS: 0.558, F1: 0.635, MCC: 0.433, CM: [[60 13]
+ [18 27]]
+[Time: 24.06.22 07:54:41] [Level: info] transition: apply
+[Time: 24.06.22 07:54:42] [Level: info] state: apply
+[CTRL] GET /status
+127.0.0.1 - - [24/Jun/2022 07:54:42] "GET /api/status HTTP/1.0" 200 126
+[CTRL] GET /data
+127.0.0.1 - - [24/Jun/2022 07:54:42] "GET /api/data HTTP/1.0" 200 19697
+[CTRL] POST /data
+127.0.0.1 - - [24/Jun/2022 07:54:45] "POST /api/data?client=7141c590254044ec HTTP/1.0" 200 0
+[CTRL] GET /status
+127.0.0.1 - - [24/Jun/2022 07:54:45] "GET /api/status HTTP/1.0" 200 127
+### NEW MODEL ###
+/usr/local/lib/python3.8/site-packages/sklearn/base.py:443: UserWarning: X has feature names, but LogisticRegression was fitted without feature names
+  warnings.warn(
+Accuracy: 0.619, Precision: 0.500, Recall: 0.067, APS: 0.389, F1: 0.118, MCC: 0.057, CM: [[70  3]
+ [42  3]]
+[Time: 24.06.22 07:54:46] [Level: info] transition: terminal
+[Time: 24.06.22 07:54:46] [Level: info] done

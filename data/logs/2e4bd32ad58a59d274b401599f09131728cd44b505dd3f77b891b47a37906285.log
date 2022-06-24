@@ -1,0 +1,60 @@
+2022-06-24 07:54:24,534 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2022-06-24 07:54:24,535 INFO supervisord started with pid 7
+2022-06-24 07:54:25,542 INFO spawned: 'nginx' with pid 10
+2022-06-24 07:54:25,546 INFO spawned: 'app' with pid 11
+2022-06-24 07:54:26,573 INFO success: nginx entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2022-06-24 07:54:26,573 INFO success: app entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+Bottle v0.12.21 server starting up (using WSGIRefServer())...
+Listening on http://localhost:5000/
+Hit Ctrl-C to quit.
+
+[CTRL] POST /setup
+[Time: 24.06.22 07:54:30] [Level: info] id: dfa1021efeb06d01
+[Time: 24.06.22 07:54:30] [Level: info] coordinator: False
+[Time: 24.06.22 07:54:30] [Level: info] clients: ['7141c590254044ec', '42832bab8f609b18', 'db5be3a428d092a3', 'adc8de474f959214', 'e82c7efdc0376b54', '1b4cd099093828a9', 'dfa1021efeb06d01', '0c1730409d73694a']
+127.0.0.1 - - [24/Jun/2022 07:54:30] "POST /api/setup HTTP/1.0" 200 0
+[Time: 24.06.22 07:54:30] [Level: info] state: initial
+[Time: 24.06.22 07:54:30] [Level: info] transition: read
+127.0.0.1 - - [24/Jun/2022 07:54:30] "GET /api/status HTTP/1.0" 200 126
+[CTRL] GET /status
+[Time: 24.06.22 07:54:31] [Level: info] state: read
+# i contributing
+[Time: 24.06.22 07:54:32] [Level: info] transition: send_empty_columns
+[Time: 24.06.22 07:54:33] [Level: info] state: send_empty_columns
+[Time: 24.06.22 07:54:33] [Level: info] transition: await
+[CTRL] GET /status
+127.0.0.1 - - [24/Jun/2022 07:54:33] "GET /api/status HTTP/1.0" 200 126
+[CTRL] GET /data
+127.0.0.1 - - [24/Jun/2022 07:54:33] "GET /api/data HTTP/1.0" 200 4
+[Time: 24.06.22 07:54:34] [Level: info] state: await
+[CTRL] GET /status
+127.0.0.1 - - [24/Jun/2022 07:54:36] "GET /api/status HTTP/1.0" 200 126
+[CTRL] GET /data
+127.0.0.1 - - [24/Jun/2022 07:54:36] "GET /api/data HTTP/1.0" 200 5097
+[CTRL] POST /data
+127.0.0.1 - - [24/Jun/2022 07:54:39] "POST /api/data?client=7141c590254044ec HTTP/1.0" 200 0
+[CTRL] GET /status
+127.0.0.1 - - [24/Jun/2022 07:54:39] "GET /api/status HTTP/1.0" 200 127
+/usr/local/lib/python3.8/site-packages/sklearn/utils/validation.py:1111: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  y = column_or_1d(y, warn=True)
+Accuracy: 0.575, Precision: 0.537, Recall: 0.387, APS: 0.483, F1: 0.450, MCC: 0.122, CM: [[67 25]
+ [46 29]]
+Accuracy: 0.595, Precision: 0.565, Recall: 0.422, APS: 0.498, F1: 0.483, MCC: 0.165, CM: [[225  81]
+ [144 105]]
+[Time: 24.06.22 07:54:41] [Level: info] transition: apply
+[Time: 24.06.22 07:54:42] [Level: info] state: apply
+[CTRL] GET /status
+127.0.0.1 - - [24/Jun/2022 07:54:42] "GET /api/status HTTP/1.0" 200 126
+[CTRL] GET /data
+127.0.0.1 - - [24/Jun/2022 07:54:42] "GET /api/data HTTP/1.0" 200 19697
+[CTRL] POST /data
+127.0.0.1 - - [24/Jun/2022 07:54:45] "POST /api/data?client=7141c590254044ec HTTP/1.0" 200 0
+[CTRL] GET /status
+127.0.0.1 - - [24/Jun/2022 07:54:45] "GET /api/status HTTP/1.0" 200 127
+### NEW MODEL ###
+/usr/local/lib/python3.8/site-packages/sklearn/base.py:443: UserWarning: X has feature names, but LogisticRegression was fitted without feature names
+  warnings.warn(
+Accuracy: 0.517, Precision: 0.420, Recall: 0.201, APS: 0.443, F1: 0.272, MCC: -0.030, CM: [[237  69]
+ [199  50]]
+[Time: 24.06.22 07:54:46] [Level: info] transition: terminal
+[Time: 24.06.22 07:54:46] [Level: info] done

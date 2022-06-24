@@ -1,0 +1,47 @@
+2022-06-24 07:59:41,982 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2022-06-24 07:59:41,986 INFO supervisord started with pid 6
+2022-06-24 07:59:42,988 INFO spawned: 'nginx' with pid 9
+2022-06-24 07:59:42,990 INFO spawned: 'app' with pid 10
+2022-06-24 07:59:44,016 INFO success: nginx entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2022-06-24 07:59:44,017 INFO success: app entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+Bottle v0.12.21 server starting up (using WSGIRefServer())...
+Listening on http://localhost:5000/
+Hit Ctrl-C to quit.
+
+[CTRL] POST /setup
+[Time: 24.06.22 08:00:03] [Level: info] id: bdb2abfe0bc840d0
+[Time: 24.06.22 08:00:03] [Level: info] coordinator: False
+[Time: 24.06.22 08:00:03] [Level: info] clients: ['bdb2abfe0bc840d0', 'd581d01a9bf0fc7e', '6a4bdd76b8867ed7', 'f666591743e77dfe', '5d1307e2587e5d09', '16ac57fe9e953766', '3d132986b365576f', 'e1d27101f5530f8b']
+[Time: 24.06.22 08:00:03] [Level: info] state: initial
+[Time: 24.06.22 08:00:03] [Level: info] transition: read
+127.0.0.1 - - [24/Jun/2022 08:00:03] "POST /api/setup HTTP/1.0" 200 0
+[CTRL] GET /status
+127.0.0.1 - - [24/Jun/2022 08:00:03] "GET /api/status HTTP/1.0" 200 126
+[Time: 24.06.22 08:00:04] [Level: info] state: read
+[Time: 24.06.22 08:00:05] [Level: info] Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/FeatureCloud/app/engine/app.py", line 169, in guarded_run
+    self.run()
+  File "/usr/local/lib/python3.8/site-packages/FeatureCloud/app/engine/app.py", line 184, in run
+    transition = self.current_state.run()
+  File "/app/states.py", line 59, in run
+    c.read_data('/mnt/input/anno.csv', '/mnt/input/exp.csv', '/mnt/input/taxonomy.tsv')
+  File "/app/states.py", line 20, in read_data
+    self.df = preprocessing.Preprocessing.read_data(file_anno, file_exp, tax)
+  File "/app/preprocessing.py", line 175, in read_data
+    taxo = pd.read_csv(taxonomy_path, sep="\t")
+  File "/usr/local/lib/python3.8/site-packages/pandas/util/_decorators.py", line 311, in wrapper
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.8/site-packages/pandas/io/parsers/readers.py", line 680, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/usr/local/lib/python3.8/site-packages/pandas/io/parsers/readers.py", line 575, in _read
+    parser = TextFileReader(filepath_or_buffer, **kwds)
+  File "/usr/local/lib/python3.8/site-packages/pandas/io/parsers/readers.py", line 934, in __init__
+    self._engine = self._make_engine(f, self.engine)
+  File "/usr/local/lib/python3.8/site-packages/pandas/io/parsers/readers.py", line 1218, in _make_engine
+    self.handles = get_handle(  # type: ignore[call-overload]
+  File "/usr/local/lib/python3.8/site-packages/pandas/io/common.py", line 786, in get_handle
+    handle = open(
+FileNotFoundError: [Errno 2] No such file or directory: '/mnt/input/taxonomy.tsv'
+
+[CTRL] GET /status
+127.0.0.1 - - [24/Jun/2022 08:00:06] "GET /api/status HTTP/1.0" 200 141
