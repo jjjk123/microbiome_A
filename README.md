@@ -3,6 +3,11 @@
 
 ## Contributors
 
+- Roman Martin (roman.martin@uni-marburg.de)
+- Pauline Barbet (barbet.poline@gmail.com)
+- Christos Tzagkarakis (ctzagkarakis@gmail.com)
+- Jędrzej Kubica (jj.kubica@student.uw.edu.pl)
+
 ## Challenge
 
 Development of a federated predictor of colorectal cancer (CRC) phenotype (CRC, adenoma, healthy) from gut microbiome data.
